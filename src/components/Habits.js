@@ -5,7 +5,7 @@ const Container = styled.div`
   width:auto;
   min-width:250px;
   height:130px;
-  background:#6B7280;
+  background:rgb(91 145 98);
   border-radius:10px;
   color:white;
   margin:10px;
@@ -31,7 +31,7 @@ const Streak = styled.div`
   font-size:1rem;
   display:flex;
   align-items:center;
-  background:#9CA3AF;
+  background:rgb(59 101 76);
   padding:3px;
   padding-left:8px;
   padding-right:8px;
