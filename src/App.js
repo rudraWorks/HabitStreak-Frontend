@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Root from './pages/Root/Root'
+import Home from './pages/Home'
+import Habits from './pages/Habits/Habits'
+import Add from './pages/Add/Add'
+import About from './pages/About/About'
+import Profile from './pages/Profile/Profile'
+import ModalState from './contexts/Modal/State'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Root />,
+    children: [
+      {
+        index: true,
+        element: <Home />
+      },
+      {
+        path: 'habits',
+        element: <Habits />
+      },
+      {
+        path: 'add',
+        element: <Add />
+      },
+      {
+        path: 'about',
+        element: <About />
+      },
+      {
+        path: 'profile',
+        element: <Profile />
+      },
+      {
+        path: '*',
+        element: <center><h2>Page not found!</h2><br/><img style={{ width: '100px' }} src='/icons/404.png'></img></center>
+      }
+    ]
+  }
+])
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ModalState>
+      <RouterProvider router={router} />
+    </ModalState>
+  )
 }
 
-export default App;
+export default App
