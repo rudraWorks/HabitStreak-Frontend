@@ -34,9 +34,10 @@ export const Left = styled.div`
         font-size:3rem;
     }
     &>img{
-        height:10rem;
+        height:8rem;
         @media only screen and (max-width: 600px) {
-            display:none;
+            // display:none;
+            height:5rem;
         }
     }
 
@@ -51,6 +52,7 @@ export const Right = styled.div`
     background:#F3F4F6;
     // color:white;
     padding:20px;
+    min-height:300px;
 
     &>h1{
         margin-bottom:30px;

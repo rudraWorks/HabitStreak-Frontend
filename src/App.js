@@ -7,6 +7,7 @@ import Add from './pages/Add/Add'
 import About from './pages/About/About'
 import Profile from './pages/Profile/Profile'
 import ModalState from './contexts/Modal/State'
+import Signup from './pages/Signup/Signup'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: 'profile',
         element: <Profile />
+      },
+      {
+        path:'signup',
+        element: <Signup/>
       },
       {
         path: '*',

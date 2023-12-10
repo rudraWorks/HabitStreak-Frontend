@@ -8,8 +8,8 @@ const navLinksData = [
     { to: '/habits', icon: 'habits.png' },
     { to: '/add', icon: 'add.png' },
     { to: '/about', icon: 'about.png' },
-    { to: '/premium', icon:'premium.png'},
     { to: '/profile', icon: 'login.png' },
+    { to: '/signup', icon:'signup.png'}
 ];
 
 
