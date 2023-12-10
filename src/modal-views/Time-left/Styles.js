@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     max-width:95%;
+    color:#1F2937;
+
     & span{
         color:navy;
         font-weight:100;
@@ -10,11 +12,20 @@ export const Container = styled.div`
     & div,h3{
         display:flex;
         align-items:center;
+        font-size:1.1rem;
     }
     & img{
         height:50px;
         display:inline;
         margin-right:10px;
+        @media only screen and (max-width: 600px) {
+            height:40px;
+        }
+    }
+    & h2{
+        @media only screen and (max-width: 600px) {
+            font-size:1.2rem;
+        }
     }
 `
 
