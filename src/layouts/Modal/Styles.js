@@ -1,22 +1,27 @@
 import styled from "styled-components"
 
-export const MODAL_STYLES = {
-    position: 'fixed',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%,-30%)',
-    minWidth: '300px',
-    minHeight: '200px',
-    maxWidth: '95%',
-    maxHeight: '95%',
-    zIndex: '3000000', 
-    background: 'white',
-    borderRadius: '10px',
-    padding: '30px',
-    display:'flex',
-    alignItems:'center',
-    justifyContent:'center',
-}
+export const ModalContainer = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 300px;
+  min-height: 200px;
+  max-width: 95%;
+  max-height: 95%;
+  z-index: 3000000;
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media only screen and (max-width: 600px) {
+    top:30%;
+    transform:translate(-50%,-30%);
+  }
+`
+
 export const BACKGROUND_STYLES = {
     position: 'fixed',
     top: '0',

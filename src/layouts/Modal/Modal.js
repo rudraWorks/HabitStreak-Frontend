@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import useModal from '../../hooks/useModal'
-import { Button,BACKGROUND_STYLES,MODAL_STYLES } from './Styles'
+import { Button,BACKGROUND_STYLES,ModalContainer } from './Styles'
 
 function Modal() {
 
@@ -10,10 +10,10 @@ function Modal() {
     return ReactDom.createPortal(
         <>
                 <div style={BACKGROUND_STYLES}></div>
-                <div style={MODAL_STYLES}>
+                <ModalContainer>
                     {modal}
                     <Button onClick={() => dispatchModal({ type: 'CLOSE' })}>x</Button>
-                </div>
+                </ModalContainer>
         </>, 
         document.getElementById('modal')
     )
