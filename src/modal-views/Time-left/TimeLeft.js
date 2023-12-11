@@ -40,6 +40,16 @@ const handleHour = () => {
     return hoursElapsed.toFixed(6)
 }
 
+const handleQuarter = () => {
+    const now = new Date()
+    const minutes = now.getMinutes() + now.getSeconds()/60
+    const quarterIndex = Math.floor(minutes/15)
+    const lower = quarterIndex*15
+    const upper = quarterIndex*15+15
+    const quarterElapsed = ((minutes-lower)/upper)*100
+    return quarterElapsed.toFixed(6)   
+}
+
 const currentMonthIndex = new Date().getMonth();
 const monthNames = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -62,6 +72,10 @@ function TimeLeft() {
     const hour = useRef(null)
     const hourProgressBar = useRef(null)
 
+    const quarter = useRef(null)
+    const quarterProgressBar = useRef(null)
+
+
     const dateAndTime = useRef(null)
     
     const update = () => {
@@ -76,6 +90,9 @@ function TimeLeft() {
 
         hour.current.textContent = handleHour() + ' %'
         hourProgressBar.current.value = handleHour()
+
+        quarter.current.textContent = handleQuarter() + ' %'
+        quarterProgressBar.current.value = handleQuarter()
 
         dateAndTime.current.textContent = new Date().toLocaleString('hi-IN')
     }
@@ -98,6 +115,10 @@ function TimeLeft() {
                 <h2 ref={dateAndTime}></h2>
             </div>
             <br />
+
+            <h3>This Quarter (15 min) <span ref={quarter}></span></h3>
+            <Progress   ref={quarterProgressBar} max="100"> </Progress>
+            <br /> 
 
             <h3>This Hour <span ref={hour}></span></h3>
             <Progress   ref={hourProgressBar} max="100"> </Progress>
