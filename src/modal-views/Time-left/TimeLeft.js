@@ -46,7 +46,8 @@ const handleQuarter = () => {
     const quarterIndex = Math.floor(minutes/15)
     const lower = quarterIndex*15
     const upper = quarterIndex*15+15
-    const quarterElapsed = ((minutes-lower)/upper)*100
+    const quarterElapsed = ((minutes-lower)/15)*100
+    // console.log(minutes,quarterIndex,lower,upper,quarterElapsed)
     return quarterElapsed.toFixed(6)   
 }
 
@@ -116,7 +117,7 @@ function TimeLeft() {
             </div>
             <br />
 
-            <h3>This Quarter (15 min) <span ref={quarter}></span></h3>
+            <h3>This Quarter <span ref={quarter}></span></h3>
             <Progress   ref={quarterProgressBar} max="100"> </Progress>
             <br /> 
 
