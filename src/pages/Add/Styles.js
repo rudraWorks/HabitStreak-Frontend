@@ -30,6 +30,8 @@ export const Left = styled.div`
     align-items:center;
     margin-top:auto;
     background:redl;
+    border-radius:15px;
+
     &>h1{
         font-size:3rem;
     }
@@ -50,9 +52,7 @@ export const Right = styled.div`
     flex-direction:column;
     border-radius:15px;
     background:#F3F4F6;
-    // color:white;
     padding:20px;
-    min-height:300px;
 
     &>h1{
         margin-bottom:30px;

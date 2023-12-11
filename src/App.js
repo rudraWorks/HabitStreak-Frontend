@@ -7,7 +7,9 @@ import Add from './pages/Add/Add'
 import About from './pages/About/About'
 import Profile from './pages/Profile/Profile'
 import ModalState from './contexts/Modal/State'
+import UserState from './contexts/User/State'
 import Signup from './pages/Signup/Signup'
+
 
 const router = createBrowserRouter([
   {
@@ -35,12 +37,12 @@ const router = createBrowserRouter([
         element: <Profile />
       },
       {
-        path:'signup',
-        element: <Signup/>
+        path: 'signup',
+        element: <Signup />
       },
       {
         path: '*',
-        element: <center><h2>Page not found!</h2><br/><img style={{ width: '100px' }} src='/icons/404.png'></img></center>
+        element: <center><h2>Page not found!</h2><br /><img style={{ width: '100px' }} src='/icons/404.png'></img></center>
       }
     ]
   }
@@ -48,9 +50,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <ModalState>
-      <RouterProvider router={router} />
-    </ModalState>
+    <UserState>
+      <ModalState>
+        <RouterProvider router={router} />
+      </ModalState>
+    </UserState>
   )
 }
 
