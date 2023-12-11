@@ -75,9 +75,9 @@ const Bottom = styled.div`
 `
 
 
-function HabitCard({ name, streak, emoji, current, target }) {
+function HabitCard({ name, streak, emoji, current, target, onClick }) {
   return (
-    <Container>
+    <Container onClick={onClick}>
       <Emoji>{emoji}</Emoji>
       <Name>{name}</Name>
       <Bottom>

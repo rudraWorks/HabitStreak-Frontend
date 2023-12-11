@@ -113,7 +113,7 @@ const CalendarComponent = () => {
           else backgroundColor = '#9be9a8';
 
           value = flag[0].value;
-          backgroundColor='white'
+          // backgroundColor='white'
         }
 
         items.push({

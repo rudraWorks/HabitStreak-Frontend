@@ -53,7 +53,8 @@ export const Right = styled.div`
     border-radius:15px;
     background:#F3F4F6;
     padding:20px;
-
+    word-wrap:break-word;
+    word-break:break-all;
     &>h1{
         margin-bottom:30px;
         text-align:left;

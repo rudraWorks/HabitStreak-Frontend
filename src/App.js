@@ -9,6 +9,7 @@ import Profile from './pages/Profile/Profile'
 import ModalState from './contexts/Modal/State'
 import UserState from './contexts/User/State'
 import Signup from './pages/Signup/Signup'
+import Details from './pages/HabitDetails/Details'
 
 
 const router = createBrowserRouter([
@@ -22,7 +23,12 @@ const router = createBrowserRouter([
       },
       {
         path: 'habits',
-        element: <Habits />
+        element: <Habits />,
+        
+      },
+      {
+        path: 'habits/:habitName',
+        element: <Details />
       },
       {
         path: 'add',
