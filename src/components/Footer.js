@@ -1,31 +1,31 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const Footer = () => {
-  return (
-    <footer style={styles.footer}>
-      <div style={styles.content}>
-        <p style={styles.text}>&copy; 2023 Your Awesome Website</p>
-      </div>
-    </footer>
-  );
+    return (
+        <StyledFooter>
+            <ContentContainer>
+                <p>&copy; 2023 Your Awesome Website</p>
+            </ContentContainer>
+        </StyledFooter>
+    );
 };
 
-const styles = {
-  footer: {
-    backgroundColor: '#2c3e50',
-    color: '#ecf0f1',
-    padding: '20px',
-    textAlign: 'center',
-    marginTop: 'auto',
-  },
-  content: {
-    maxWidth: '800px',
-    margin: '0 auto',
-  },
-  text: {
-    fontSize: '16px',
-    margin: '0',
-  },
-};
+const StyledFooter = styled.footer`
+  background:#F3F4F6;
+  padding: 20px;
+  text-align: center;
+  margin-top: auto;
+`;
+
+const ContentContainer = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+
+  p {
+    font-size: 16px;
+    margin: 0;
+  }
+`;
 
 export default Footer;
