@@ -1,31 +1,16 @@
 import React, { useState, useEffect,useRef } from 'react';
-
-const monthIndicesToNames = {
-  1: 'January',
-  2: 'February',
-  3: 'March',
-  4: 'April',
-  5: 'May',
-  6: 'June',
-  7: 'July',
-  8: 'August',
-  9: 'September',
-  10: 'October',
-  11: 'November',
-  12: 'December',
-};
+import styled from 'styled-components';
 
 const containerStyle = {
   width: 'fit-content',
   maxWidth: '100%',
-  border: '1px solid lightgray',
   borderRadius:'10px',
-  backgroundColor:'white',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   padding: '7px',
   overflowX: 'auto',
+  background:'#F3F4F6',
 };
 
 const headerStyle = {
@@ -56,6 +41,8 @@ const itemStyle = {
   borderRadius:'0px' 
 };
 
+
+
 let data = [];
 
 const daysInEachMonth = [
@@ -83,7 +70,7 @@ for(let i=0;i<data.length;++i){
 }
 data = p
 
- 
+
 const CalendarComponent = () => {
 
   const [items, setItems] = useState([]);

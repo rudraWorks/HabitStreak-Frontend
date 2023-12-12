@@ -16,13 +16,25 @@ export const Container = styled.div`
     
 `
 
-export const Calendar = styled.div`
+export const CalendarContainer = styled.div`
     margin-top:auto;
     background:pinkl;
     width:100%;
     display:flex;
     justify-content:center;
+    aligin-items:center;
+    flex-direction:column;
+    padding-top:100px;
 `
+export const Calendar = styled.div`
+    margin-top:20px;
+    text-align:right;
+    &>span{
+        margin:5px;
+        margin-right:15px;
+    }
+`
+
 export const HabitTitle = styled.h1`
     background:white;
     width:100%;
