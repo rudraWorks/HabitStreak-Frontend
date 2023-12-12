@@ -2,7 +2,6 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import CalendarComponent from '../../components/Cal'
 import { Container, Calendar, HabitTitle, Streak, Today, StreakNumber, StreakDetails, DaysStreak } from './Styles'
-import { Streak as Sk } from '../../components/Habits'
 
 function Details() {
   const { habitName } = useParams()
@@ -25,8 +24,8 @@ function Details() {
         </Streak>
 
         <StreakDetails>
-          <span>Current Streak <Sk style={{display:'inline-block',background:'#FBBF24', color:'white'}}>60/100</Sk></span>
-          <span>Max Streak <Sk style={{display:'inline-block',background:'#FBBF24',color:'white'}}>140</Sk></span>
+          <span>Current Streak <b><small>60/100</small></b></span>
+          <span>Max Streak <b><small>140</small></b></span>
 
         </StreakDetails>
 
