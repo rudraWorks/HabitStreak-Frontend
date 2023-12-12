@@ -12,6 +12,8 @@ export const Container = styled.div`
     @media only screen and (max-width: 600px) {
         width:100%;
     }
+
+    
 `
 
 export const Calendar = styled.div`
@@ -46,9 +48,10 @@ export const Streak = styled.div`
         height:100px;
         margin-left:auto;
         @media only screen and (max-width: 600px) {
-            transform:scale(.8);
+            transform:scale(.7);
         }
     }    
+
 `
 
 export const StreakNumber = styled.div`
@@ -71,7 +74,7 @@ export const StreakNumber = styled.div`
     @media only screen and (max-width: 600px) {
         right:19px;
         bottom:-40px;
-        transform:scale(.8);
+        transform:scale(.7);
     }
 
 `
@@ -86,6 +89,7 @@ export const DaysStreak = styled.div`
     color:#F59E0B;
     @media only screen and (max-width: 600px) {
         bottom:-50px;
+        transform:scale(.9);
     }
 `
 export const Today = styled.div`

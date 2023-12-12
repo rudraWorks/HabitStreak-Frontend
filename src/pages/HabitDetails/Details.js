@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useParams } from 'react-router-dom'
 import CalendarComponent from '../../components/Cal'
 import { Container, Calendar, HabitTitle, Streak, Today, StreakNumber, StreakDetails, DaysStreak } from './Styles'
+import Checkbox from '../../components/Checkbox'
 
 function Details() {
   const { habitName } = useParams()
+  const [toggle,setToggle] = useState(true) 
 
   return (
     <center>
@@ -15,7 +17,7 @@ function Details() {
         <Streak>
           <Today>
             <span>Today</span>
-            <input /> <button>Done</button>
+            {toggle?<input />:<Checkbox/>} <button onClick={()=>setToggle((p)=>!p)}>Done</button>
           </Today>
           <img src='/icons/fire2.png' />
           <StreakNumber>60</StreakNumber>
@@ -24,11 +26,10 @@ function Details() {
         </Streak>
 
         <StreakDetails>
-          <span>Current Streak <b><small>60/100</small></b></span>
-          <span>Max Streak <b><small>140</small></b></span>
+          <span>Current streak <b><small>60/100</small></b></span>
+          <span>Longest streak <b><small>140</small></b></span>
 
         </StreakDetails>
-
         <Calendar><CalendarComponent /></Calendar>
 
       </Container>
