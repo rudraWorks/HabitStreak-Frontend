@@ -18,7 +18,7 @@ function Habits() {
 
         <HabitsContainer>
           
-          <HabitCard onClick={()=>showHabitDetails('meditation')} name="Meditation you will do" streak="23" emoji="🚀" current="10" target="21" />
+          <HabitCard onClick={()=>showHabitDetails('Meditation')} name="Meditation you will do" streak="23" emoji="🚀" current="10" target="21" />
 
           <HabitCard  onClick={()=>showHabitDetails('excercise')} name="Excercise" streak="10" emoji="💪"  current="10" target="21" />
 

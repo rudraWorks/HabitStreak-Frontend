@@ -16,6 +16,7 @@ export const Container = styled.div`
         margin-bottom:10px;
         color:#1F2937;
         border-radius:10px;
+        opacity:.9;
     }
 `
 

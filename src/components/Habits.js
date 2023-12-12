@@ -26,7 +26,7 @@ const Emoji = styled.span`
   right:10px;
   font-size:2.2rem;
 `
-const Streak = styled.div`
+export const Streak = styled.div`
   width:fit-content;
   font-size:1rem;
   display:flex;

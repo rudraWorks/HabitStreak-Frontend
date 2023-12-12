@@ -113,6 +113,11 @@ export const Button = styled.button`
     font-weight: 400;
     line-height: 1.5;
     text-align: center;
+    width:100%;
+    max-width:90%;
+    margin-top:40px;
+
+
     background-color: transparent;
     border: 1px solid transparent;
     padding: 6px 12px;
@@ -121,10 +126,6 @@ export const Button = styled.button`
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     color: #0d6efd;
     border-color: #0d6efd;
-
-    width:100%;
-    max-width:90%;
-    margin-top:40px;
 
     &:hover {
         color: #fff;
