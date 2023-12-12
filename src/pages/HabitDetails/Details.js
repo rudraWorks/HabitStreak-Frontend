@@ -27,11 +27,15 @@ function Details() {
         </Streak>
 
         <StreakDetails>
-          <span>Current streak <b><small>60/100</small></b></span>
-          <span>Longest streak <b><small>140</small></b></span>
+          <div>
+            <span>Current Streak</span>        
+            <div>
+              <CircularProgress x={30} y={100}></CircularProgress>
+            </div>
+          </div>
+          {/* <span>Longest streak <b><small>140</small></b></span> */}
         </StreakDetails>
- 
-        <CircularProgress x={50} y={100}></CircularProgress>
+
         <CalendarContainer>
 
           <Calendar>
@@ -39,10 +43,10 @@ function Details() {
             <CalendarComponent />
           </Calendar>
 
-          {/* <Calendar>
+          <Calendar>
             <span>2024</span>
             <CalendarComponent />
-          </Calendar> */}
+          </Calendar>
         </CalendarContainer>
 
       </Container>

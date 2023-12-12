@@ -24,7 +24,7 @@ export const CalendarContainer = styled.div`
     justify-content:center;
     aligin-items:center;
     flex-direction:column;
-    padding-top:100px;
+    padding-top:10px;
 `
 export const Calendar = styled.div`
     margin-top:20px;
@@ -105,20 +105,25 @@ export const DaysStreak = styled.div`
     }
 `
 export const Today = styled.div`
-    margin-right:auto;
-    margin-left:0;
+    background:#EEF2FF;
+    padding:10px;
+    border-radius:10px;
     background:redl;
-    font-size:2rem;
     display:flex;
     align-items:center;
+    justify-content:center;
+    
+    &>span{
+        align-self:center;
+        font-size:1.5rem;
+        @media only screen and (max-width: 600px) {
+            font-size:1.2rem;
+        }
+    }
     &>input{
        width:150px;
-       margin:10px;
+       margin:8px;
        padding:5px;
-       @media only screen and (max-width: 600px) {
-        margin-left:0;
-       }
-
        background-color: #fff;
        background-clip: padding-box;
        border: 1px solid #ced4da;
@@ -142,7 +147,7 @@ export const Today = styled.div`
     }
     &>button{
         height:28px;
-
+        align-self:center;
         padding:5px;
 
         cursor:pointer;
@@ -163,18 +168,43 @@ export const Today = styled.div`
     }
 `
 export const StreakDetails = styled.div`
-    background:orangel;
-    margin-top:20px;
-    width:100%;
+    background:#FEF3C7;
+    margin-top:15px;
     display:flex;
     flex-direction:column;
+    align-self:start;
+    padding:10px;
+    border-radius:10px;
     font-size:1.4rem;
     justify-content:start;
     align-items:start;
     @media only screen and (max-width: 600px) {
         font-size:1.2rem;
+        align-items:center;
+        justify-content:center;
     }
-    &>span{
-        margin-top:5px;
+    &>div{
+        background:redl;
+        justify-content:center;
+        display:flex;
+        text-align:center;
+        align-items:center;
+        @media only screen and (max-width: 600px) {
+            flex-direction:column;
+        }
+    }
+    &>div>span{
+        margin-right:20px;
+        font-size:1.5rem;
+        @media only screen and (max-width: 600px) {
+            font-size:1.2rem;
+            margin-right:0px;
+        }
+    }
+    &>div>div{
+        @media only screen and (max-width: 600px) {
+            transform:scale(.9);
+            margin-top:5px;
+        }
     }
 `
