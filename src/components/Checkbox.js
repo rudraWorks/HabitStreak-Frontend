@@ -6,9 +6,6 @@ const RadioContainer = styled.div`
   align-items: center;
   margin: 10px;
   margin-left:20px;
-  @media only screen and (max-width: 600px) {
-    margin-left:0;
-  }
 `;
 
 const RadioInput = styled.input`

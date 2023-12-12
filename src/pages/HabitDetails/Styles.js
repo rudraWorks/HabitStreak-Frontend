@@ -119,6 +119,7 @@ export const Today = styled.div`
         @media only screen and (max-width: 600px) {
             font-size:1.2rem;
         }
+        font-weight:bolder;
     }
     &>input{
        width:150px;
