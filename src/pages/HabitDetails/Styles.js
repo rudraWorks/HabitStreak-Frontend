@@ -53,23 +53,24 @@ export const Streak = styled.div`
 
 export const StreakNumber = styled.div`
 
-    background:#FBBF24;
+    // background:#FBBF24;
     height:60px;
     width:60px;
     color:black;
     border-radius:50%;
-    font-size:1.5rem;
+    font-size:2.5rem;
     display:flex;
     align-items:center;
     justify-content:center;
     position:absolute;
     right:18px;
-    bottom:-40px;
-    border:2px solid black;
+    bottom:-55px;
+    // border:2px solid black;
     font-weight:bolder;
+    color:#F59E0B;
     @media only screen and (max-width: 600px) {
         right:19px;
-        bottom:-25px;
+        bottom:-40px;
         transform:scale(.8);
     }
 
