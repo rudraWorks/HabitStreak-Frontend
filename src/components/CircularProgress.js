@@ -46,9 +46,12 @@ const CircularProgressText = styled.text`
 
   &>div>div{
     position:absolute;
-    top:3px;
-    left:-1px;
+    top:18px;
+    left:0px;
     font-weight:500;
+    height:1px;
+    width:28px;
+    background:black;
   }
 
 `;
@@ -66,7 +69,7 @@ const CircularProgress = ({ x, y }) => {
         <div>
           <span>{x}</span>
           <span>{y}</span>
-          <div>____</div>
+          <div></div>
         </div>
       </CircularProgressText>
     </CircularProgressContainer>

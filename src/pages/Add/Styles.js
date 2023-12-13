@@ -85,7 +85,6 @@ export const Input = styled.input`
     margin-bottom:30px;
     display:block;
     max-width:90%;
-
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;

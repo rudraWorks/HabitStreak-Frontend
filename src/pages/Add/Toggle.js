@@ -4,9 +4,9 @@ const ToggleButton = ({setIntegral}) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const toggleStyles = {
-    '--button-width': '3.5em',
-    '--button-height': '2em',
-    '--toggle-diameter': '1.5em',
+    '--button-width': '2.8em',
+    '--button-height': '1.3em',
+    '--toggle-diameter': '1.3em',
     '--button-toggle-offset': 'calc((var(--button-height) - var(--toggle-diameter)) / 2)',
     '--toggle-shadow-offset': '10px',
     '--toggle-wider': '3em',
@@ -15,7 +15,7 @@ const ToggleButton = ({setIntegral}) => {
   };
 
   const sliderStyles = {
-    display: 'inline-block',
+    display: 'block',
     width: 'var(--button-width)',
     height: 'var(--button-height)',
     backgroundColor: isChecked ? 'var(--color-green)' : 'var(--color-grey)',

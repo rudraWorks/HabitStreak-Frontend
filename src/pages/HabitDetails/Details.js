@@ -37,7 +37,7 @@ function Details() {
           {/* <span>Longest streak <b><small>140</small></b></span> */}
         </StreakDetails>
 
-        <StreakLine streak={160} />
+        <StreakLine streak={60} />
 
         <CalendarContainer>
 
