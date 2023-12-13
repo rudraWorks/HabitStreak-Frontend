@@ -4,6 +4,7 @@ import CalendarComponent from '../../components/Cal'
 import { Container, CalendarContainer, Calendar, HabitTitle, Streak, Today, StreakNumber, StreakDetails, DaysStreak } from './Styles'
 import Checkbox from '../../components/Checkbox'
 import CircularProgress from '../../components/CircularProgress'
+import StreakLine from '../../components/StreakLine'
 
 function Details() {
   const { habitName } = useParams()
@@ -35,6 +36,8 @@ function Details() {
           </div>
           {/* <span>Longest streak <b><small>140</small></b></span> */}
         </StreakDetails>
+
+        <StreakLine streak={60} />
 
         <CalendarContainer>
 

@@ -36,6 +36,21 @@ const CircularProgressText = styled.text`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  &>div{
+    display:flex;
+    background:redl;
+    flex-direction:column;
+    position:relative;
+  }
+
+  &>div>div{
+    position:absolute;
+    top:3px;
+    left:-1px;
+    font-weight:500;
+  }
+
 `;
 
 const CircularProgress = ({ x, y }) => {
@@ -48,7 +63,11 @@ const CircularProgress = ({ x, y }) => {
         <CircularProgressCircle cx="50" cy="50" r="40" progress={percentage} />
       </CircularProgressSVG>
       <CircularProgressText x="50" y="50">
-        {x}/{y}
+        <div>
+          <span>{x}</span>
+          <span>{y}</span>
+          <div>____</div>
+        </div>
       </CircularProgressText>
     </CircularProgressContainer>
   );
