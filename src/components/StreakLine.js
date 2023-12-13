@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StreakProgressBar = ({ streak }) => {
-  const stops = [10, 21, 50, 75, 100, 180];
+  const stops = [10, 21, 60, 100, 180];
   const position = Math.min(Math.max(streak, 0), stops[stops.length - 1]);
 
   return (
