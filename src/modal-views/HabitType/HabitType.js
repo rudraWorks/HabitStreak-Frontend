@@ -10,7 +10,7 @@ function HabitType() {
           <strong>Binary Habits</strong> 
           <ul>
             <li>✔️ Drink a glass of water in the morning.</li>
-            <li>❌ Brush teeth before sleep.</li>
+            <li>✔️ Brush teeth before sleep.</li>
           </ul>
         </li>
         <li>

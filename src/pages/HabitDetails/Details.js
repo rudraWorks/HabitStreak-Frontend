@@ -1,20 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import CalendarComponent from '../../components/Cal'
 import { Container, CalendarContainer, Calendar, HabitTitle, Streak, Today, StreakNumber, StreakDetails, DaysStreak } from './Styles'
 import Checkbox from '../../components/Checkbox'
 import CircularProgress from '../../components/CircularProgress'
 import StreakLine from '../../components/StreakLine'
+import useNotficationBar from '../../hooks/useNotificationBar'
 
 function Details() {
   const { habitName } = useParams()
   const [toggle, setToggle] = useState(true)
+  const {dispatchNotificationBar} = useNotficationBar()
 
+  useEffect(()=>{
+    dispatchNotificationBar({type:'SET_CONTENT',content:{message:'info',type:'success'}})
+  },[])
   return (
     <center>
       <Container>
 
-        <HabitTitle>{habitName}</HabitTitle>
+        <HabitTitle>{habitName}</HabitTitle> 
 
         <Streak>
           <Today>
@@ -37,8 +42,8 @@ function Details() {
           {/* <span>Longest streak <b><small>140</small></b></span> */}
         </StreakDetails>
 
-        <StreakLine streak={60} />
-
+        <StreakLine streak={13} />
+ 
         <CalendarContainer>
 
           <Calendar>
@@ -46,10 +51,10 @@ function Details() {
             <CalendarComponent />
           </Calendar>
 
-          <Calendar>
+          {/* <Calendar>
             <span>2024</span>
             <CalendarComponent />
-          </Calendar>
+          </Calendar> */}
         </CalendarContainer>
 
       </Container>

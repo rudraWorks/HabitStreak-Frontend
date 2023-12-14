@@ -20,9 +20,27 @@ function Auth() {
         const userObject = jwtDecode(userData.credential)
         const { name, picture, email } = userObject
         
+
         console.log(name,picture,email);
-        dispatchUser({type:'LOGIN',name,picture,email,token:'test-token-123'})
-        navigate('/') 
+
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/auth/login`,{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({name,picture,email})
+        })
+
+        const json = await response.json() 
+
+        if(response.ok){
+            dispatchUser({type:'LOGIN',name,picture,email,token:json.token})
+            navigate('/') 
+        }
+        else{
+            // toast.error(json.message)
+            alert(json.message)
+        }
+        // dispatchUser({type:'LOGIN',name,picture,email,token:'test-token-123'})
+        // navigate('/') 
     }
     useEffect(() => {  
 

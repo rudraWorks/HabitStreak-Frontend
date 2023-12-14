@@ -4,27 +4,27 @@ export const Container = styled.div`
 
     width:75%;
     min-height:500px;
-    background:redl;
+    background:#FFFBjEB;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
     @media only screen and (max-width: 600px) {
         width:100%;
+        padding:0;
     }
-
-    
 `
 
 export const CalendarContainer = styled.div`
     margin-top:auto;
     background:pinkl;
     width:100%;
-    display:flex;
-    justify-content:center;
-    aligin-items:center;
-    flex-direction:column;
-    padding-top:10px;
+    // display:flex;
+    // overflow:auto;
+    // justify-content:center;
+    // align-items:center;
+    // flex-direction:column;
+    padding-top:0px;
 `
 export const Calendar = styled.div`
     margin-top:20px;
@@ -41,14 +41,15 @@ export const HabitTitle = styled.h1`
     position:sticky;
     top:69px; 
     font-size:2rem;
-    padding:5px;
+    padding:0px;
     z-index:999;
     margin-bottom:10px;
     opacity:.9;
     @media only screen and (max-width: 600px) {
-        font-size:1.8rem;
+        font-size:1.6rem;
     }
-`
+    padding-bottom:5px;
+`   
 
 export const Streak = styled.div`
     width:100%;

@@ -6,10 +6,15 @@ import Habits from './pages/Habits/Habits'
 import Add from './pages/Add/Add'
 import About from './pages/About/About'
 import Profile from './pages/Profile/Profile'
-import ModalState from './contexts/Modal/State'
-import UserState from './contexts/User/State'
 import Signup from './pages/Signup/Signup'
 import Details from './pages/HabitDetails/Details'
+
+import ModalState from './contexts/Modal/State'
+import UserState from './contexts/User/State'
+import NotificationBarState from './contexts/NotificationBar/State'
+
+
+
 
 
 const router = createBrowserRouter([
@@ -24,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: 'habits',
         element: <Habits />,
-        
+
       },
       {
         path: 'habits/:habitName',
@@ -56,11 +61,14 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <UserState>
-      <ModalState>
-        <RouterProvider router={router} />
-      </ModalState>
-    </UserState>
+    <NotificationBarState>
+      <UserState>
+        <ModalState>
+          <RouterProvider router={router} />
+        </ModalState>
+      </UserState>
+    </NotificationBarState>
+
   )
 }
 
