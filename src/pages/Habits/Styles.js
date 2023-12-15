@@ -30,3 +30,11 @@ export const HabitsContainer = styled.div`
     justify-content:center;
     align-items:center;
 `
+
+export const Img = styled.img`
+    height:8rem;
+    @media only screen and (max-width: 600px) {
+        height:5rem;
+    }
+
+`

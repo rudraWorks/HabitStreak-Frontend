@@ -22,7 +22,7 @@ function Add() {
 
   const [startedTyping, setStartedTyping] = useState(false);
 
-  const [submit, setSubmit] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
 
 
@@ -40,13 +40,13 @@ function Add() {
 
 
   const handleSubmit = () => {
-    setSubmit(true)
+    setSubmitting(true)
     const addHabit = async () => {
       try {
         const response = await fetch(`${process.env.REACT_APP_BASE_URL}/habit/add`, {
           method: 'POST',
-          headers: {
-            "authorization": user.token,
+          headers: { 
+            "Authorization": user.token,
             "Content-Type": "application/json"
           }, 
           body: JSON.stringify({ habitName, habitType, habitEmoji:emoji })
@@ -64,7 +64,7 @@ function Add() {
       catch (e) {
         dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: e.message, type: 'error' } })
       }
-      setSubmit(false)
+      setSubmitting(false)
     }
     addHabit()
   }
@@ -115,7 +115,7 @@ function Add() {
               <EmojiContainer>{emoji}</EmojiContainer>
               <ThemeButton onClick={()=>dispatchModal({type:'SET_CONTENT',content:<Emoji setEmoji={setEmoji}/>})}>Change theme</ThemeButton>
             </div>
-            <Button disabled={submit} onClick={handleSubmit}>{submit ? "Submitting..." : "Submit"}</Button>
+            <Button disabled={submitting} onClick={handleSubmit}>{submitting ? "Submitting..." : "Submit"}</Button>
           </>
         ) : (
           <AuthFailed />

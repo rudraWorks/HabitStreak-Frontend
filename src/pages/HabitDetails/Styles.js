@@ -50,6 +50,8 @@ export const HabitTitle = styled.h1`
     }
     padding-bottom:15px;
     color:#E40046;
+
+
 `   
 
 export const Streak = styled.div`

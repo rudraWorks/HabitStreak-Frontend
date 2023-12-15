@@ -43,6 +43,7 @@ export const Left = styled.div`
 
 `
 
+
 export const Right = styled.div`
     padding:10px;
     display:flex;
@@ -139,13 +140,13 @@ export const ThemeButton = styled.button`
     height:30px;
     padding:10px;
     border:none;
-    background:#FBBF24;
+    background:#d7cae7;
     border-radius:15px;
     display:flex;
     align-items:center;
     cursor:pointer;
     &:hover{
-        background:#F59E0B;
+        background:#bba9d1;
     }
     transition:all .15s;
 `
