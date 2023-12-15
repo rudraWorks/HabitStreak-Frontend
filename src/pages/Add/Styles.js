@@ -17,8 +17,8 @@ export const Container = styled.div`
        align-items:center;
     }
 
-    
-
+    position:relative;
+    overflow:hidden;
 `
 
 export const Left = styled.div`
@@ -128,4 +128,24 @@ export const Button = styled.button`
         border-color: #0d6efd;
     }
 
+`
+
+export const EmojiContainer = styled.div`
+    background:redl;
+    font-size:3rem;
+`
+export const ThemeButton = styled.button`
+    margin-left:auto;
+    height:30px;
+    padding:10px;
+    border:none;
+    background:#FBBF24;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    cursor:pointer;
+    &:hover{
+        background:#F59E0B;
+    }
+    transition:all .15s;
 `

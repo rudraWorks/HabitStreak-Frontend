@@ -14,9 +14,10 @@ export const Container = styled.div`
         font-size:1.8rem;
         z-index:9999;
         margin-bottom:10px;
-        color:#1F2937;
         border-radius:10px;
         opacity:.9;
+        color:#E40046;
+
     }
 `
 

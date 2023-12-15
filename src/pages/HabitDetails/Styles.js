@@ -48,7 +48,8 @@ export const HabitTitle = styled.h1`
     @media only screen and (max-width: 600px) {
         font-size:1.6rem;
     }
-    padding-bottom:5px;
+    padding-bottom:15px;
+    color:#E40046;
 `   
 
 export const Streak = styled.div`

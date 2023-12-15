@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ToggleButton = ({setIntegral}) => {
+const ToggleButton = ({setHabitType}) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const toggleStyles = {
@@ -44,9 +44,9 @@ const ToggleButton = ({setIntegral}) => {
   };
 
   useEffect(()=>{
-    if(isChecked)
-        setIntegral(true)
-    else setIntegral(false)
+    if(!isChecked)
+        setHabitType('Binary')
+    else setHabitType('Integer')
   },[isChecked])
 
   return (

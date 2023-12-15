@@ -6,6 +6,7 @@ const RadioContainer = styled.div`
   align-items: center;
   margin: 10px;
   margin-left:20px;
+  transform:scale(.8);
 `;
 
 const RadioInput = styled.input`

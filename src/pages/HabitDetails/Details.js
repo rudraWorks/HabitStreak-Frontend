@@ -6,20 +6,27 @@ import Checkbox from '../../components/Checkbox'
 import CircularProgress from '../../components/CircularProgress'
 import StreakLine from '../../components/StreakLine'
 import useNotficationBar from '../../hooks/useNotificationBar'
+import AuthFailed from '../../components/AuthFailed'
+import Loading from '../../components/Loading'
+import useUser from '../../hooks/useUser'
 
 function Details() {
   const { habitName } = useParams()
   const [toggle, setToggle] = useState(true)
-  const {dispatchNotificationBar} = useNotficationBar()
+  const { dispatchNotificationBar } = useNotficationBar()
+  const { user } = useUser()
 
-  useEffect(()=>{
-    dispatchNotificationBar({type:'SET_CONTENT',content:{message:'info',type:'success'}})
-  },[])
+
+  if (user === 'LOADING')
+    return <Loading />
+  if (!user)
+    return <AuthFailed />
+
   return (
     <center>
       <Container>
 
-        <HabitTitle>{habitName}</HabitTitle> 
+        <HabitTitle>{habitName}</HabitTitle>
 
         <Streak>
           <Today>
@@ -34,7 +41,7 @@ function Details() {
 
         <StreakDetails>
           <div>
-            <span>Current Streak</span>        
+            <span>Current Streak</span>
             <div>
               <CircularProgress x={30} y={100}></CircularProgress>
             </div>
@@ -43,7 +50,7 @@ function Details() {
         </StreakDetails>
 
         <StreakLine streak={13} />
- 
+
         <CalendarContainer>
 
           <Calendar>

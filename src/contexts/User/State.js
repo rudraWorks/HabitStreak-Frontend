@@ -28,17 +28,17 @@ function UserState({ children }) {
                 dispatchUser({type:'LOADING'})
                 if (currentUser) {
                     const {token,name,email,picture} = JSON.parse(currentUser)
-                    // const response = await fetch(`${process.env.REACT_APP_BASE_URL}/auth/verifyToken`,{
-                    //     method:'GET',
-                    //     headers:{'Content-Type':'application/json',Authorization:token}
-                    // })
-                    // const json = await response.json() 
+                    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/auth/verifyToken`,{
+                        method:'GET',
+                        headers:{'Content-Type':'application/json',Authorization:token}
+                    })
+                    const json = await response.json() 
 
-                    // if(response.ok)
+                    if(response.ok)
                     dispatchUser({type:'LOGIN',token,name,email,picture})
                     
-                    // else
-                    //     dispatch({type:'LOGOUT'})
+                    else
+                        dispatchUser({type:'LOGOUT'})
                     
                 } 
                 else{ 
