@@ -35,12 +35,13 @@ export const Calendar = styled.div`
     }
 `
 
+
 export const HabitTitle = styled.h1`
     background:white;
     width:100%;
     position:sticky;
     top:69px; 
-    font-size:2rem;
+    font-size:2.3rem;
     padding:0px;
     z-index:999;
     margin-bottom:10px;
@@ -48,10 +49,18 @@ export const HabitTitle = styled.h1`
     @media only screen and (max-width: 600px) {
         font-size:1.6rem;
     }
-    padding-bottom:15px;
+    padding-bottom:10px;
+    padding-top:10px;
     color:#E40046;
-
-
+    display:flex;
+    align-items:center;
+    &>img{
+        margin-left:auto;
+        height:2rem;
+        @media only screen and (max-width: 600px) {
+            height:1.4rem;
+        }
+    }
 `   
 
 export const Streak = styled.div`
@@ -70,44 +79,6 @@ export const Streak = styled.div`
 
 `
 
-export const StreakNumber = styled.div`
-
-    // background:#FBBF24;
-    height:60px;
-    width:60px;
-    color:black;
-    border-radius:50%;
-    font-size:2.5rem;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:absolute;
-    right:18px;
-    bottom:-55px;
-    // border:2px solid black;
-    font-weight:bolder;
-    color:#F59E0B;
-    @media only screen and (max-width: 600px) {
-        right:19px;
-        bottom:-40px;
-        transform:scale(.7);
-    }
-
-`
-
-export const DaysStreak = styled.div`
-    background:redl;
-    position:absolute;
-    right:-6px;
-    bottom:-75px;
-    font-size:1.5rem;
-    font-weight:bolder;
-    color:#F59E0B;
-    @media only screen and (max-width: 600px) {
-        bottom:-50px;
-        transform:scale(.9);
-    }
-`
 export const Today = styled.div`
     background:#EEF2FF;
     padding:10px;
@@ -119,9 +90,9 @@ export const Today = styled.div`
     
     &>span{
         align-self:center;
-        font-size:1.5rem;
+        font-size:1.2rem;
         @media only screen and (max-width: 600px) {
-            font-size:1.2rem;
+            font-size:1.1rem;
         }
     }
     &>input{
@@ -199,9 +170,9 @@ export const StreakDetails = styled.div`
     }
     &>div>span{
         margin-right:20px;
-        font-size:1.5rem;
+        font-size:1.2rem;
         @media only screen and (max-width: 600px) {
-            font-size:1.2rem;
+            font-size:1.1rem;
             margin-right:0px;
         }
     }
@@ -210,5 +181,31 @@ export const StreakDetails = styled.div`
             transform:scale(.9);
             margin-top:5px;
         }
+    }
+`
+export const Emoji = styled.div`
+    display:flex;
+    background:redl;
+    flex-direction:column;
+    margin-left:auto;
+    background:redl;
+    position:absolute;
+    right:0;
+    top:0px;
+    font-size:4rem;
+    &>div{
+        margin-top:10px;
+    }
+    &>span{
+        font-size:1.8rem;
+        color:orange;
+        font-weight:bolder;
+        @media only screen and (max-width: 600px) {
+            font-size:1.5rem;
+        }
+    }
+    @media only screen and (max-width: 600px) {
+        font-size:3rem;
+        margin-right:5px;
     }
 `

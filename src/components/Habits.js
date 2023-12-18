@@ -1,101 +1,3 @@
-// import React from 'react'
-// import styled from 'styled-components'
-
-// const Container = styled.div`
-//   width:auto;
-//   min-width:250px;
-//   height:130px;
-//   background:rgb(91 145 98);
-//   border-radius:10px;
-//   color:white;
-//   margin:10px;
-//   cursor:pointer;
-//   @media only screen and (max-width: 600px) {
-//     width:90%;
-//   }
-//   position:relative;
-//   transition:all .15s ease-in-out;
-//   &:hover{
-//     transform:scale(1.05);
-//   }
-// `
-
-// const Emoji = styled.span`
-//   position:absolute;
-//   top:0px;
-//   right:10px;
-//   font-size:2.2rem;
-// `
-// export const Streak = styled.div`
-//   width:fit-content;
-//   font-size:1rem;
-//   display:flex;
-//   align-items:center;
-//   background:rgb(59 101 76);
-//   padding:3px;
-//   padding-left:8px;
-//   padding-right:8px;
-//   border-radius:10000px;
-//   &>img{
-//     height:20px;
-//     margin-right:5px;
-//   }
-
-//   margin-left:auto;
-//   display:flex;
-//   align-items:center;
-// `
-// const Name = styled.h2`
-//   position:absolute;
-//   width:170px;
-//   text-align:left;
-//   background:redl;
-
-//   white-space: pre-wrap;
-//   overflow-wrap:break-word;
-
-//   top:20px;
-//   font-size:1.4rem;
-//   font-weight:400;
-//   left:10px;
-//   @media only screen and (max-width: 600px) {
-//     font-size:1.3rem;
-//   }
-
-// `
-
-// const Bottom = styled.div`
-//   background:redl;
-//   position:absolute;
-//   bottom:5px;
-//   display:flex;
-//   width:100%;
-//   padding-left:5px;
-//   padding-right:5px;
-// `
-
-
-// function HabitCard({ name, streak, emoji, current, target, onClick }) {
-//   return (
-//     <Container onClick={onClick}>
-//       <Emoji>{emoji}</Emoji>
-//       <Name>{name}</Name>
-//       <Bottom>
-//         <Streak style={{marginRight:'auto',marginLeft:'0'}}>
-//           <img src='/icons/goal.png'/>
-//           {current}/{target}
-//         </Streak>
-//         <Streak>
-//           <img src='/icons/fire.png' />
-//           {streak}
-//         </Streak>
-//       </Bottom>
-
-//     </Container>
-//   )
-// }
-
-// export default HabitCard
 
 import React from 'react'
 import styled from 'styled-components'
@@ -104,7 +6,7 @@ const Container = styled.div`
   width:auto;
   min-width:250px;
   height:130px;
-  background:#8c8c8c;
+  background:#06b66c;
   border-radius:10px;
   color:white;
   margin:10px;
@@ -130,7 +32,7 @@ export const Streak = styled.div`
   font-size:1rem;
   display:flex;
   align-items:center;
-  background:#666;
+  background:#028950;
   padding:3px;
   padding-left:8px;
   padding-right:8px;

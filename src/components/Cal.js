@@ -1,16 +1,16 @@
-import React, { useState, useEffect,useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const containerStyle = {
   width: 'fit-content',
   maxWidth: '100%',
-  borderRadius:'10px',
+  borderRadius: '10px',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   padding: '7px',
   overflowX: 'auto',
-  background:'#F3F4F6',
+  background: '#F3F4F6',
 };
 
 const headerStyle = {
@@ -19,7 +19,7 @@ const headerStyle = {
   paddingBottom: '5px',
   display: 'flex',
   color: 'gray',
-  marginBottom:'5px'
+  marginBottom: '5px',
 };
 
 const gridStyle = {
@@ -37,60 +37,25 @@ const itemStyle = {
   height: '17px',
   position: 'relative',
   listStyleType: 'none',
-  border:'1px solid #CECECE',
-  borderRadius:'0px' 
+  border: '1px solid #CECECE',
+  borderRadius: '0px',
 };
 
-
-
-let data = [];
-
-const daysInEachMonth = [
-  31, 28, 31, 30, 31, 30,
-  31, 31, 30, 31, 30, 31
-];
-
-// Generate random values for each date
-let k = 1
-for (let month = k; month <= 12; month++) {
-  const daysInMonth = daysInEachMonth[month - 1];
-
-  for (let day = 1; day <= daysInMonth; day++) {    
-    const formattedMonth = month.toString().padStart(2, '0');
-    const formattedDay = day.toString().padStart(2, '0');
-    const value = 1+Math.floor(Math.random() * 12); 
-    data.push({ day:parseInt(formattedDay),month:parseInt(formattedMonth), value });
-  }
-} 
-
-let p = []
-for(let i=0;i<data.length;++i){
-  if(Math.random()>.3731)
-    p.push(data[i])
-}
-data = p
-
-
-const CalendarComponent = () => {
-
+const CalendarComponent = ({ calendar, hoverRef }) => {
   const [items, setItems] = useState([]);
-  const [maxStreak,setMaxStreak] = useState(0)
-  const hoverRef = useRef(null)
 
   useEffect(() => {
     const generateCalendarItems = () => {
       const items = [];
-      const dateInit = new Date('2023-01-01');
+      let epoch = new Date('01/01/2023').getTime();
 
-      for (let i = 0; i < 365; ++i) {
-        const itemDate = new Date(dateInit);
-        const title = itemDate.toLocaleDateString('en-gb');
+      for (let i = 0; i < 366; ++i) {
+        let title = new Date(epoch).toLocaleDateString('en-gb');
         let backgroundColor = 'white';
         let value = 0;
-        const [day, month] = title.split('/');
 
-        const flag = data.filter((item) => {
-          return item.day === parseInt(day) && item.month === parseInt(month);
+        const flag = calendar.filter((item) => {
+          return item.epoch === epoch;
         });
 
         if (flag.length) {
@@ -100,45 +65,24 @@ const CalendarComponent = () => {
           else backgroundColor = '#9be9a8';
 
           value = flag[0].value;
-          // backgroundColor='white'
         }
 
         items.push({
           title: title,
           value: value,
           backgroundColor: backgroundColor,
-          day: day,
-          month: month,
         });
 
-        dateInit.setDate(dateInit.getDate() + 1);
+        epoch += 1000 * 60 * 60 * 24;
       }
 
       setItems(items);
     };
 
     generateCalendarItems();
-    
-  }, [data]);
+  }, [calendar]);
 
-  useEffect(()=>{
-    for(let i=0;i<items.length;++i){
-      if(items[i].backgroundColor==='#f0f0f0')
-        continue
-      let cnt=1
-      for(let j=i+1;j<items.length;++j){
-        if(items[j].backgroundColor==='#f0f0f0')
-          break
-        ++cnt
-      }
-      setMaxStreak(p=>{
-        if(cnt>p)
-          return cnt 
-        return p
-      })
-    } 
-  },[items])
-
+ 
   return (
     <div style={containerStyle}>
       <div style={headerStyle}>
@@ -161,30 +105,20 @@ const CalendarComponent = () => {
             <div
               key={index}
               style={{ ...itemStyle, backgroundColor: item.backgroundColor }}
-              // onClick={() => {
-              //   hoverRef.current.innerHTML = `<b>${item.value}</b> submission${
-              //     item.value > 1 ? 's' : ''
-              //   } on ${monthIndicesToNames[parseInt(item.month)]} ${parseInt(item.day)}`;
-              // }}
-              // onMouseEnter={() => {
-              //   hoverRef.current.innerHTML = `<b>${item.value}</b> submission${
-              //     item.value > 1 ? 's' : ''
-              //   } on ${monthIndicesToNames[parseInt(item.month)]} ${parseInt(item.day)}`;
-              // }}
-              // onMouseLeave={() => {
-              //   hoverRef.current.innerHTML = '';
-              // }}
+              onMouseEnter={() => {
+                hoverRef.current.innerHTML = `<b>${item.value}</b> submission${
+                  item.value > 1 ? 's' : ''
+                } on ${item.title}`;
+              }}
+              onMouseLeave={() => {
+                hoverRef.current.innerHTML = '';
+              }}
             />
           ))}
         </div>
-        <div style={{display:'flex'}}>
-           <div style={{ paddingLeft: '10px' }} ref={hoverRef}></div>
-            {/* <div style={{marginLeft:'auto',marginRight:'10px',fontWeight:'bolder'}}> 🔥 Max Streak: {maxStreak}</div> */}
-        </div>
-        
       </div>
     </div>
   );
-}; 
+};
 
 export default CalendarComponent;

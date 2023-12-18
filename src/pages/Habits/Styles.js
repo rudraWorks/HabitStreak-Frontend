@@ -17,8 +17,10 @@ export const Container = styled.div`
         border-radius:10px;
         opacity:.9;
         color:#E40046;
-
+        // text-align:left;
+        // background:red;
     }
+    // background:blue;
 `
 
 export const HabitsContainer = styled.div`

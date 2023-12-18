@@ -8,6 +8,7 @@ import About from './pages/About/About'
 import Profile from './pages/Profile/Profile'
 import Signup from './pages/Signup/Signup'
 import Details from './pages/HabitDetails/Details'
+import Notfound from './components/Notfound'
 
 import ModalState from './contexts/Modal/State'
 import UserState from './contexts/User/State'
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
       },
       {
         path: '*',
-        element: <center><h2>Page not found!</h2><br /><img style={{ width: '100px' }} src='/icons/404.png'></img></center>
+        element: <Notfound/>
       }
     ]
   }

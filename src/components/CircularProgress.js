@@ -44,16 +44,6 @@ const CircularProgressText = styled.text`
     position:relative;
   }
 
-  &>div>div{
-    position:absolute;
-    top:18px;
-    left:0px;
-    font-weight:500;
-    height:1px;
-    width:28px;
-    background:black;
-  }
-
 `;
 
 const CircularProgress = ({ x, y }) => {
@@ -67,9 +57,8 @@ const CircularProgress = ({ x, y }) => {
       </CircularProgressSVG>
       <CircularProgressText x="50" y="50">
         <div>
-          <span>{x}</span>
+          <span style={{borderBottom:'1px solid black'}}>{x}</span>
           <span>{y}</span>
-          <div></div>
         </div>
       </CircularProgressText>
     </CircularProgressContainer>

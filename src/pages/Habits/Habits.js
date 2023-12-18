@@ -13,7 +13,8 @@ function Habits() {
   const navigate = useNavigate()
   const { user } = useUser()
   const { dispatchNotificationBar } = useNotificationBar()
-  
+
+  const [fetching,setFetching] = useState(false)
   const [habitsArr, setHabitsArr] = useState([])
 
   const showHabitDetails = (habitName) => {
@@ -21,6 +22,7 @@ function Habits() {
   }
 
   useEffect(() => {
+    setFetching(true)
     const fetchHabits = async () => {
       try {
         const response = await fetch(`${process.env.REACT_APP_BASE_URL}/habit/myhabits`, {
@@ -43,24 +45,23 @@ function Habits() {
       catch (e) {
         dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: e.message, type: 'error' } })
       }
+      setFetching(false)
     }
     if (user && user !== 'LOADING')
       fetchHabits()
   }, [user])
 
  
-
-  if (user === 'LOADING')
-    return <Loading />
   if (!user)
     return <AuthFailed />
 
- 
+  if (user === 'LOADING' || fetching)
+    return <Loading />
+
   return (
     <center>
       <Container>
         <h1>My Habits</h1>
-
         <HabitsContainer>
 
           {

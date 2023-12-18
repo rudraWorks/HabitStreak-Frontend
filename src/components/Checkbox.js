@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const RadioContainer = styled.div`
@@ -22,30 +22,24 @@ const RadioLabel = styled.label`
   margin-right: 16px; /* Adjust the margin as needed */
 `;
 
-const RadioButtons = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const handleOptionChange = (option) => {
-    setSelectedOption(option);
-  };
-
+const RadioButtons = ({setProgressValue,progressValue}) => {
   return (
     <RadioContainer>
       <RadioInput
         type="radio"
         id="yes"
         name="options"
-        checked={selectedOption === 'yes'}
-        onChange={() => handleOptionChange('yes')}
+        checked={progressValue}
+        onChange={() => setProgressValue(1)}
       />
       <RadioLabel htmlFor="yes">Yes</RadioLabel>
 
       <RadioInput
         type="radio"
         id="no"
-        name="options"
-        checked={selectedOption === 'no'}
-        onChange={() => handleOptionChange('no')}
+        name="options" 
+        checked={!progressValue}
+        onChange={() => setProgressValue(0)}
       />
       <RadioLabel htmlFor="no">No</RadioLabel>
     </RadioContainer>
