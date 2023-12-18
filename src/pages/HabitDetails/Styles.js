@@ -49,8 +49,8 @@ export const HabitTitle = styled.h1`
     @media only screen and (max-width: 600px) {
         font-size:1.6rem;
     }
-    padding-bottom:10px;
-    padding-top:10px;
+    padding-bottom:5px;
+    padding-top:5px;
     color:#E40046;
     display:flex;
     align-items:center;
@@ -208,4 +208,13 @@ export const Emoji = styled.div`
         font-size:3rem;
         margin-right:5px;
     }
+`
+export const SelectYear = styled.div`
+    display:flex;
+    align-items:center;
+    margin-right:5px;
+    padding-left:5px;
+    padding-right:5px;
+    cursor:pointer;
+    margin-bottom:2px;
 `

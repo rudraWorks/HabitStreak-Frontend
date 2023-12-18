@@ -9,6 +9,7 @@ import useUser from '../../hooks/useUser';
 import useNotificationBar from '../../hooks/useNotificationBar'
 import { EmojiContainer } from './Styles';
 import Emoji from '../../modal-views/Emoji/Emoji';
+import { useNavigate } from 'react-router-dom';
 
 function Add() {
   const [chars, setChars] = useState(25);
@@ -18,7 +19,7 @@ function Add() {
   const [habitType, setHabitType] = useState('Binary')
   const [emoji, setEmoji] = useState('✨')
 
-
+  const navigate = useNavigate() 
 
   const [startedTyping, setStartedTyping] = useState(false);
 
@@ -59,7 +60,8 @@ function Add() {
         else {
           dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: json.message, type: 'success' } })
           setHabitName('')
-        }
+          navigate(`/habits/${habitName}`)
+        } 
       }
       catch (e) {
         dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: e.message, type: 'error' } })

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { leapYear } from '../utils/utils';
 
 const containerStyle = {
   width: 'fit-content',
@@ -41,15 +42,17 @@ const itemStyle = {
   borderRadius: '0px',
 };
 
-const CalendarComponent = ({ calendar, hoverRef }) => {
+const CalendarComponent = ({ calendar, hoverRef, year }) => {
   const [items, setItems] = useState([]);
-
+  // console.log(isLeapYear)
+  const totalDays = leapYear(year)?366:365
+  console.log(totalDays)
   useEffect(() => {
-    const generateCalendarItems = () => {
+    const generateCalendarItems = () => { 
       const items = [];
-      let epoch = new Date('01/01/2023').getTime();
+      let epoch = new Date(`01/01/${year}`).getTime();
 
-      for (let i = 0; i < 366; ++i) {
+      for (let i = 0; i < totalDays; ++i) {
         let title = new Date(epoch).toLocaleDateString('en-gb');
         let backgroundColor = 'white';
         let value = 0;
@@ -80,7 +83,7 @@ const CalendarComponent = ({ calendar, hoverRef }) => {
     };
 
     generateCalendarItems();
-  }, [calendar]);
+  }, [calendar,year]);
 
  
   return (
@@ -106,9 +109,9 @@ const CalendarComponent = ({ calendar, hoverRef }) => {
               key={index}
               style={{ ...itemStyle, backgroundColor: item.backgroundColor }}
               onMouseEnter={() => {
-                hoverRef.current.innerHTML = `<b>${item.value}</b> submission${
+                hoverRef.current.innerHTML = `<b>${item.value}</b> on ${
                   item.value > 1 ? 's' : ''
-                } on ${item.title}`;
+                }${item.title}`;
               }}
               onMouseLeave={() => {
                 hoverRef.current.innerHTML = '';

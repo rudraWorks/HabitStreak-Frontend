@@ -9,3 +9,5 @@ export const todaysEpoch = () => {
     const year = today.getFullYear()
     return new Date(`${month}/${date}/${year}`).getTime()
 }
+
+export const leapYear = (year) => ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);

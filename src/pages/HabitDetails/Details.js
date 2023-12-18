@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import CalendarComponent from '../../components/Cal'
-import { Container, CalendarContainer, Calendar, HabitTitle, Streak, Today, StreakDetails, Emoji } from './Styles'
+import { Container, CalendarContainer, Calendar, HabitTitle, Streak, Today, StreakDetails, Emoji, SelectYear } from './Styles'
 import Checkbox from '../../components/Checkbox'
 import CircularProgress from '../../components/CircularProgress'
 import StreakLine from '../../components/StreakLine'
@@ -14,19 +14,21 @@ import Notfound from '../../components/Notfound'
 import EmojiModal from '../../modal-views/Emoji/Emoji'
 import useModal from '../../hooks/useModal'
 import Settings from '../../modal-views/Settings/Settings'
+import SelectYearModal from '../../modal-views/SelectYear/SelectYear'
 
 function Details() {
   const { habitName } = useParams()
   const [habit,setHabit] = useState(habitName) 
   const { dispatchNotificationBar } = useNotficationBar()
   const [submitting, setSubmitting] = useState(false)
-  const [progressValue, setProgressValue] = useState(null)
+  const [progressValue, setProgressValue] = useState(0)
   const [notfound, setNotfound] = useState(false)
   const [emoji,setEmoji] = useState(null)
   const [calendar,setCalendar] = useState([])
   const hoverRef = useRef(null)
   const [streak,setStreak] = useState(0)
-
+  const [yearsArr,setYearsArr] = useState([])
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear())
 
 
   const [fetching, setFetching] = useState(false)
@@ -148,7 +150,18 @@ function Details() {
       setStreak(str+1)
     else 
       setStreak(str)
-  },[calendar])
+
+    setYearsArr([...new Set(calendar.map((item)=>new Date(item.epoch).getFullYear()))].sort((a,b)=>b-a))
+
+  },[calendar]) 
+
+  useEffect(()=>{
+    if(yearsArr.length){
+      setCurrentYear(yearsArr[0])
+    }
+  },[yearsArr]) 
+
+
 
   const updateEmoji = async (newEmoji) => {
     try{
@@ -169,11 +182,13 @@ function Details() {
     }
   }
 
+  console.log(currentYear)
+
   if (!user)
     return <AuthFailed />
 
   if (user === 'LOADING' || fetching) 
-    return <Loading />
+    return <Loading /> 
 
   if (notfound)
     return <Notfound />
@@ -217,18 +232,15 @@ function Details() {
         <StreakLine streak={streak} />
 
         <CalendarContainer>
-
           <Calendar>
             <div style={{display:'flex'}}>
-            <span style={{marginRight:'auto',marginLeft:'10px'}} ref={hoverRef}></span><span>2023</span>
+            <span style={{marginRight:'auto',marginLeft:'10px'}} ref={hoverRef}></span>
+            {
+              yearsArr.length>1?<SelectYear onClick={()=>dispatchModal({type:'SET_CONTENT',content:<SelectYearModal yearsArr={yearsArr} setCurrentYear={setCurrentYear} />})}>{currentYear} ⬇️</SelectYear>:<span>{currentYear}</span>
+            } 
             </div>
-            <CalendarComponent hoverRef={hoverRef} calendar={calendar} /> 
+            <CalendarComponent year={currentYear} hoverRef={hoverRef} calendar={calendar} /> 
           </Calendar>
- 
-          {/* <Calendar> 
-            <span>2024</span>
-            <CalendarComponent />
-          </Calendar> */}
         </CalendarContainer>
 
       </Container>
