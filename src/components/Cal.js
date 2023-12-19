@@ -113,9 +113,7 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
               key={index}
               style={{ ...itemStyle, backgroundColor: item.backgroundColor }}
               onMouseEnter={() => {
-                hoverRef.current.innerHTML = `<b>${item.value}</b> on ${
-                  item.value > 1 ? 's' : ''
-                }${item.title}`;
+                hoverRef.current.innerHTML = `<b>${item.value}</b> on ${item.title}`;
               }}
               onMouseLeave={() => {
                 hoverRef.current.innerHTML = '';
