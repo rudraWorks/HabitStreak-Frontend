@@ -74,13 +74,19 @@ const Bottom = styled.div`
   padding-left:5px;
   padding-right:5px;
 `
+const Img = styled.img`
+  height:30px;
+  position:absolute;
+  right:-10px;
+  top:-10px;
+`
 
-
-function HabitCard({ name, streak, emoji, current, target, onClick }) {
+function HabitCard({ name, streak, emoji, current, target, onClick, isDoneToday }) {
   return (
     <Container onClick={onClick}>
       <Emoji>{emoji}</Emoji>
       <Name>{name}</Name>
+      {isDoneToday?<Img src='/icons/donetoday.png'/>:<></>}
       <Bottom>
         <Streak style={{marginRight:'auto',marginLeft:'0'}}>
           <img src='/icons/goal.png'/>

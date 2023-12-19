@@ -9,7 +9,7 @@ import useNotficationBar from '../../hooks/useNotificationBar'
 import AuthFailed from '../../components/AuthFailed'
 import Loading from '../../components/Loading'
 import useUser from '../../hooks/useUser'
-import { capitalize, todaysEpoch } from '../../utils/utils'
+import { capitalize, denomiator, getCurrentStreak, todaysEpoch } from '../../utils/utils'
 import Notfound from '../../components/Notfound'
 import EmojiModal from '../../modal-views/Emoji/Emoji'
 import useModal from '../../hooks/useModal'
@@ -26,10 +26,8 @@ function Details() {
   const [emoji,setEmoji] = useState(null)
   const [calendar,setCalendar] = useState([])
   const hoverRef = useRef(null)
-  const [streak,setStreak] = useState(0)
   const [yearsArr,setYearsArr] = useState([])
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear())
-
 
   const [fetching, setFetching] = useState(false)
   const { user } = useUser()
@@ -129,30 +127,7 @@ function Details() {
   }, [fetchedResponse])
 
   useEffect(()=>{ 
-    let index = -1
-    for(let i=0;i<calendar.length;++i){
-      if(calendar[i].epoch===todaysEpoch()-1000*60*60*24){
-        index=i
-        break
-      }
-    }
-    let str = 0
-    if(index!==-1){
-      let cnt=1
-      for(let i=index;i>=1;--i){
-        if(calendar[i].epoch-calendar[i-1].epoch===1000*60*60*24)
-          ++cnt 
-        else break
-      }
-      str+=cnt
-    }
-    if(progressValue)
-      setStreak(str+1)
-    else 
-      setStreak(str)
-
     setYearsArr([...new Set(calendar.map((item)=>new Date(item.epoch).getFullYear()))].sort((a,b)=>b-a))
-
   },[calendar]) 
 
   useEffect(()=>{
@@ -213,7 +188,7 @@ function Details() {
               {emoji}
             </div>
             <div></div>
-            <span>{streak}</span> 
+            <span>{getCurrentStreak(calendar)}</span> 
             <span>days streak!</span>
           </Emoji>
 
@@ -223,13 +198,13 @@ function Details() {
           <div>
             <span>Current Streak</span>
             <div>
-              <CircularProgress x={streak} y={10}></CircularProgress>
+              <CircularProgress x={getCurrentStreak(calendar)} y={denomiator(getCurrentStreak(calendar))}></CircularProgress>
             </div>
           </div>
           {/* <span>Longest streak <b><small>140</small></b></span> */}
         </StreakDetails>
 
-        <StreakLine streak={streak} />
+        <StreakLine streak={getCurrentStreak(calendar)} />
 
         <CalendarContainer>
           <Calendar>

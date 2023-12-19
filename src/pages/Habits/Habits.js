@@ -6,11 +6,11 @@ import AuthFailed from '../../components/AuthFailed'
 import Loading from '../../components/Loading'
 import useUser from '../../hooks/useUser'
 import useNotificationBar from '../../hooks/useNotificationBar'
-import { capitalize } from '../../utils/utils'
+import { capitalize, getCurrentStreak, denomiator, isDoneToday } from '../../utils/utils'
 
 function Habits() {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate() 
   const { user } = useUser()
   const { dispatchNotificationBar } = useNotificationBar()
 
@@ -67,8 +67,8 @@ function Habits() {
           {
             habitsArr.map((habit,index)=>{
               return (
-                <HabitCard key={index} onClick={() => showHabitDetails(capitalize(habit.name))} name={capitalize(habit.name)}   streak="10" emoji={habit.emoji} current="10" target="21" />
-              )
+                <HabitCard key={index} onClick={() => showHabitDetails(capitalize(habit.name))} name={capitalize(habit.name)}   streak={getCurrentStreak(habit.calendar)} emoji={habit.emoji} current={getCurrentStreak(habit.calendar)} target={denomiator(getCurrentStreak(habit.calendar))} isDoneToday = {isDoneToday(habit.calendar)} />
+              ) 
             })
           }
           {

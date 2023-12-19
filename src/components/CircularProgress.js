@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const CircularProgressContainer = styled.div`
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   background:pink;
   border-radius:50%;
 `;
@@ -29,7 +29,7 @@ const CircularProgressBackgroundCircle = styled.circle`
 
 const CircularProgressText = styled.text`
   fill: #333; /* Text color */
-  font-size: 1rem;
+  font-size: .9rem;
   dominant-baseline: middle;
   text-anchor: middle;
   position: absolute;

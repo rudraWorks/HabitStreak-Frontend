@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { leapYear } from '../utils/utils';
+import { getBackgroundColor, leapYear } from '../utils/utils';
 
 const containerStyle = {
   width: 'fit-content',
@@ -62,12 +62,16 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
         });
 
         if (flag.length) {
-          if (flag[0].value > 10) backgroundColor = '#216e39';
-          else if (flag[0].value > 7) backgroundColor = '#30a14e';
-          else if (flag[0].value > 4) backgroundColor = '#40c463';
-          else backgroundColor = '#9be9a8';
+          const x = flag[0].value 
+          backgroundColor = getBackgroundColor(x,calendar)
+          console.log(backgroundColor); 
+          // if (flag[0].value > 10) backgroundColor = '#216e39';
+          // else if (flag[0].value > 7) backgroundColor = '#30a14e';
+          // else if (flag[0].value > 4) backgroundColor = '#40c463';
+          // else backgroundColor = '#9be9a8';
 
-          value = flag[0].value;
+          // value = flag[0].value; 
+          value = x 
         }
 
         items.push({
