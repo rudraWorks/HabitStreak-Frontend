@@ -8,7 +8,7 @@ const Container = styled.div`
   height:130px;
   background:#E5E7EB;
   border-radius:10px;
-  color:#4B5563;
+  color:#6B7280;
   margin:10px;
   cursor:pointer;
   @media only screen and (max-width: 600px) {
@@ -51,7 +51,6 @@ const Name = styled.h2`
   width:170px;
   text-align:left;
   background:redl;
-
   white-space: pre-wrap;
   overflow-wrap:break-word;
 
