@@ -4,7 +4,7 @@ export const Container = styled.div`
 
     width:75%;
     min-height:500px;
-    background:#FFFBjEB;
+    background:bluel;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -69,6 +69,11 @@ export const Streak = styled.div`
     display:flex;
     align-items:center;
     position:relative;
+    @media only screen and (max-width: 600px) {
+        flex-direction:column-reverse;
+        align-items:center;
+        justify-content:center;
+    }
     &>img{
         height:100px;
         margin-left:auto;
@@ -117,8 +122,7 @@ export const Today = styled.div`
     @media only screen and (max-width: 600px) {
         flex-direction:column;
         font-size:1.5rem;
-        justify-content:start;
-        align-items:start;
+        width:100%;
     }
     &>button{
         height:28px;
@@ -157,6 +161,8 @@ export const StreakDetails = styled.div`
         font-size:1.2rem;
         align-items:center;
         justify-content:center;
+        width:100%;
+        align-self:center;
     }
     &>div{
         background:redl;
@@ -185,13 +191,12 @@ export const StreakDetails = styled.div`
 `
 export const Emoji = styled.div`
     display:flex;
-    background:redl;
     flex-direction:column;
     margin-left:auto;
     background:redl;
     position:absolute;
     right:0;
-    top:0px;
+    top:0;
     font-size:4rem;
     &>div{
         margin-top:10px;
@@ -206,7 +211,12 @@ export const Emoji = styled.div`
     }
     @media only screen and (max-width: 600px) {
         font-size:3rem;
-        margin-right:5px;
+        position:relative;
+        width:100%;
+        align-self:center; 
+        margin:0;
+        justify-self:center;
+        margin-bottom:10px;
     }
 `
 export const SelectYear = styled.div`
