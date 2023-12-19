@@ -7,10 +7,11 @@ export const Container = styled.div`
     &>div{
         width:40%;
         @media only screen and (max-width: 600px) {
-           width:90%;
+           width:100%;
+           padding-left:5px;
+           padding-right:5px;
         }
         margin:10px;
-        
     }
     @media only screen and (max-width: 600px) {
        flex-direction:column;
@@ -59,6 +60,9 @@ export const Right = styled.div`
         text-align:left;
         width:90%;
         font-size:1.5rem;
+        @media only screen and (max-width: 600px) {
+            font-size:1.1rem;
+        }
     }
     &>div{
         width:90%;
@@ -150,4 +154,28 @@ export const ThemeButton = styled.button`
         background:#bba9d1;
     }
     transition:all .15s;
+`
+
+export const TypeContainer = styled.div`
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    background:bluke;
+    width:100%;
+`
+
+export const ToggleButtonContainer = styled.div`
+    margin-left:auto;
+    @media only screen and (max-width: 600px) {
+        margin:0;
+        margin-top:5px;
+    }
+`
+
+export const TypeLabelContainer = styled.div`
+    display:flex;
+    align-items:center;
+    @media only screen and (max-width: 600px) {
+        margin-right:auto;
+    }
 `

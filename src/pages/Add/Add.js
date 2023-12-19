@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Input, Left, Right, Button, ThemeButton } from './Styles';
+import { Container, Input, Left, Right, Button, ThemeButton, TypeContainer, ToggleButtonContainer, TypeLabelContainer } from './Styles';
 import ToggleButton from './Toggle';
 import useModal from '../../hooks/useModal';
 import HabitType from '../../modal-views/HabitType/HabitType';
@@ -98,8 +98,8 @@ function Add() {
             </div>
             <Input value={habitName} onInput={handleInput} />
 
-            <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center', background: 'redl', width: '90%' }}>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
+            <TypeContainer >
+              <TypeLabelContainer>
                 <img
                   onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <HabitType /> })}
                   style={{ height: '25px', cursor: 'pointer',marginRight:'3px' }}
@@ -107,11 +107,11 @@ function Add() {
                 />
                 Habit type &nbsp;
                 <span style={{ color: 'navy', fontWeight: 'bolder' }}>{habitType}</span>
-              </div>
-              <div style={{ marginLeft: 'auto' }}>
+              </TypeLabelContainer>
+              <ToggleButtonContainer>
                 <ToggleButton setHabitType={setHabitType} />
-              </div>
-            </div>
+              </ToggleButtonContainer>
+            </TypeContainer>
             <br />
             <div style={{ display: 'flex',alignItems:'center' }}>
               <EmojiContainer>{emoji}</EmojiContainer>
