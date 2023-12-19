@@ -8,8 +8,6 @@ export const Container = styled.div`
         width:40%;
         @media only screen and (max-width: 600px) {
            width:100%;
-           padding-left:5px;
-           padding-right:5px;
         }
         margin:10px;
     }
@@ -145,13 +143,13 @@ export const ThemeButton = styled.button`
     height:30px;
     padding:10px;
     border:none;
-    background:#d7cae7;
+    background:#E5E7EB;
     border-radius:15px;
     display:flex;
     align-items:center;
     cursor:pointer;
     &:hover{
-        background:#bba9d1;
+        background:#D1D5DB;
     }
     transition:all .15s;
 `
