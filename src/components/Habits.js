@@ -6,9 +6,9 @@ const Container = styled.div`
   width:auto;
   min-width:250px;
   height:130px;
-  background:#06b66c;
+  background:#E5E7EB;
   border-radius:10px;
-  color:white;
+  color:#4B5563;
   margin:10px;
   cursor:pointer;
   @media only screen and (max-width: 600px) {
@@ -32,7 +32,7 @@ export const Streak = styled.div`
   font-size:1rem;
   display:flex;
   align-items:center;
-  background:#028950;
+  background:#E5E7EB;
   padding:3px;
   padding-left:8px;
   padding-right:8px;
