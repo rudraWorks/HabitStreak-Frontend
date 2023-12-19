@@ -217,6 +217,9 @@ export const Emoji = styled.div`
         margin:0;
         justify-self:center;
         margin-bottom:10px;
+        background:#e6fcf3;
+        padding:10px;
+        border-radius:10px;
     }
 `
 export const SelectYear = styled.div`
