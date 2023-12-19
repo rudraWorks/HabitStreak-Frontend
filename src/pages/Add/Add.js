@@ -105,8 +105,8 @@ function Add() {
                   style={{ height: '25px', cursor: 'pointer',marginRight:'3px' }}
                   src='/icons/question.png'
                 />
-                Habit type &nbsp;
-                <span style={{ color: 'navy', fontWeight: 'bolder' }}>{habitType}</span>
+                <span>Habit type &nbsp;</span>
+                <span style={{ color: 'navy',fontWeight:'bolder',fontSize:'.8rem'}}>{habitType}</span>
               </TypeLabelContainer>
               <ToggleButtonContainer>
                 <ToggleButton setHabitType={setHabitType} />
