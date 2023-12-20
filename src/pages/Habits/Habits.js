@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import HabitCard from '../../components/Habits'
-import { Container, HabitsContainer, Img } from './Styles'
+import { Container, HabitsContainer, Img, Heading, ArchivedButton } from './Styles'
 import { useNavigate,Link } from 'react-router-dom'
 import AuthFailed from '../../components/AuthFailed'
 import Loading from '../../components/Loading'
@@ -16,6 +16,9 @@ function Habits() {
 
   const [fetching,setFetching] = useState(false)
   const [habitsArr, setHabitsArr] = useState([])
+  const [showArr, setShowArr] = useState([])
+
+  const [toggleArchived,setToggleArchived] = useState(false)
 
   const showHabitDetails = (habitName) => {
     navigate(habitName)
@@ -34,7 +37,6 @@ function Habits() {
 
         const json = await response.json()
         console.log(json)
-
         if (!response.ok)
           dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: json.message, type: 'error' } })
 
@@ -51,7 +53,16 @@ function Habits() {
       fetchHabits()
   }, [user])
 
- 
+  useEffect(()=>{
+    if(toggleArchived){
+      setShowArr(habitsArr.filter((habit)=>habit.archived===1))
+    }
+    else {
+      setShowArr(habitsArr.filter((habit)=>habit.archived===-1))
+    } 
+  },[habitsArr,toggleArchived])
+
+
   if (!user)
     return <AuthFailed />
 
@@ -60,12 +71,16 @@ function Habits() {
 
   return (
     <center>
+      <Heading>
+        <span>My Habits</span>
+        <ArchivedButton showArchived={toggleArchived} onClick={()=>setToggleArchived((p)=>!p)}>Archived habits</ArchivedButton>
+      </Heading>
+
       <Container>
-        <h1>My Habits</h1>
         <HabitsContainer>
 
           {
-            habitsArr.map((habit,index)=>{
+            showArr.map((habit,index)=>{
               return (
                 <HabitCard key={index} onClick={() => showHabitDetails(capitalize(habit.name))} name={capitalize(habit.name)}   streak={getCurrentStreak(habit.calendar)} emoji={habit.emoji} current={getCurrentStreak(habit.calendar)} target={denomiator(getCurrentStreak(habit.calendar))} isDoneToday = {isDoneToday(habit.calendar)} />
               ) 

@@ -117,7 +117,7 @@ function TimeLeft() {
             </div>
             <br />
 
-            <h3>This Quarter <span ref={quarter}></span></h3>
+            <h3>This Quarter (15 min) <span ref={quarter}></span></h3>
             <Progress   ref={quarterProgressBar} max="100"> </Progress>
             <br /> 
 

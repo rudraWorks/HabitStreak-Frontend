@@ -28,6 +28,7 @@ function Details() {
   const hoverRef = useRef(null)
   const [yearsArr,setYearsArr] = useState([])
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear())
+  const [archived,setArchived] = useState(-1)
 
   const [fetching, setFetching] = useState(false)
   const { user } = useUser()
@@ -122,7 +123,7 @@ function Details() {
 
       setEmoji(fetchedResponse.emoji)
       setCalendar(fetchedResponse.calendar.filter((item)=>item.value!==0))
-
+      setArchived(fetchedResponse.archived)
     }
   }, [fetchedResponse])
 
@@ -136,7 +137,7 @@ function Details() {
     }
   },[yearsArr]) 
 
-
+  console.log(fetchedResponse)
 
   const updateEmoji = async (newEmoji) => {
     try{
@@ -173,9 +174,9 @@ function Details() {
       <Container> 
           <HabitTitle>
             {capitalize(habit)}
-            <img style={{cursor:'pointer'}} onClick={()=>dispatchModal({type:'SET_CONTENT',content:<Settings setHabit={setHabit} habit={habit} user={user} />})} src='/icons/settings.png' />
+            <img style={{cursor:'pointer'}} onClick={()=>dispatchModal({type:'SET_CONTENT',content:<Settings setHabit={setHabit} habit={habit} user={user} archived={fetchedResponse.archived} setArchived={setArchived} archived={archived} />})} src='/icons/settings.png' />
           </HabitTitle>
-        <Streak>
+        <Streak> 
           <Today>
             <span>Today</span>
             {fetchedResponse?.type === 'Integer' ? <input value={progressValue} type='Number' onInput={(e) => setProgressValue(parseInt(e.target.value))} /> : <Checkbox progressValue={progressValue} setProgressValue={setProgressValue} />}

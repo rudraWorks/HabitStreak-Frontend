@@ -5,22 +5,43 @@ export const Container = styled.div`
     @media only screen and (max-width: 600px) {
         width:100%;
     }
-    &>h1{
-        position:sticky;
-        width:100%;
-        top:69px;
-        background:white;
-        padding:5px;
-        font-size:1.8rem;
-        z-index:9999;
-        margin-bottom:10px;
-        border-radius:10px;
-        opacity:.9;
-        color:#E40046;
-        // text-align:left;
-        // background:red;
-    }
     // background:blue;
+`
+
+export const Heading = styled.div`
+    position:sticky;
+    width:60%;
+    top:69px;
+    background:white;
+    padding:5px;
+    font-size:1.8rem;
+    z-index:9999;
+    margin-bottom:10px;
+    border-radius:10px;
+    opacity:.9;
+    color:#E40046;
+    // text-align:left;
+    // background:red;
+    font-weight:bolder;
+    @media only screen and (max-width: 600px) {
+        width:95%;
+    }
+    display:flex;
+    align-items:center;
+`
+export const ArchivedButton = styled.button`
+    margin-left:auto;
+    border:1px solid #BFDBFE;
+    padding:5px;
+    padding-left:10px;
+    padding-right:10px;
+    cursor:pointer;
+    border-radius:1000px;
+    color:#1E3A8A;
+    background:${(props) => (props.showArchived ? '#BFDBFE' : '#fff')};
+    &:active{
+        background:#60A5FA;
+    }
 `
 
 export const HabitsContainer = styled.div`

@@ -6,13 +6,13 @@ const Container = styled.div`
   width:auto;
   min-width:250px;
   height:130px;
-  background:#E5E7EB;
+  background:#F3F4F6;
   border-radius:10px;
-  color:#6B7280;
+  color:#1F2937;
   margin:10px;
   cursor:pointer;
   @media only screen and (max-width: 600px) {
-    width:90%;
+    width:100%;
   }
   position:relative;
   transition:all .15s ease-in-out;
@@ -32,7 +32,7 @@ export const Streak = styled.div`
   font-size:1rem;
   display:flex;
   align-items:center;
-  background:#E5E7EB;
+  background:#D1D5DB;
   padding:3px;
   padding-left:8px;
   padding-right:8px;
@@ -74,7 +74,7 @@ const Bottom = styled.div`
   padding-right:5px;
 `
 const Img = styled.img`
-  height:30px;
+  height:23px;
   position:absolute;
   right:-10px;
   top:-10px;

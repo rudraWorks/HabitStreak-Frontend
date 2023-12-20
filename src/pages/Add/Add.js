@@ -19,7 +19,7 @@ function Add() {
   const [habitType, setHabitType] = useState('Binary')
   const [emoji, setEmoji] = useState('✨')
 
-  const navigate = useNavigate() 
+  const navigate = useNavigate()
 
   const [startedTyping, setStartedTyping] = useState(false);
 
@@ -46,11 +46,11 @@ function Add() {
       try {
         const response = await fetch(`${process.env.REACT_APP_BASE_URL}/habit/add`, {
           method: 'POST',
-          headers: { 
+          headers: {
             "Authorization": user.token,
             "Content-Type": "application/json"
-          }, 
-          body: JSON.stringify({ habitName, habitType, habitEmoji:emoji })
+          },
+          body: JSON.stringify({ habitName, habitType, habitEmoji: emoji })
         })
 
         const json = await response.json()
@@ -61,7 +61,7 @@ function Add() {
           dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: json.message, type: 'success' } })
           setHabitName('')
           navigate(`/habits/${habitName}`)
-        } 
+        }
       }
       catch (e) {
         dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: e.message, type: 'error' } })
@@ -102,20 +102,23 @@ function Add() {
               <TypeLabelContainer>
                 <img
                   onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <HabitType /> })}
-                  style={{ height: '25px', cursor: 'pointer',marginRight:'3px' }}
+                  style={{ height: '35px', cursor: 'pointer', marginRight: '3px' }}
                   src='/icons/question.png'
                 />
-                <span>Habit type &nbsp;</span>
-                <span style={{ color: 'navy',fontWeight:'bolder',fontSize:'.8rem'}}>{habitType}</span>
+                <div style={{display:'flex',flexDirection:'column'}}> 
+                  <span>Habit type &nbsp;</span>
+                  <span style={{ color: 'navy', fontWeight: 'bolder' }}>{habitType}</span> 
+                </div>
+
               </TypeLabelContainer>
               <ToggleButtonContainer>
                 <ToggleButton setHabitType={setHabitType} />
               </ToggleButtonContainer>
             </TypeContainer>
             <br />
-            <div style={{ display: 'flex',alignItems:'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
               <EmojiContainer>{emoji}</EmojiContainer>
-              <ThemeButton onClick={()=>dispatchModal({type:'SET_CONTENT',content:<Emoji setEmoji={setEmoji}/>})}>Change theme</ThemeButton>
+              <ThemeButton onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Emoji setEmoji={setEmoji} /> })}>Change theme</ThemeButton>
             </div>
             <Button disabled={submitting} onClick={handleSubmit}>{submitting ? "Submitting..." : "Submit"}</Button>
           </>

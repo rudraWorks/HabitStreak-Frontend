@@ -51,3 +51,32 @@ border-color: #f4495d;
 }
 cursor:pointer;
 `
+
+export const BottomRow = styled.div`
+    background:grayl;
+    display:flex;
+    &>div{
+        margin-right:20px;
+        margin-left:0;
+    }
+    &>div>h3{
+        margin-bottom:4px;
+    }
+    @media only screen and (max-width: 600px) {
+        flex-direction:column;
+        &>div{
+            margin:0;
+            margin-bottom:10px;
+        }
+    }
+`
+export const ArchiveButton = styled(DeleteButton)`
+    color: #faa04b;
+    border-color: #faa04b;
+
+    &:hover {
+        background-color: #faa04b;
+        border-color: #faa04b;
+    }
+
+`
