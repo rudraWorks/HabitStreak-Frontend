@@ -176,7 +176,7 @@ function Details() {
             {capitalize(habit)}
             <img style={{cursor:'pointer'}} onClick={()=>dispatchModal({type:'SET_CONTENT',content:<Settings setHabit={setHabit} habit={habit} user={user} archived={fetchedResponse.archived} setArchived={setArchived} archived={archived} />})} src='/icons/settings.png' />
           </HabitTitle>
-        <Streak> 
+        <Streak>  
           <Today>
             <span>Today</span>
             {fetchedResponse?.type === 'Integer' ? <input value={progressValue} type='Number' onInput={(e) => setProgressValue(parseInt(e.target.value))} /> : <Checkbox progressValue={progressValue} setProgressValue={setProgressValue} />}

@@ -24,7 +24,7 @@ export const Heading = styled.div`
     // background:red;
     font-weight:bolder;
     @media only screen and (max-width: 600px) {
-        width:95%;
+        width:100%;
     }
     display:flex;
     align-items:center;
