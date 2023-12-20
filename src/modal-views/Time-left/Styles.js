@@ -13,18 +13,21 @@ export const Container = styled.div`
         display:flex;
         align-items:center;
         font-size:1.1rem;
+        @media only screen and (max-width: 600px) {
+            font-size:.9rem;
+        }
     }
     & img{
         height:50px;
         display:inline;
         margin-right:10px;
         @media only screen and (max-width: 600px) {
-            height:40px;
+            height:30px;
         }
     }
     & h2{
         @media only screen and (max-width: 600px) {
-            font-size:1.2rem;
+            font-size:1rem;
         }
     }
 `

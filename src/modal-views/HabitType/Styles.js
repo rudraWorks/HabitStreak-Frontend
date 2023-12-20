@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
+    & li{
+        list-style:none;
+    }
     & strong{
         margin:10px;
         display:inline-block;

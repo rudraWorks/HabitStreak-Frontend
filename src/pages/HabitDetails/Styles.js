@@ -196,7 +196,7 @@ export const Emoji = styled.div`
     background:redl;
     position:absolute;
     right:0;
-    top:0;
+    top:-25px;
     font-size:4rem;
     &>div{
         margin-top:10px;
@@ -216,10 +216,11 @@ export const Emoji = styled.div`
         align-self:center; 
         margin:0;
         justify-self:center;
-        margin-bottom:10px;
-        background:#e6fcf3;
-        padding:10px;
-        border-radius:10px;
+        // margin-bottom:10px;
+        // background:#e6fcf3;
+        // padding:10px;
+        // border-radius:10px;
+        top:-10px;
     }
 `
 export const SelectYear = styled.div`
@@ -230,4 +231,24 @@ export const SelectYear = styled.div`
     padding-right:5px;
     cursor:pointer;
     margin-bottom:2px;
+`
+
+export const StreaklineContainer = styled.div`
+    margin-top:15px;
+    background:#D1FAE5;
+    width:100%;
+    padding:10px;
+    height:100px;
+    display:flex;
+    flex-direction:column;
+    border-radius:10px;
+    &>span{
+        font-size:1.2rem;
+        text-align:left;
+        @media only screen and (max-width: 600px) {
+            font-size:1.1rem;
+            margin-right:0px;
+            text-align:center;
+        }
+    }
 `

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StreakProgressBar = ({ streak }) => {
-  const stops = [10, 21, 60, 100];
+  const stops = [10, 31, 50, 100, 182];
   const position = Math.min(Math.max(streak, 0), stops[stops.length - 1]);
 
   return (
@@ -23,15 +23,15 @@ const ProgressBar = styled.div`
   position: relative;
   height: 28px;
   width: 100%;
-  background-color: #eee;
-  margin-top: 45px;
+  background-color: #6EE7B7;
+  margin-top:auto;
 `;
 
 const Stop = styled.div`
   position: absolute;
   height: 8px;
   width: 2px;
-  background-color: #ccc;
+  background-color: #047857;
   
 `;
 
@@ -40,7 +40,7 @@ const StopLabel = styled.div`
   top: -20px;
   left: 50%;
   transform: translateX(-50%);
-  color: #777;
+  color: #047857;
   font-size: 12px;
 `;
 
@@ -49,7 +49,7 @@ const CurrentStreakLine = styled.div`
   top: 0;
   left: 0;
   height: 100%;
-  background-color: #007bff;
+  background-color: #065F46;
   opacity: 0.5;
 `;
 

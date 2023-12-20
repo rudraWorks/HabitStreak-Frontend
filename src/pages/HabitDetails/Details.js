@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import CalendarComponent from '../../components/Cal'
-import { Container, CalendarContainer, Calendar, HabitTitle, Streak, Today, StreakDetails, Emoji, SelectYear } from './Styles'
+import { Container, CalendarContainer, Calendar, HabitTitle, Streak, Today, StreakDetails, Emoji, SelectYear, StreaklineContainer } from './Styles'
 import Checkbox from '../../components/Checkbox'
 import CircularProgress from '../../components/CircularProgress'
 import StreakLine from '../../components/StreakLine'
@@ -205,7 +205,10 @@ function Details() {
           {/* <span>Longest streak <b><small>140</small></b></span> */}
         </StreakDetails>
 
-        <StreakLine streak={getCurrentStreak(calendar)} />
+        <StreaklineContainer>
+          <span>Streak progress</span>
+          <StreakLine streak={getCurrentStreak(calendar)} />
+        </StreaklineContainer>
 
         <CalendarContainer>
           <Calendar>
