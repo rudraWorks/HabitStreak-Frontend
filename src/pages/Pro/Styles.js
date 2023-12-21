@@ -23,7 +23,7 @@ export const CardsContainer = styled.div`
     flex-wrap:wrap;
     &>div{
         margin:40px;
-        width:300px;
+        width:400px;
         max-width:95%;  
         border-radius:10px;
         padding:20px;
