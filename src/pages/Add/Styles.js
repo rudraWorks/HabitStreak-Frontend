@@ -115,7 +115,7 @@ export const Button = styled.button`
     text-align: center;
     width:100%;
     max-width:90%;
-    margin-top:40px;
+    margin-top:20px;
     
     background-color: transparent;
     border: 1px solid transparent;

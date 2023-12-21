@@ -3,7 +3,8 @@ import Badge from "../../components/Badge";
 import React from 'react'
 
 function Badges({maxStreak}) {
-  return (
+  // alert(maxStreak)
+  return ( 
     <Container>
         <Badge name={"Genesis"} maxStreak={maxStreak} days={10}/>
         <Badge name={"Explorer"} maxStreak={maxStreak} days={30}/>

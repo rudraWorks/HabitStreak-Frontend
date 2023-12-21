@@ -11,7 +11,7 @@ const containerStyle = {
   justifyContent: 'center',
   padding: '7px',
   overflowX: 'auto',
-  background: '#F3F4F6',
+  background: '#E1F2F6',
 };
 
 const headerStyle = {
@@ -46,7 +46,7 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
   const [items, setItems] = useState([]);
   // console.log(isLeapYear)
   const totalDays = leapYear(year)?366:365
-  console.log(totalDays)
+  // console.log(totalDays)
   useEffect(() => {
     const generateCalendarItems = () => { 
       const items = [];
@@ -64,7 +64,7 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
         if (flag.length) {
           const x = flag[0].value 
           backgroundColor = getBackgroundColor(x,calendar)
-          console.log(backgroundColor); 
+          // console.log(backgroundColor); 
           // if (flag[0].value > 10) backgroundColor = '#216e39';
           // else if (flag[0].value > 7) backgroundColor = '#30a14e';
           // else if (flag[0].value > 4) backgroundColor = '#40c463';
@@ -73,13 +73,13 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
           // value = flag[0].value; 
           value = x 
         }
-
+        // let colorarr = ['#30a14e','#40c463','#216e39','#fff','#fff','#fff']
         items.push({
           title: title,
           value: value,
-          backgroundColor: backgroundColor,
+          backgroundColor:backgroundColor //colorarr[Math.floor(Math.random()*6)]
         });
-
+  
         epoch += 1000 * 60 * 60 * 24;
       }
 

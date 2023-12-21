@@ -35,7 +35,7 @@ function UserState({ children }) {
                     const json = await response.json() 
 
                     if(response.ok)
-                    dispatchUser({type:'LOGIN',token,name,email,picture})
+                        dispatchUser({type:'LOGIN',token,name,email,picture})
                     
                     else
                         dispatchUser({type:'LOGOUT'})

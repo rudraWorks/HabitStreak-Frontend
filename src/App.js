@@ -9,6 +9,7 @@ import Profile from './pages/Profile/Profile'
 import Signup from './pages/Signup/Signup'
 import Details from './pages/HabitDetails/Details'
 import Notfound from './components/Notfound'
+import Pro from './pages/Pro/Pro'
 
 import ModalState from './contexts/Modal/State'
 import UserState from './contexts/User/State'
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: 'signup',
         element: <Signup />
+      },
+      {
+        path: 'pro',
+        element: <Pro />
       },
       {
         path: '*',
