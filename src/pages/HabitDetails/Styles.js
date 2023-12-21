@@ -242,7 +242,7 @@ export const StreaklineContainer = styled.div`
     display:flex;
     flex-direction:column;
     border-radius:10px;
-    &>span{
+    &>div>span{
         font-size:1.2rem;
         text-align:left;
         @media only screen and (max-width: 600px) {
@@ -250,5 +250,21 @@ export const StreaklineContainer = styled.div`
             margin-right:0px;
             text-align:center;
         }
+    }
+    &>div{
+        display:flex;
+    }
+`
+export const BadgesButton = styled.div`
+    background:#6EE7B7;
+    margin-left:auto;
+    border-radius:1000px;
+    padding:1px;
+    padding-left:10px;
+    padding-right:10px;
+    color:#064E3B;
+    cursor:pointer;
+    &:hover{
+        background:#34D399;
     }
 `

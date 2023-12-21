@@ -12,13 +12,14 @@ export const ModalContainer = styled.div`
   z-index: 3000000;
   background: white;
   border-radius: 10px;
-  padding: 30px;
+  padding: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   @media only screen and (max-width: 600px) {
     top:30%;
     transform:translate(-50%,-30%);
+    width:90%;
   }
 `
 
@@ -28,7 +29,7 @@ export const BACKGROUND_STYLES = {
     left: '0',
     right: '0',
     bottom: '0',
-    background: 'rgba(0,0,0,0.5)',
+    background: 'rgba(0,0,0,0.4)',
     zIndex: '100000',
     // backdropFilter:'blur(1px)'
 }

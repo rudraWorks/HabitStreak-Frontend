@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Badge from '../../components/Badge'
 function About() {
   return (
-    <div>About</div>
+    <div>
+      <Badge/>
+    </div>
   )
 }
 

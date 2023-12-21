@@ -52,14 +52,36 @@ export const getCurrentStreak = (calendar) => {
     return str
 }
 
+export const getMaxStreak = (calendar) => {
+    calendar = calendar.sort(function(a, b){return a.epoch-b.epoch})
+    let mx = 0 
+    for(let i=0;i<calendar.length;++i){
+        if(!calendar[i].value)
+            continue 
+        let cnt=1
+        for(let j=i+1;j<calendar.length;++j){
+            if(calendar[j].epoch-calendar[j-1].epoch === 1000*60*60*24 && calendar[j].value)
+                ++cnt 
+            else 
+                break
+        } 
+        if(cnt>mx)
+            mx=cnt
+    }
+    return mx
+}
+
+
 export const denomiator = (streak) => {
     if(streak<10)
         return 10 
-    if(streak<21)
-        return 21 
-    if(streak<60)
-        return 60 
-    return 100
+    if(streak<30)
+        return 30 
+    if(streak<50)
+        return 50 
+    if(streak<100)
+        return 100
+    return 180
 }
 
 export const isDoneToday = (calendar) => {

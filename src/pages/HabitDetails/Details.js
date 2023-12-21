@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import CalendarComponent from '../../components/Cal'
-import { Container, CalendarContainer, Calendar, HabitTitle, Streak, Today, StreakDetails, Emoji, SelectYear, StreaklineContainer } from './Styles'
+import { Container, CalendarContainer, Calendar, HabitTitle, Streak, Today, StreakDetails, Emoji, SelectYear, StreaklineContainer, BadgesButton } from './Styles'
 import Checkbox from '../../components/Checkbox'
 import CircularProgress from '../../components/CircularProgress'
 import StreakLine from '../../components/StreakLine'
@@ -9,12 +9,13 @@ import useNotficationBar from '../../hooks/useNotificationBar'
 import AuthFailed from '../../components/AuthFailed'
 import Loading from '../../components/Loading'
 import useUser from '../../hooks/useUser'
-import { capitalize, denomiator, getCurrentStreak, todaysEpoch } from '../../utils/utils'
+import { capitalize, denomiator, getCurrentStreak, getMaxStreak, todaysEpoch } from '../../utils/utils'
 import Notfound from '../../components/Notfound'
 import EmojiModal from '../../modal-views/Emoji/Emoji'
 import useModal from '../../hooks/useModal'
 import Settings from '../../modal-views/Settings/Settings'
 import SelectYearModal from '../../modal-views/SelectYear/SelectYear'
+import Badges from '../../modal-views/Badges/Badges'
 
 function Details() {
   const { habitName } = useParams()
@@ -206,7 +207,10 @@ function Details() {
         </StreakDetails>
 
         <StreaklineContainer>
-          <span>Streak progress</span>
+          <div>
+            <span>Streak progress</span>
+            <BadgesButton onClick={()=>dispatchModal({type:'SET_CONTENT',content:<Badges maxStreak={getMaxStreak(calendar)} />})}>Badges</BadgesButton>
+          </div> 
           <StreakLine streak={getCurrentStreak(calendar)} />
         </StreaklineContainer>
 
