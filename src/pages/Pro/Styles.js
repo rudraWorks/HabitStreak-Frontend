@@ -23,10 +23,10 @@ export const CardsContainer = styled.div`
     flex-wrap:wrap;
     &>div{
         margin:40px;
-        width:40%;
+        width:300px;
+        max-width:95%;  
         border-radius:10px;
         padding:20px;
-        min-width:300px;
         animation: ${rotateAnimation} 2s infinite;
         display:flex;
         flex-direction:column;
