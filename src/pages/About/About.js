@@ -3,9 +3,11 @@ import { Container, Section } from './Styles'
 import {Button} from '../Add/Styles'
 import { useNavigate } from 'react-router-dom'
 import InstallPWAButton from '../../components/InstallApp'
+import useModal from '../../hooks/useModal'
 
 function About() {
   const navigate = useNavigate()
+  const {dispatchModal} = useModal()
   return (
     <Container>
       <h2> <img src='/icons/docs.png' /> DailyStreak Documentation </h2>
@@ -20,7 +22,7 @@ function About() {
           <li>Visual progress tracking</li>
           <li>Different color shades for different intensities.</li>
         </ul> 
-        <img src='/images/heatmap.png' />
+        <img src='/images/heatmap.png' onClick={()=>dispatchModal({type:'SET_CONTENT',content:<div><img src='/images/heatmap.png'/></div>})} />
       </Section>
         <br/>
       <Section>
@@ -30,11 +32,11 @@ function About() {
           <li>Earning badges boosts self-esteem, fostering a positive self-perception.</li>
           <li>Achieving longer streaks provides you a sense of accomplishment, motivating continued positive behavior.</li>
         </ul> 
-        <img src='/images/streak.png' />
+        <img src='/images/streak.png' onClick={()=>dispatchModal({type:'SET_CONTENT',content:<div><img src='/images/streak.png'/></div>})} />
         <br/>
-        <img src='/images/streakline.png' />
+        <img src='/images/streakline.png' onClick={()=>dispatchModal({type:'SET_CONTENT',content:<div><img src='/images/streakline.png'/></div>})} />
         <br/>
-        <img src='/images/badgesgif.gif'/>
+        <img src='/images/badgesgif.gif' onClick={()=>dispatchModal({type:'SET_CONTENT',content:<div><img src='/images/badgesgif.gif'/></div>})}/>
       </Section>
       <br/>
       <Section>
@@ -44,7 +46,7 @@ function About() {
           <li>Aligns with goals, aiding in monthly progress tracking and yearly perspective.</li>
           <li>Serves as a motivational tool, encouraging commitment and deadline management.</li>
         </ul> 
-        <img src='/images/countdowngif.gif' />
+        <img src='/images/countdowngif.gif' onClick={()=>dispatchModal({type:'SET_CONTENT',content:<div><img src='/images/countdowngif.gif'/></div>})} />
       </Section>
 
       <br/>
@@ -71,7 +73,7 @@ function About() {
         <h3><img src='/icons/app.png' /> Install App</h3>
         <InstallPWAButton/> 
       </Section>
-
+ 
 
 
     </Container>

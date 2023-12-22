@@ -50,6 +50,7 @@ export const Section = styled.div`
     }
     &>img{
         margin-top:5px;
+        cursor:pointer;
     }
     &>h3>img{
         height:1.8rem;
