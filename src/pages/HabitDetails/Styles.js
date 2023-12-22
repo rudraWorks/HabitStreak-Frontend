@@ -19,11 +19,6 @@ export const CalendarContainer = styled.div`
     margin-top:auto;
     background:pinkl;
     width:100%;
-    // display:flex;
-    // overflow:auto;
-    // justify-content:center;
-    // align-items:center;
-    // flex-direction:column;
     padding-top:0px;
 `
 export const Calendar = styled.div`

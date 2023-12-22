@@ -12,7 +12,6 @@ const Question = styled.div`
   margin: 0;
   padding: 10px;
   background-color: #f0f0f0;
-  border-radius: 5px;
 `;
 
 const QuestionText = styled.h3`
@@ -31,9 +30,7 @@ const ToggleButton = styled.button`
 const Answer = styled.p`
   margin: 0;
   padding: 10px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color:#f7f9fd;
   display: ${(props) => (props.isOpen ? 'block' : 'none')};
   user-select:text;
 `;

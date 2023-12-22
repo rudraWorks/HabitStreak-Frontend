@@ -73,11 +73,11 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
           // value = flag[0].value; 
           value = x 
         }
-        // let colorarr = ['#30a14e','#40c463','#216e39','#fff','#fff','#fff']
+        // let colorarr = ['#30a14e','#40c463','#216e39','#fff']
         items.push({
           title: title,
           value: value,
-          backgroundColor:backgroundColor //colorarr[Math.floor(Math.random()*6)]
+          backgroundColor//:colorarr[Math.floor(Math.random()*4)]
         });
   
         epoch += 1000 * 60 * 60 * 24;

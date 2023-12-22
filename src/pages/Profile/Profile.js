@@ -31,11 +31,11 @@ function Profile() {
       </Left>
       <Right>
         <h2 style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>{user.name}
-          <Pro>Pro</Pro>
+          {user.pro && <Pro>Pro</Pro>}
         </h2>
         <h3>{user.email}</h3>
         <Buttons>
-          <Button  onClick={()=>navigate('/pro')}>Join Pro</Button>
+          {!user.pro && <Button  onClick={()=>navigate('/pro')}>Join Pro</Button>}
           <Button  onClick={handleLogout}>Logout</Button>
         </Buttons>
       </Right>

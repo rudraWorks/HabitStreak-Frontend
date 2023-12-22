@@ -24,7 +24,7 @@ function Pro() {
 
         <h2>FAQs</h2>
         <br/>
-        <FAQ question="If I'm not happy with the service, can I get a refund?" answer="Yes, drop a email at merudra.official@gmail.com" />
+        <FAQ question="If I'm not happy with the service, can I get a refund?" answer="Yes, drop an email at merudra.official@gmail.com" />
 
         <FAQ question="I don't have cards, how can I proceed?" answer="Send your payment proof and email at merudra.official@gmail.com, I will try to activate your account as quickly as possible. My PayPal: merudra.official@gmail.com, UPI: 7309250579@ybl" />
         

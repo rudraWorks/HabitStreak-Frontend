@@ -17,7 +17,7 @@ function Add() {
 
   const [habitName, setHabitName] = useState('');
   const [habitType, setHabitType] = useState('Binary')
-  const [emoji, setEmoji] = useState('✨')
+  const [emoji, setEmoji] = useState('📚')
 
   const navigate = useNavigate()
 

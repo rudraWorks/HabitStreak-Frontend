@@ -4,9 +4,9 @@ import UserContext from "./Context";
 const reducer = (state, action) => {
     switch (action.type) {
         case 'LOGIN': {
-            const {email,picture,token,name} = action
-            localStorage.setItem('habitUser', JSON.stringify({email,picture,token,name}))
-            return {email,picture,token,name}
+            const {email,picture,token,name,_id,pro} = action
+            localStorage.setItem('habitUser', JSON.stringify({email,picture,token,name,_id,pro}))
+            return {email,picture,token,name,_id,pro}
         }
         case 'LOADING':{
             return 'LOADING'
@@ -35,7 +35,7 @@ function UserState({ children }) {
                     const json = await response.json() 
 
                     if(response.ok)
-                        dispatchUser({type:'LOGIN',token,name,email,picture})
+                        dispatchUser({type:'LOGIN',token,name,email,picture,_id:json._d,pro:json.pro})
                     
                     else
                         dispatchUser({type:'LOGOUT'})

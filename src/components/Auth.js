@@ -32,7 +32,7 @@ function Auth() {
         const json = await response.json() 
 
         if(response.ok){
-            dispatchUser({type:'LOGIN',name,picture,email,token:json.token})
+            dispatchUser({type:'LOGIN',name,picture,email,token:json.token,_id:json._id,pro:json.pro})
             navigate('/') 
         }
         else{
