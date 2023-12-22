@@ -21,6 +21,9 @@ export const ModalContainer = styled.div`
     transform:translate(-50%,-30%);
     width:90%;
   }
+  & img{
+    max-width:97%;
+  }
 `
 
 export const BACKGROUND_STYLES = {
