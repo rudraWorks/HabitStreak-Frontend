@@ -1,6 +1,11 @@
-
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components';
+
+const rotateAnimation = keyframes`
+  100% {
+    background-position: -100% 0;
+  }
+`;
 
 const Container = styled.div`
   width:auto;
@@ -19,6 +24,11 @@ const Container = styled.div`
   &:hover{
     transform:scale(1.05);
   }
+
+  background: linear-gradient(120deg, #F3F4F6 30%, #F9FAFB 38%, #F9FAFB 40%, #F3F4F6 48%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: ${rotateAnimation} 2s infinite;
 `
 
 const Emoji = styled.span`

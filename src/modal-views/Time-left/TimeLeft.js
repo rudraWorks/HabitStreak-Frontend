@@ -119,19 +119,15 @@ function TimeLeft() {
 
             <h3>This Quarter (15 min) <span ref={quarter}></span></h3>
             <Progress   ref={quarterProgressBar} max="100"> </Progress>
-            <br /> 
 
             <h3>This Hour <span ref={hour}></span></h3>
             <Progress   ref={hourProgressBar} max="100"> </Progress>
-            <br /> 
 
             <h3>Today <span ref={day}></span></h3>
             <Progress   ref={dayProgressBar} max="100"> </Progress>
-            <br /> 
 
             <h3>{currentMonthName} <span ref={month}></span></h3>
             <Progress  ref={monthProgressBar} max="100"> </Progress>
-            <br />
 
             <h3>{new Date().getFullYear()} <span ref={year}></span></h3>
             <Progress  ref={yearProgressBar} max="100"> </Progress>

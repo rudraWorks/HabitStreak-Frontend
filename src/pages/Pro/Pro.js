@@ -16,7 +16,7 @@ function Pro() {
                 <h3>Pro Plan </h3>
                 <span> You can create <b>unlimited</b> habits</span>
                 <span style={{marginTop:'10px'}}> <b>No</b> monthly charges, <b>one</b> time payment only!</span>
-                <span style={{marginTop:'10px'}}><strike>$5</strike>, $1 only!</span>
+                <span style={{marginTop:'10px'}}><strike>$19</strike>, $1 only!</span>
                 <BuyNow>$1 pay now</BuyNow>
             </Paid>
         </CardsContainer>

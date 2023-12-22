@@ -10,7 +10,7 @@ export const LandingPageContainer = styled.div`
 export const Title = styled.h1`
   font-size: 3rem;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   @media only screen and (max-width: 600px) {
     font-size:2rem;
   } 
@@ -27,7 +27,7 @@ export const Description = styled.p`
   color: #555;
   text-align: center;
   max-width: 600px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 `;
 
 export const GetStartedButton = styled.button`
@@ -49,7 +49,7 @@ export const GetStartedButton = styled.button`
 `;
 
 export const TestimonialsContainer = styled.div`
-  margin-top: 50px;
+  margin-top: 30px;
   width: 80%;
   display: flex;
   justify-content: space-around;

@@ -11,6 +11,7 @@ import {
   HomeHero
 } from './Styles';
 import { useNavigate } from 'react-router-dom';
+import Typewriter from '../../components/Typewriter';
 
 const LandingPage = () => {
   const navigate = useNavigate()

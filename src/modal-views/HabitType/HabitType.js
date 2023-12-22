@@ -14,7 +14,7 @@ function HabitType() {
           </ul>
         </li>
         <li>
-          <strong>Integral Habits</strong>
+          <strong>Measurable Habits</strong>
           <ul>
             <li>🧘 Meditate for 10 minutes.</li>
             <li>🏋️‍♀️ Complete 20 pushups.</li>

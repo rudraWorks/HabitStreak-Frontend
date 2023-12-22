@@ -47,10 +47,16 @@ export const Section = styled.div`
         padding-right:10px;
         border-radius:5px;
         margin-bottom:15px;
+        position:sticky;
+        top:70px;
+        @media only screen and (max-width: 600px) {
+            width:100%;
+            display:flex;
+            justify-content:center;
+        }
     }
     &>img{
         margin-top:5px;
-        cursor:pointer;
     }
     &>h3>img{
         height:1.8rem;

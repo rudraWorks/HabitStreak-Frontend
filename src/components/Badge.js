@@ -11,6 +11,7 @@ const rotateAnimation = keyframes`
 const LoadBadge = styled.div`
   min-width: 100px;
   min-height: 100px;
+
   position: relative;
   float: left;
   background: linear-gradient(120deg, #FFDD49 30%, #f0f0f0 38%, #f0f0f0 40%, #FFDD49 48%);
@@ -18,6 +19,7 @@ const LoadBadge = styled.div`
   background-size: 200% 100%;
   background-position: 100% 0;
   animation: ${rotateAnimation} 2s infinite;
+  
   display: flex;
   justify-content: center;
   align-items: center;

@@ -96,7 +96,7 @@ function Add() {
             <div>
               Habit name {startedTyping && <span style={{ marginLeft: 'auto' }}>({25 - chars}/25)</span>}
             </div>
-            <Input value={habitName} onInput={handleInput} />
+            <Input placeholder='Read a book' value={habitName} onInput={handleInput} />
 
             <TypeContainer >
               <TypeLabelContainer>
