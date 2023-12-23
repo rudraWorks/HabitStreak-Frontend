@@ -40,15 +40,16 @@ export const Section = styled.div`
     &>h3{
         display:flex;
         align-items:center;
-        background:#E4F4E4;
+        background:#F9FAFB;
         width:fit-content;
         padding:5px;
         padding-left:10px;
         padding-right:10px;
-        border-radius:5px;
+        // border-radius:5px;
         margin-bottom:15px;
         position:sticky;
         top:70px;
+        width:100%;
         @media only screen and (max-width: 600px) {
             width:100%;
             display:flex;

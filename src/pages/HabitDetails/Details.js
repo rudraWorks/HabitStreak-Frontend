@@ -37,7 +37,7 @@ function Details() {
 
   const [fetchedResponse, setFetchedResponse] = useState(null)
 
-
+  console.log(user)
 
 
   const handleSubmit = () => {
@@ -137,8 +137,6 @@ function Details() {
       setCurrentYear(yearsArr[0])
     }
   },[yearsArr]) 
-
-  console.log(fetchedResponse)
 
   const updateEmoji = async (newEmoji) => {
     try{

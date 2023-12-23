@@ -32,7 +32,7 @@ export const CardsContainer = styled.div`
         flex-direction:column;
         align-items:center;
         @media only screen and (max-width: 600px) {
-            margin:10px;
+            margin:15px;
         }
     }
     &>div>h3{
@@ -49,14 +49,7 @@ export const CardsContainer = styled.div`
             font-size:1rem;
         }
     }
-`
-
-export const Free = styled.div`
-    background: linear-gradient(120deg, #c9d1d9 30%, #f0f0f0 38%, #f0f0f0 40%, #c9d1d9 48%);
-    background-size: 200% 100%;
-    background-position: 100% 0;
-    position:relative;
-    &>img{
+    & img{
         position:absolute;
         top:-40px;
         right:-40px;
@@ -69,10 +62,21 @@ export const Free = styled.div`
         }
     }
 `
+
+export const Free = styled.div`
+    background: linear-gradient(120deg, #c9d1d9 30%, #f0f0f0 38%, #f0f0f0 40%, #c9d1d9 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    position:relative;
+`
 export const Paid = styled.div`
     background: linear-gradient(120deg, #FCD34D 30%, #f0f0f0 38%, #f0f0f0 40%, #FCD34D 48%);
     background-size: 200% 100%;
     background-position: 100% 0;
+    position:relative;
+    & img{
+        transform:rotate(0);
+    }
 `
 export const BuyNow = styled.button`
     padding: 12px 24px;

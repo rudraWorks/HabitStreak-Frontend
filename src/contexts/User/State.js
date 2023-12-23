@@ -33,9 +33,9 @@ function UserState({ children }) {
                         headers:{'Content-Type':'application/json',Authorization:token}
                     })
                     const json = await response.json() 
-
+                    console.log(json)
                     if(response.ok)
-                        dispatchUser({type:'LOGIN',token,name,email,picture,_id:json._d,pro:json.pro})
+                        dispatchUser({type:'LOGIN',token,name,email,picture,_id:json._id,pro:json.pro})
                     
                     else
                         dispatchUser({type:'LOGOUT'})
