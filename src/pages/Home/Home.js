@@ -8,22 +8,39 @@ import {
   TestimonialCard,
   TestimonialText,
   TestimonialAuthor,
-  HomeHero
+  HomeHero,
+  ButtonContainer
 } from './Styles';
 import { useNavigate } from 'react-router-dom';
 import Typewriter from '../../components/Typewriter';
+import useUser from '../../hooks/useUser'
 
 const LandingPage = () => {
+
   const navigate = useNavigate()
+  const {user} = useUser()
+
+  const handleGetStarted = () => {
+    if(user)
+      navigate('/habits')
+    else  
+      navigate('/signup')
+  }
+
   return (
     <LandingPageContainer>
-      <Logo/>
+      <Logo />
       <Description>
-        Build habits, track your progress, get badges and achieve your goals with DailyStreak.
+        Build habits, track your progress, get badges and achieve your goals with HabitStreak.
       </Description>
-      <GetStartedButton onClick={()=>navigate('/about')}>Learn more </GetStartedButton>
-      <br/> 
-      <HomeHero src='/images/home-hero.webp'/>
+
+      <ButtonContainer>
+        <GetStartedButton onClick={() => navigate('/about')}>Learn more </GetStartedButton>
+        <GetStartedButton onClick={handleGetStarted}>{user ? "My habits":"Get Started"} </GetStartedButton>
+      </ButtonContainer>
+
+      <br />
+      <HomeHero src='/images/home-hero.webp' />
 
       <TestimonialsContainer>
         <TestimonialCard>
@@ -32,13 +49,13 @@ const LandingPage = () => {
         </TestimonialCard>
 
         <TestimonialCard>
-          <TestimonialText>"Amazing features and easy to use. It's been a game-changer for me."</TestimonialText>
+          <TestimonialText>"Amazing features and easy to use. The calendar heatmap is awesome, can see my daily progress at a glance."</TestimonialText>
           <TestimonialAuthor>- John M.</TestimonialAuthor>
         </TestimonialCard>
 
         <TestimonialCard>
           <TestimonialText>"I've seen a significant improvement in my habits. Fantastic app!"</TestimonialText>
-          <TestimonialAuthor>- Emily R.</TestimonialAuthor>
+          <TestimonialAuthor>- Rahul K.</TestimonialAuthor>
         </TestimonialCard>
       </TestimonialsContainer>
     </LandingPageContainer>

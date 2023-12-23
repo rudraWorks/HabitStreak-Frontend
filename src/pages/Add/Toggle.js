@@ -46,7 +46,7 @@ const ToggleButton = ({setHabitType}) => {
   useEffect(()=>{
     if(!isChecked)
         setHabitType('Binary')
-    else setHabitType('Measurable')
+    else setHabitType('Integer')
   },[isChecked])
 
   return (

@@ -75,4 +75,44 @@ export const Section = styled.div`
     }
     padding-bottom:10px;
     padding-top:10px;
+    margin-bottom:10px;
+    & button{
+        width:200px;
+        margin-top:0;
+    }
+`
+export const ButtonContainer = styled.div`
+    display:flex;
+    @media only screen and (max-width: 600px) {
+        justify-content:center;
+    }
+`
+
+export const SectionInner = styled.div`
+    // background:red;
+    display:flex;
+    flex-wrap:wrap;
+    @media only screen and (max-width: 1000px) {
+        flex-direction:column;
+    }
+    &>ul{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        width:30%;
+        @media only screen and (max-width: 1000px) {
+            display:block;
+            width:100%;
+        }
+    }
+    &>img{
+        margin-left:auto;
+        @media only screen and (max-width: 1000px) {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 99%;
+            margin-top:10px;
+        }
+    }
 `

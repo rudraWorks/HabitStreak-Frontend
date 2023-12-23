@@ -107,7 +107,7 @@ function Add() {
                 />
                 <div style={{display:'flex',flexDirection:'column'}}> 
                   <span>Habit type &nbsp;</span>
-                  <span style={{ color: 'navy', fontWeight: 'bolder' }}>{habitType}</span> 
+                  <span style={{ color: 'navy', fontWeight: 'bolder' }}>{habitType==='Binary'?'Binary':'Measurable'}</span> 
                 </div>
 
               </TypeLabelContainer>

@@ -95,7 +95,7 @@ export const Today = styled.div`
             font-size:1.1rem;
         }
     }
-    &>input{
+    &>div>input{
        width:150px;
        margin:8px;
        padding:5px;
@@ -119,7 +119,8 @@ export const Today = styled.div`
         font-size:1.5rem;
         width:100%;
     }
-    &>button{
+
+    &>div>button{
         height:28px;
         align-self:center;
         padding:5px;
@@ -165,9 +166,6 @@ export const StreakDetails = styled.div`
         display:flex;
         text-align:center;
         align-items:center;
-        @media only screen and (max-width: 600px) {
-            flex-direction:column;
-        }
     }
     &>div>span{
         margin-right:20px;
@@ -233,7 +231,7 @@ export const StreaklineContainer = styled.div`
     background:#D1FAE5;
     width:100%;
     padding:10px;
-    height:100px;
+    height:105px;
     display:flex;
     flex-direction:column;
     border-radius:10px;
@@ -261,5 +259,18 @@ export const BadgesButton = styled.div`
     cursor:pointer;
     &:hover{
         background:#34D399;
+    }
+`
+
+export const TodayCheckboxAndButtonContainer = styled.div`
+    display:flex;
+`
+export const CurrentStreakAndCircularProgressContainer = styled.div`
+    @media only screen and (max-width: 600px) {
+        display:flex;
+        width:100%;
+        &>div{
+            margin-left:20px;
+        }
     }
 `

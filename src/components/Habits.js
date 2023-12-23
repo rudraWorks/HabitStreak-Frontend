@@ -10,7 +10,7 @@ const rotateAnimation = keyframes`
 const Container = styled.div`
   width:auto;
   min-width:250px;
-  height:130px;
+  height:125px;
   background:#F3F4F6;
   border-radius:10px;
   color:#1F2937;

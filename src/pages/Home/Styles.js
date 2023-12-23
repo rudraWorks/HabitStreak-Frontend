@@ -93,9 +93,19 @@ export const HomeHero = styled.img`
 export const Logo = () => {
     return (
         <Title>
-            <span style={{ color: '#1A567E' }}>Daily</span>
+            <span style={{ color: '#1A567E' }}>Habit</span>
             <span style={{ color: '#FBBF24' }}>Streak</span>
             <span>&nbsp;<img src='/icons/growth.png'></img></span>
         </Title>
     )
 }
+
+export const ButtonContainer = styled.div`
+  //  background:red;
+  //  width:100%;
+   display:flex;
+   & button{
+    margin-left:10px;
+    margin-right:10px;
+   }
+`

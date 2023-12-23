@@ -31,7 +31,7 @@ function Profile() {
       </Left>
       <Right>
         <h2 style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>{user.name}
-          {user.pro && <Pro>Pro</Pro>}
+          {user.pro && <Pro>PRO</Pro>}
         </h2>
         <h3>{user.email}</h3>
         <Buttons>
