@@ -18,6 +18,7 @@ import useTitle from '../../hooks/useTitle'
 import { useNavigate } from 'react-router-dom';
 import Typewriter from '../../components/Typewriter';
 import useUser from '../../hooks/useUser'
+import { VideoContainer } from '../About/Styles';
 
 const LandingPage = () => {
   useTitle('Home')
@@ -56,8 +57,16 @@ const LandingPage = () => {
         <img src='/icons/meditate.png' />
       </TopRowImagesContainer> 
       <HomeHeroContainer>
-        <HomeHero src='/images/heatmap.png' />
+        {/* <HomeHero src='/images/heatmap.png' /> */}
         {/* <HomeHero src='/images/readbooksdailygif.gif' /> */}
+        <VideoContainer>
+        <video controls={false} muted autoPlay loop style={{marginTop:'10px'}}>
+            <source src="/images/readbooksdaily.webm" type="video/webm" />
+
+            <source src="/images/readbooksdaily.webm" type="video/mp4" />
+
+          </video>
+        </VideoContainer>
       </HomeHeroContainer> 
 
       <TestimonialsContainer>

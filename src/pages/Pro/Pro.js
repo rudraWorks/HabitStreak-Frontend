@@ -8,7 +8,7 @@ import useTitle from '../../hooks/useTitle'
 
 const productArray = [
   {
-    id: "price_1OQFqlSF3SETRPhGJpyLYvBC",
+    id: "price_1OQNzSSF3SETRPhGS9QRZHcH",
     title: "DailyStreak PRO",
     price: 1,
     quantity: 1

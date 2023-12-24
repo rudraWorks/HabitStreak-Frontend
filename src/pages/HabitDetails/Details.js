@@ -61,7 +61,7 @@ function Details() {
           dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: json.message, type: 'error' } })
         else {
 
-          // dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: 'Today\'s progress is saved', type: 'success' } })
+          dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: 'Today\'s progress is saved', type: 'success' } })
 
           setCalendar((p) => {
             if (progressValue === 0)
