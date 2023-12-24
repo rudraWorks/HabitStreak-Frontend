@@ -57,6 +57,7 @@ const LandingPage = () => {
       </TopRowImagesContainer> 
       <HomeHeroContainer>
         <HomeHero src='/images/heatmap.png' />
+        {/* <HomeHero src='/images/readbooksdailygif.gif' /> */}
       </HomeHeroContainer> 
 
       <TestimonialsContainer>
@@ -71,7 +72,7 @@ const LandingPage = () => {
         </TestimonialCard>
 
         <TestimonialCard>
-          <TestimonialText>"I've seen a significant improvement in my habits. Fantastic app!"</TestimonialText>
+          <TestimonialText>"I've seen a significant improvement in my habits. Fantastic app! Afterall discipline is the difference between who wants it and who gets it."</TestimonialText>
           <TestimonialAuthor>- Rahul K.</TestimonialAuthor>
         </TestimonialCard>
       </TestimonialsContainer>

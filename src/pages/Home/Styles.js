@@ -8,7 +8,7 @@ export const LandingPageContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: #333;
   margin-bottom: 10px;
   @media only screen and (max-width: 600px) {

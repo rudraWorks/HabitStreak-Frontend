@@ -12,6 +12,7 @@ const containerStyle = {
   padding: '7px',
   overflowX: 'auto',
   background: '#E1F2F6',
+  alignSelf:'center'
 };
 
 const headerStyle = {

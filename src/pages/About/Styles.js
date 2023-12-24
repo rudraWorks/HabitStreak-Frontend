@@ -116,3 +116,16 @@ export const SectionInner = styled.div`
         }
     }
 `
+export const VideoContainer = styled.div`
+    width:100%;
+    display:flex;
+    justify-content:center;
+    & video{
+        width:70%;
+        border:1px solid skyblue;
+        @media only screen and (max-width: 1000px) {
+            width:100%;
+        }
+        border-radius:10px;
+    }
+`

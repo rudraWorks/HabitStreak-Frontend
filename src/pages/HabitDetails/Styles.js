@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
-    width:75%;
+    width:980px;
     min-height:500px;
+    max-width:100%;
     background:bluel;
     display:flex;
     flex-direction:column;
@@ -17,17 +18,24 @@ export const Container = styled.div`
 
 export const CalendarContainer = styled.div`
     margin-top:auto;
-    background:pinkl;
+    background:redl;
     width:100%;
     padding-top:0px;
 `
 export const Calendar = styled.div`
     margin-top:20px;
     text-align:right;
+    background:bluel;
     &>span{
         margin:5px;
         margin-right:15px;
     }
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    aligin-items:center;
+    overflow:auto;
+
 `
 
 
