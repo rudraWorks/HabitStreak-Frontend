@@ -10,8 +10,10 @@ import useNotificationBar from '../../hooks/useNotificationBar'
 import { EmojiContainer } from './Styles';
 import Emoji from '../../modal-views/Emoji/Emoji';
 import { useNavigate } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle'
 
 function Add() {
+  useTitle('Create habit')
   const [chars, setChars] = useState(25);
   const { dispatchNotificationBar } = useNotificationBar()
 

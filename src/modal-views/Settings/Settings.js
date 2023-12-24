@@ -27,7 +27,7 @@ function Settings({ habit, setHabit, user, archived,setArchived}) {
             })
 
             const json = await response.json()
-            console.log(json)
+            // console.log(json)
             if (!response.ok)
                 setError(json.message)
             else {

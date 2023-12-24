@@ -21,7 +21,7 @@ function Auth() {
         const { name, picture, email } = userObject
         
 
-        console.log(name,picture,email);
+        // console.log(name,picture,email);
 
         const response = await fetch(`${process.env.REACT_APP_BASE_URL}/auth/login`,{
             method:'POST',

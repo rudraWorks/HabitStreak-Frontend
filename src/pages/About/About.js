@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { ButtonContainer, Container, Section, SectionInner } from './Styles';
 import { Button } from '../Add/Styles';
 import { useNavigate } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle'
 
 function About() {
+  useTitle('About')
   const navigate = useNavigate();
   const [showJumpToTop, setShowJumpToTop] = useState(false);
 

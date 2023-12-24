@@ -18,16 +18,17 @@ export const Container = styled.div`
         }
     }
     & img{
-        height:50px;
+        height:40px;
         display:inline;
         margin-right:10px;
         @media only screen and (max-width: 600px) {
-            height:30px;
+            height:25px;
         }
     }
     & h2{
+        font-size:1.35rem;
         @media only screen and (max-width: 600px) {
-            font-size:1rem;
+            font-size:1.2rem;
         }
     }
 `

@@ -14,12 +14,13 @@ import {
   Seek,
   TopRowImagesContainer,
 } from './Styles';
+import useTitle from '../../hooks/useTitle'
 import { useNavigate } from 'react-router-dom';
 import Typewriter from '../../components/Typewriter';
 import useUser from '../../hooks/useUser'
 
 const LandingPage = () => {
-
+  useTitle('Home')
   const navigate = useNavigate()
   const {user} = useUser()
 
@@ -50,7 +51,6 @@ const LandingPage = () => {
         <img src='/icons/reading.png' />
         <img src='/icons/exercise.png' />
         <img src='/icons/study.png' />
-        <img src='/icons/apple.png' />
         <img src='/icons/cigeratte.png' />
         <img src='/icons/gym.png' />
         <img src='/icons/meditate.png' />

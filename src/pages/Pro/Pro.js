@@ -4,6 +4,7 @@ import FAQ from '../../components/FAQ'
 import useUser from '../../hooks/useUser'
 import Loading from '../../components/Loading'
 import useNotficationBar from '../../hooks/useNotificationBar'
+import useTitle from '../../hooks/useTitle'
 
 const productArray = [
   {
@@ -15,9 +16,10 @@ const productArray = [
 ]
 
 function Pro() {
+  useTitle('Pro')
   const {user} = useUser()
   const { dispatchNotificationBar } = useNotficationBar()
-  console.log(user)
+  // console.log(user)
   const checkout = async () => {
     
     if(!user)

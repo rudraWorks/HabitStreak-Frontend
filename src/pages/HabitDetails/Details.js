@@ -17,10 +17,13 @@ import Settings from '../../modal-views/Settings/Settings'
 import SelectYearModal from '../../modal-views/SelectYear/SelectYear'
 import Badges from '../../modal-views/Badges/Badges'
 import ConfettiExplosion from 'react-confetti-explosion';
+import useTitle from '../../hooks/useTitle'
 
 
 function Details() {
   const { habitName } = useParams()
+  useTitle(habitName)
+  
   const [habit, setHabit] = useState(habitName)
   const { dispatchNotificationBar } = useNotficationBar()
   const [submitting, setSubmitting] = useState(false)
@@ -53,7 +56,7 @@ function Details() {
           body: JSON.stringify({ type: fetchedResponse.type, value: progressValue, epoch: todaysEpoch(), habit: habit })
         })
         const json = await response.json()
-        console.log(json);
+        // console.log(json);
         if (!response.ok)
           dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: json.message, type: 'error' } })
         else {
@@ -97,7 +100,7 @@ function Details() {
         })
 
         const json = await response.json()
-        console.log(json)
+        // console.log(json)
 
         if (response.status === 404)
           setNotfound(true)
@@ -156,7 +159,7 @@ function Details() {
 
   useEffect(() => {
     setYearsArr([...new Set(calendar.map((item) => new Date(item.epoch).getFullYear()))].sort((a, b) => b - a))
-    console.log("cal length ",calendar.length);
+    // console.log("cal length ",calendar.length);
   }, [calendar])
 
   useEffect(() => {

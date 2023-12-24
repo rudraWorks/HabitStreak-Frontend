@@ -6,10 +6,12 @@ import { Button } from '../Add/Styles'
 import AuthFailed from '../../components/AuthFailed'
 import { useNavigate } from 'react-router-dom'
 import { Buttons, Pro } from './Styles'
+import useTitle from '../../hooks/useTitle'
 
 function Profile() {
 
   const { user, dispatchUser } = useUser()
+  useTitle("My profile")
   const navigate = useNavigate()
 
   const handleLogout = () => {

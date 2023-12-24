@@ -13,6 +13,22 @@ export const todaysEpoch = () => {
 export const leapYear = (year) => ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0);
 
 export const getCurrentStreak = (calendar) => {
+    
+    let tempCalendar = calendar.filter((item) => item.value !== 0) 
+    let newCalendar = []
+    for(let i=0;i<tempCalendar.length;++i){
+      let flag=false 
+      for(let j=i+1;j<tempCalendar.length;++j){
+        if(tempCalendar[j].epoch===tempCalendar[i].epoch){
+          flag=true 
+          break  
+        } 
+      }
+      if(!flag)
+        newCalendar.push(tempCalendar[i])
+    }
+    calendar = newCalendar 
+    
     calendar = calendar.sort(function(a, b){return a.epoch-b.epoch})
     let tEpoch = todaysEpoch()
     let flag = 0 
@@ -56,7 +72,7 @@ export const getCurrentStreak = (calendar) => {
 export const getMaxStreak = (calendar) => {
     calendar = calendar.sort(function(a, b){return a.epoch-b.epoch})
     
-    console.log(calendar.length)
+    // console.log(calendar.length)
     // console.log(new Date(calendar[5].epoch));
     // console.log(new Date(calendar[0].epoch));
     // console.log(new Date(calendar[1].epoch).getTime()-new Date(calendar[0].epoch).getTime()===1000*60*60*24);
@@ -77,7 +93,7 @@ export const getMaxStreak = (calendar) => {
         //     mx=cnt
 
     }
-    console.log("max streak",mx);
+    // console.log("max streak",mx);
     return mx
 }
 

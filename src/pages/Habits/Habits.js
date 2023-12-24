@@ -7,9 +7,10 @@ import Loading from '../../components/Loading'
 import useUser from '../../hooks/useUser'
 import useNotificationBar from '../../hooks/useNotificationBar'
 import { capitalize, getCurrentStreak, denomiator, isDoneToday } from '../../utils/utils'
+import useTitle from '../../hooks/useTitle'
 
 function Habits() {
-
+  useTitle('My habits')
   const navigate = useNavigate() 
   const { user } = useUser()
   const { dispatchNotificationBar } = useNotificationBar()

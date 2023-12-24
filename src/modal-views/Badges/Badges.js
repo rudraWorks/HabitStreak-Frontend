@@ -5,6 +5,8 @@ import React from 'react'
 function Badges({maxStreak}) {
   // alert(maxStreak)
   return ( 
+    <div> 
+    <h3 style={{textAlign:'center',marginBottom:'10px',fontWeight:'200'}}>Maximum streak is {maxStreak} days</h3> 
     <Container>
         <Badge name={"Genesis"} maxStreak={maxStreak} days={10}/>
         <Badge name={"Explorer"} maxStreak={maxStreak} days={30}/>
@@ -12,6 +14,7 @@ function Badges({maxStreak}) {
         <Badge name={"Centurion"} maxStreak={maxStreak} days={100}/>
         <Badge name={"Zenith"} maxStreak={maxStreak} days={180}/>
     </Container>
+    </div>
   )
 }
 
