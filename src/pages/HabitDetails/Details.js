@@ -133,13 +133,30 @@ function Details() {
         setProgressValue(value)
 
       setEmoji(fetchedResponse.emoji)
-      setCalendar(fetchedResponse.calendar.filter((item) => item.value !== 0))
+      // setCalendar(fetchedResponse.calendar.filter((item) => item.value !== 0))
+
+      let tempCalendar = fetchedResponse.calendar.filter((item) => item.value !== 0) 
+      let newCalendar = []
+      for(let i=0;i<tempCalendar.length;++i){
+        let flag=false 
+        for(let j=i+1;j<tempCalendar.length;++j){
+          if(tempCalendar[j].epoch===tempCalendar[i].epoch){
+            flag=true 
+            break  
+          } 
+        }
+        if(!flag)
+          newCalendar.push(tempCalendar[i])
+      }
+      setCalendar(newCalendar)
+      // setCalendar(fetchedResponse.calendar.filter((item) => item.value !== 0)) 
       setArchived(fetchedResponse.archived)
     }
   }, [fetchedResponse])
 
   useEffect(() => {
     setYearsArr([...new Set(calendar.map((item) => new Date(item.epoch).getFullYear()))].sort((a, b) => b - a))
+    console.log("cal length ",calendar.length);
   }, [calendar])
 
   useEffect(() => {

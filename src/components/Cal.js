@@ -73,11 +73,11 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
           // value = flag[0].value; 
           value = x 
         }
-        // let colorarr = ['#30a14e','#40c463','#216e39','#fff']
+        let colorarr = ['#30a14e','#40c463','#216e39','#216e39','#fff']
         items.push({
           title: title,
           value: value,
-          backgroundColor//:colorarr[Math.floor(Math.random()*4)]
+          backgroundColor//:colorarr[Math.floor(Math.random()*5)]
         });
   
         epoch += 1000 * 60 * 60 * 24;
@@ -113,7 +113,7 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
               key={index}
               style={{ ...itemStyle, backgroundColor: item.backgroundColor }}
               onMouseEnter={() => {
-                hoverRef.current.innerHTML = `<b>${item.value}</b> on ${item.title}`;
+                hoverRef.current.innerHTML = `<span style="font-size:14px;color:navy;"><b>${item.value}</b> on ${item.title}</span>`;
               }}
               onMouseLeave={() => {
                 hoverRef.current.innerHTML = '';

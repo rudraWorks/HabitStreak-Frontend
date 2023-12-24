@@ -9,7 +9,10 @@ import {
   TestimonialText,
   TestimonialAuthor,
   HomeHero,
-  ButtonContainer
+  ButtonContainer,
+  HomeHeroContainer,
+  Seek,
+  TopRowImagesContainer,
 } from './Styles';
 import { useNavigate } from 'react-router-dom';
 import Typewriter from '../../components/Typewriter';
@@ -40,11 +43,25 @@ const LandingPage = () => {
       </ButtonContainer>
 
       <br />
-      <HomeHero src='/images/home-hero.webp' />
+
+      {/* <img src='/images/untangle.jpg' /> */}
+      {/* <Seek style={{maxWidth:'95%'}} src='/images/seek.avif' /> */}
+      <TopRowImagesContainer>
+        <img src='/icons/reading.png' />
+        <img src='/icons/exercise.png' />
+        <img src='/icons/study.png' />
+        <img src='/icons/apple.png' />
+        <img src='/icons/cigeratte.png' />
+        <img src='/icons/gym.png' />
+        <img src='/icons/meditate.png' />
+      </TopRowImagesContainer> 
+      <HomeHeroContainer>
+        <HomeHero src='/images/heatmap.png' />
+      </HomeHeroContainer> 
 
       <TestimonialsContainer>
         <TestimonialCard>
-          <TestimonialText>"This app has truly transformed my daily routine. Highly recommended!"</TestimonialText>
+          <TestimonialText>"Having gone through James Clear's Atomic Habits book, I was on the lookout for a similar tool. This application has genuinely revolutionized my day-to-day schedule. I highly endorse it!"</TestimonialText>
           <TestimonialAuthor>- Sarah D.</TestimonialAuthor>
         </TestimonialCard>
 

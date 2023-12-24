@@ -31,7 +31,7 @@ export const Description = styled.p`
 `;
 
 export const GetStartedButton = styled.button`
-  padding: 12px 24px;
+  padding: 10px 17px;
   font-size: 18px;
   background-color: #007bff;
   color: #fff;
@@ -86,9 +86,46 @@ export const TestimonialAuthor = styled.p`
 `;
 
 export const HomeHero = styled.img`
-  width:450px;
-  max-width:90%;
+  // width:900px;
+  // max-width:90%;
 `
+export const HomeHeroContainer = styled.div`
+  max-width:90%;
+  background:redl;
+  overflow:auto;
+  position:relative;
+`
+export const Seek = styled.img`
+  // width:130px;
+  margin-left:auto;
+  margin-right:200px;
+  @media only screen and (max-width: 600px) {
+    width:150px;
+    margin-right:20px;
+  }
+`
+export const TopRowImagesContainer = styled.div`
+  // background:red;
+  display:flex;
+  justify-content:center;
+  margin-top:10px;
+  width:100%;
+  flex-wrap:wrap;
+  margin-bottom:4px;
+  & img{
+    height:50px;
+    margin:20px;
+    margin-top:0;
+    margin-bottom:5px;
+    @media only screen and (max-width: 600px) {
+      height:30px;
+      margin:6px;
+      margin-top:0;
+      margin-bottom:5px;
+    }
+  }
+`
+
 
 export const Logo = () => {
     return (

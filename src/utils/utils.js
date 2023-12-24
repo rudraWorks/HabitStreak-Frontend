@@ -49,11 +49,17 @@ export const getCurrentStreak = (calendar) => {
     if(flag && value)
         str+=1 
     // console.log(calendar,flag)
+    // alert(str)
     return str
 }
 
 export const getMaxStreak = (calendar) => {
     calendar = calendar.sort(function(a, b){return a.epoch-b.epoch})
+    
+    console.log(calendar.length)
+    // console.log(new Date(calendar[5].epoch));
+    // console.log(new Date(calendar[0].epoch));
+    // console.log(new Date(calendar[1].epoch).getTime()-new Date(calendar[0].epoch).getTime()===1000*60*60*24);
     let mx = 0 
     for(let i=0;i<calendar.length;++i){
         if(!calendar[i].value)
@@ -64,10 +70,14 @@ export const getMaxStreak = (calendar) => {
                 ++cnt 
             else 
                 break
-        } 
-        if(cnt>mx)
-            mx=cnt
+        }  
+        // console.log(cnt);
+        mx = Math.max(mx,cnt)
+        // if(cnt>mx)
+        //     mx=cnt
+
     }
+    console.log("max streak",mx);
     return mx
 }
 

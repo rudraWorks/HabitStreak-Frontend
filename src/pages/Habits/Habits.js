@@ -36,7 +36,7 @@ function Habits() {
         })
 
         const json = await response.json()
-        console.log(json)
+        // console.log(json)
         if (!response.ok)
           dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: json.message, type: 'error' } })
 
