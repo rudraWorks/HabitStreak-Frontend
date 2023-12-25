@@ -162,7 +162,7 @@ function About() {
         <h3><img src='/icons/contact.png' /> Contact</h3>
         <ul>
           <li>email: merudra.official@gmail.com</li>
-          <li>twitter: <a href='https://twitter.com/merudra754' target='_blank'>merudra754</a></li>
+          {/* <li>twitter: <a href='https://twitter.com/merudra754' target='_blank'>merudra754</a></li> */}
         </ul>
       </Section>
 
