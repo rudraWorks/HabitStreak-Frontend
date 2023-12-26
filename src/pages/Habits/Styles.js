@@ -1,16 +1,17 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width:100%;
+    width:980px;
     @media only screen and (max-width: 600px) {
         width:100%;
     }
     // background:blue;
+    max-width:100%;
 `
 
 export const Heading = styled.div`
     position:sticky;
-    width:60%;
+    width:800px;
     top:69px;
     background:white;
     padding:5px;
@@ -28,6 +29,7 @@ export const Heading = styled.div`
     }
     display:flex;
     align-items:center;
+    max-width:100%;
 `
 export const ArchivedButton = styled.button`
     margin-left:auto;
