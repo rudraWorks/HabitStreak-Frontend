@@ -236,7 +236,7 @@ export const SelectYear = styled.div`
 
 export const StreaklineContainer = styled.div`
     margin-top:15px;
-    background:#D1FAE5;
+    background:#d9ffec;
     width:100%;
     padding:10px;
     height:105px;
