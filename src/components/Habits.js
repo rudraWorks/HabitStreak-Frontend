@@ -65,11 +65,11 @@ const Name = styled.h2`
   overflow-wrap:break-word;
 
   top:20px;
-  font-size:1.4rem;
+  font-size:1.3rem;
   font-weight:400;
   left:10px;
   @media only screen and (max-width: 600px) {
-    font-size:1.3rem;
+    font-size:1.2rem;
   }
 
 `
