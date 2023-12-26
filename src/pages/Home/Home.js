@@ -60,10 +60,16 @@ const LandingPage = () => {
         {/* <HomeHero src='/images/heatmap.png' /> */}
         {/* <HomeHero src='/images/readbooksdailygif.gif' /> */}
         <VideoContainer>
-        <video controls={false} muted autoPlay loop style={{marginTop:'10px'}}>
+        {/* <video controls={false} muted autoPlay loop style={{marginTop:'10px'}}>
             <source src="/images/readbooksdaily.webm" type="video/webm" />
 
             <source src="/images/readbooksdaily.webm" type="video/mp4" />
+
+          </video> */}
+                  <video controls={false} muted autoPlay loop style={{marginTop:'10px'}}>
+            <source src="/images/intro.mp4" type="video/webm" />
+
+            <source src="/images/intro.mp4" type="video/mp4" />
 
           </video>
         </VideoContainer>
