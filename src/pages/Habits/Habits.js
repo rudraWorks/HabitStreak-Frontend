@@ -56,10 +56,10 @@ function Habits() {
 
   useEffect(()=>{
     if(toggleArchived){
-      setShowArr(habitsArr.filter((habit)=>habit.archived===1))
+      setShowArr(habitsArr.filter((habit)=>habit.archived===1).sort((a, b) => ( isDoneToday(a.calendar) && !isDoneToday(b.calendar)) ? -1 : (!isDoneToday(a.calendar) && isDoneToday(b.calendar)) ? 1 : 0))
     }
     else {
-      setShowArr(habitsArr.filter((habit)=>habit.archived===-1))
+      setShowArr(habitsArr.filter((habit)=>habit.archived===-1).sort((a, b) => ( isDoneToday(a.calendar) && !isDoneToday(b.calendar)) ? -1 : (!isDoneToday(a.calendar) && isDoneToday(b.calendar)) ? 1 : 0))
     } 
   },[habitsArr,toggleArchived])
 
