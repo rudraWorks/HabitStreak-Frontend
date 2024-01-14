@@ -38,7 +38,7 @@ function Details() {
 
   const [fetching, setFetching] = useState(false)
   const { user } = useUser()
-  const { dispatchModal } = useModal()
+  const { modal,dispatchModal } = useModal()
 
   const [fetchedResponse, setFetchedResponse] = useState(null)
   const [explodeConfetti, setExplodeConfetti] = useState(false)
@@ -202,7 +202,12 @@ function Details() {
       <Container>
         <HabitTitle>
           {capitalize(habit)}
-          <img style={{ cursor: 'pointer' }} onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Settings setHabit={setHabit} habit={habit} user={user} archived={fetchedResponse.archived} setArchived={setArchived} archived={archived} /> })} src='/icons/settings.png' />
+          <img style={
+            { cursor: 'pointer', 
+              transform: modal ? 'rotate(25deg)' : 'rotate(0deg)',
+              transition: 'transform .15s ease-in-out'
+            }
+          } onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Settings setHabit={setHabit} habit={habit} user={user} archived={fetchedResponse.archived} setArchived={setArchived} archived={archived} /> })} src='/icons/settings.png'  />
         </HabitTitle>
         <Streak>
           <Today>

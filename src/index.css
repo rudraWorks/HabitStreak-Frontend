@@ -6,6 +6,7 @@
 
 html {
   height: 100%;
+  overflow-y: scroll;
 }
 
 body {
@@ -44,7 +45,7 @@ body::-webkit-scrollbar
 
 body::-webkit-scrollbar-thumb
 {
-	background-color: #3B82F6;	
+	background-color: #5390f1;	
 	background-image: -webkit-linear-gradient(45deg,
 	                                          rgba(255, 255, 255, .2) 25%,
 											  transparent 25%,
