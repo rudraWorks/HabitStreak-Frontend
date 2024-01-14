@@ -17,12 +17,12 @@ function Root() {
     dispatchModal({ type: 'SET_CONTENT', content: <TimeLeft /> })
   }
 
-  if (modal) {
-    disableScroll()
-  }
-  else {
-    enableScroll()
-  }
+  // if (modal) {
+  //   disableScroll()
+  // }
+  // else {
+  //   enableScroll()
+  // }
 
 
   return (
