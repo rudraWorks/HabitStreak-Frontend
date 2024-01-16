@@ -17,15 +17,15 @@ function Root() {
     dispatchModal({ type: 'SET_CONTENT', content: <TimeLeft /> })
   }
 
-  // if (modal) {
+  if (modal) {
   // //   disableScroll()
-  //     document.getElementsByTagName('body')[0].style.maxHeight="90%"
-  // }
-  // else {
+      document.getElementsByTagName('body')[0].style.overflow="hidden"
+  }
+  else {
   // //   enableScroll()
-  //   document.getElementsByTagName('body')[0].style.height="auto"
+    document.getElementsByTagName('body')[0].style.overflow="auto"
 
-  // }
+  }
 
 
   return (

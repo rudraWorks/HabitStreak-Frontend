@@ -204,8 +204,8 @@ function Details() {
           {capitalize(habit)}
           <img style={
             { cursor: 'pointer', 
-              transform: modal ? 'rotate(25deg)' : 'rotate(0deg)',
-              transition: 'transform .15s ease-in-out'
+              // transform: modal ? 'rotate(25deg)' : 'rotate(0deg)',
+              // transition: 'transform .15s ease-in-out'
             }
           } onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Settings setHabit={setHabit} habit={habit} user={user} archived={fetchedResponse.archived} setArchived={setArchived} archived={archived} /> })} src='/icons/settings.png'  />
         </HabitTitle>
