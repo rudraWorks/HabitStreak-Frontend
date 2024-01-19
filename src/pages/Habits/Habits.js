@@ -24,7 +24,7 @@ function Habits() {
   const [showArr, setShowArr] = useState([])
 
   const [toggleArchived, setToggleArchived] = useState(false)
-  const [toggleRowView, setToggleRowView] = useState(true)
+  const [toggleRowView, setToggleRowView] = useState(false)
 
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonthAndYear().month)
   const [currentYear, setCurrentYear] = useState(getCurrentMonthAndYear().year)
