@@ -16,6 +16,8 @@ const Container = styled.div`
   color:#1F2937;
   margin:10px;
   cursor:pointer;
+  /* border:1px solid #D1D5DB; */
+
   @media only screen and (max-width: 600px) {
     width:100%;
   }
@@ -45,6 +47,7 @@ export const Streak = styled.div`
   background:#D1D5DB;
   padding:3px;
   padding-left:8px;
+  /* border: 1px solid #9CA3AF; */
   padding-right:8px;
   border-radius:10000px;
   &>img{

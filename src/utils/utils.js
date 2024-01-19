@@ -127,6 +127,10 @@ export const getBackgroundColor = (val,calendar) => {
     let l1 = mx*.25
     let l2 = mx*.5
     let l3 = mx*.75
+
+    if(!val)
+        return '#fff'
+
     if(val<l1)
         return '#9be9a8'
     if(val<l2)
@@ -134,4 +138,97 @@ export const getBackgroundColor = (val,calendar) => {
     if(val<l3)
         return '#30a14e'
     return '#216e39' 
+
+    // Shades of blue
+    // if (val < l1) {
+    //     return '#a6dcef';
+    // }
+    // if (val < l2) {
+    //     return '#6cb2eb';
+    // }
+    // if (val < l3) {
+    //     return '#3490dc';
+    // }
+    // return '#1c4e80'; // Darkest shade of blue
+
+
+
+    // Shades of gray
+    if (val < l1) {
+        return '#e0e0e0'; // Lightest shade of gray
+    }
+    if (val < l2) {
+        return '#b0b0b0';
+    }
+    if (val < l3) {
+        return '#808080';
+    }
+    return '#404040'; // Darkest shade of gray
+}
+
+export const monthIndexMap = {
+    0: 'January',
+    1: 'February',
+    2: 'March',
+    3: 'April',
+    4: 'May',
+    5: 'June',
+    6: 'July',
+    7: 'August',
+    8: 'September',
+    9: 'October',
+    10: 'November',
+    11: 'December'
+}
+export const getCurrentMonthAndYear = () => {
+    const today = new Date()
+
+    return {month:monthIndexMap[today.getMonth()],year:today.getFullYear()}
+}
+ 
+export function getDaysInMonth(month, year) {
+    const monthIndex = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].indexOf(month);
+
+    if (monthIndex === -1) {
+        // Invalid month name
+        return 'Invalid month name';
+    }
+
+    const date = new Date(year, monthIndex + 1, 0);
+    return date.getDate();
+}
+
+function sortMonths(monthsArray) {
+    const monthOrder = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    // Custom sorting function based on the predefined order
+    monthsArray.sort((a, b) => {
+        return monthOrder.indexOf(a) - monthOrder.indexOf(b);
+    });
+
+    return monthsArray;
+}
+
+export const getAvailableMonthsAndYears = (habits) => {
+    const calendars = []
+    for(let i=0;i<habits.length;++i)
+        calendars.push(habits[i].calendar)
+    
+    const months = [monthIndexMap[new Date().getMonth()]]
+    const years = [new Date().getFullYear()]
+    for(let i=0;i<calendars.length;++i){
+        for(let j=0;j<calendars[i].length;++j){
+            const d = new Date(calendars[i][j].epoch) 
+            const m = monthIndexMap[d.getMonth()]
+            const y = d.getFullYear()
+            if(!months.includes(m))
+                months.push(m)
+            if(!years.includes(y))
+                years.push(y)
+        }
+    }
+    return {months:sortMonths(months),years}
 }

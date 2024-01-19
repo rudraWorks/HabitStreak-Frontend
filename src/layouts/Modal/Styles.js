@@ -6,7 +6,7 @@ export const ModalContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   min-width: 300px;
-  min-height: 200px;
+  min-height: 100px;
   max-width: 95%;
   max-height: 95%;
   z-index: 3000000;
@@ -14,7 +14,7 @@ export const ModalContainer = styled.div`
   border-radius: 10px;
   padding: 25px;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   @media only screen and (max-width: 600px) {
     top:30%;
@@ -24,6 +24,7 @@ export const ModalContainer = styled.div`
   & img{
     max-width:97%;
   }
+  overflow: auto;
 `
 
 export const BACKGROUND_STYLES = {
