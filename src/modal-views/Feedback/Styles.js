@@ -4,6 +4,7 @@ export const RatingRow = styled.div`
     /* background:red; */
     display: flex;
     align-items: center;
+    /* flex-wrap: wrap; */
     padding:5px;
     &>span:nth-child(1){
         margin-right: 15px;

@@ -6,7 +6,7 @@ import AuthFailed from '../../components/AuthFailed'
 import Loading from '../../components/Loading'
 import useUser from '../../hooks/useUser'
 import useNotificationBar from '../../hooks/useNotificationBar'
-import { capitalize, getCurrentStreak, denomiator, isDoneToday, getCurrentMonthAndYear, getAvailableMonthsAndYears } from '../../utils/utils'
+import { capitalize, getCurrentStreak, denomiator, isDoneToday, getCurrentMonthAndYear, getAvailableMonthsAndYears, enableRowModeInLocalStorage, isRowModeEnabledInLocalStorage } from '../../utils/utils'
 import useTitle from '../../hooks/useTitle'
 import { DayBoxesContainer, MonthDatesRow } from './Components'
 import useModal from '../../hooks/useModal'
@@ -24,7 +24,7 @@ function Habits() {
   const [showArr, setShowArr] = useState([])
 
   const [toggleArchived, setToggleArchived] = useState(false)
-  const [toggleRowView, setToggleRowView] = useState(false)
+  const [toggleRowView, setToggleRowView] = useState(isRowModeEnabledInLocalStorage())
 
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonthAndYear().month)
   const [currentYear, setCurrentYear] = useState(getCurrentMonthAndYear().year)
@@ -82,6 +82,9 @@ function Habits() {
 
   }, [habitsArr, toggleArchived]) 
 
+  useEffect(()=>{
+    enableRowModeInLocalStorage(toggleRowView)
+  },[toggleRowView])
 
   if (!user)
     return <AuthFailed />

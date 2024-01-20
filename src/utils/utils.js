@@ -232,3 +232,15 @@ export const getAvailableMonthsAndYears = (habits) => {
     }
     return {months:sortMonths(months),years}
 }
+
+export const isRowModeEnabledInLocalStorage = () => {
+    const check = localStorage.getItem('rowModeEnabled')
+    if(!check)
+        return false 
+    return JSON.parse(check)
+}
+
+export const enableRowModeInLocalStorage = (value) => {
+    localStorage.setItem('rowModeEnabled',JSON.stringify(value))
+}
+

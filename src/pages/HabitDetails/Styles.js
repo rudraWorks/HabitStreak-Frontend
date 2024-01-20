@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
     width:980px;
     min-height:500px;
     max-width:100%;
@@ -64,6 +63,7 @@ export const HabitTitle = styled.h1`
             height:1.4rem;
         }
     }
+    
 `   
 
 export const Streak = styled.div`
