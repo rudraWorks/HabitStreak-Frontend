@@ -134,7 +134,7 @@ function Habits() {
                   <Row key={index} >
                     <HabitNameInRow onClick={() => showHabitDetails(capitalize(habit.name))}>
                       {habit.emoji}&nbsp;
-                      <span style={{ background: 'redl' }}>{habit.name.length > 17 ? capitalize(habit.name.slice(0, 17)) + '..' : capitalize(habit.name)}</span>
+                      <span style={{ background: 'redl' }}>{habit.name.length > 15 ? capitalize(habit.name.slice(0, 15)) + '..' : capitalize(habit.name)}</span>
                     </HabitNameInRow>
                     <DayBoxesContainer name={habit.name}  habits={habitsArr} month={currentMonth} year={currentYear} />
                   </Row>
