@@ -12,6 +12,7 @@ import { DayBoxesContainer, MonthDatesRow } from './Components'
 import useModal from '../../hooks/useModal'
 import SelectYear from '../../modal-views/SelectYear/SelectYear'
 import SelectMonth from '../../modal-views/SelectMonth/SelectMonth'
+import GridTheme from '../../modal-views/GridTheme/GridTheme'
 
 function Habits() {
   useTitle('My habits')
@@ -116,6 +117,10 @@ function Habits() {
                 <ControlButton onClick={()=>dispatchModal({type:'SET_CONTENT',content:<SelectMonth monthsArr={availableMonths} setCurrentMonth={setCurrentMonth} />})}>{currentMonth} <span>&#9660;</span></ControlButton>
                 &nbsp; 
                 <ControlButton  onClick={()=>dispatchModal({type:'SET_CONTENT',content:<SelectYear yearsArr={availableYears} setCurrentYear={setCurrentYear} />})}>{currentYear} <span>&#9660;</span></ControlButton>
+                &nbsp; 
+                <ControlButton  onClick={()=>dispatchModal({type:'SET_CONTENT',content:<GridTheme/>})}>Theme <span>&#9660;</span></ControlButton>
+
+
               </Controls>
             </Row>
             <Row index="toprow" style={{ background: '#BFDBFEl', marginBottom: '3px', borderRadius: '5px' }}>

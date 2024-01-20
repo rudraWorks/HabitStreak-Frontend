@@ -19,6 +19,7 @@ import { useNavigate } from 'react-router-dom';
 import Typewriter from '../../components/Typewriter';
 import useUser from '../../hooks/useUser'
 import { VideoContainer } from '../About/Styles';
+import ProductHuntBadge from './ProductHuntBadge';
 
 const LandingPage = () => {
   useTitle('Home')
@@ -38,7 +39,10 @@ const LandingPage = () => {
       <Description>
         Build habits, track your progress, get badges and achieve your goals with HabitStreak.
       </Description>
-
+      
+      {/* <ProductHuntBadge/>
+      <br/> */}
+      
       <ButtonContainer>
         <GetStartedButton onClick={() => navigate('/about')}>Learn more </GetStartedButton>
         <GetStartedButton onClick={handleGetStarted}>{user ? "My habits":"Get Started"} </GetStartedButton>

@@ -131,6 +131,39 @@ export const getBackgroundColor = (val,calendar) => {
     if(!val)
         return '#fff'
 
+    
+
+
+    // Shades of blue
+    if(getGridTheme()==='blue'){
+        if (val < l1) {
+            return '#a6dcef';
+        }
+        if (val < l2) {
+            return '#6cb2eb';
+        }
+        if (val < l3) {
+            return '#3490dc';
+        }
+        return '#1c4e80'; // Darkest shade of blue
+    }
+ 
+
+    // Shades of gray
+    if(getGridTheme()==='gray'){
+        if (val < l1) {
+            return '#e0e0e0'; // Lightest shade of gray
+        }
+        if (val < l2) {
+            return '#b0b0b0';
+        }
+        if (val < l3) {
+            return '#808080';
+        }
+        return '#404040'; // Darkest shade of gray
+    }
+
+    //shades of green
     if(val<l1)
         return '#9be9a8'
     if(val<l2)
@@ -138,32 +171,6 @@ export const getBackgroundColor = (val,calendar) => {
     if(val<l3)
         return '#30a14e'
     return '#216e39' 
-
-    // Shades of blue
-    // if (val < l1) {
-    //     return '#a6dcef';
-    // }
-    // if (val < l2) {
-    //     return '#6cb2eb';
-    // }
-    // if (val < l3) {
-    //     return '#3490dc';
-    // }
-    // return '#1c4e80'; // Darkest shade of blue
-
-
-
-    // Shades of gray
-    if (val < l1) {
-        return '#e0e0e0'; // Lightest shade of gray
-    }
-    if (val < l2) {
-        return '#b0b0b0';
-    }
-    if (val < l3) {
-        return '#808080';
-    }
-    return '#404040'; // Darkest shade of gray
 }
 
 export const monthIndexMap = {
@@ -244,3 +251,15 @@ export const enableRowModeInLocalStorage = (value) => {
     localStorage.setItem('rowModeEnabled',JSON.stringify(value))
 }
 
+
+
+export const getGridTheme = () => {
+    const theme = localStorage.getItem('theme')
+    if(!theme)
+        return 'green'
+    return theme
+}
+
+export const setGridTheme = (value) => {
+    localStorage.setItem('theme',value)
+}
