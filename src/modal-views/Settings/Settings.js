@@ -3,9 +3,10 @@ import { Container, RenameHabit, DeleteHabit, DeleteButton, BottomRow, ArchiveBu
 import { Input, Button } from '../../pages/Add/Styles'
 import useModal from '../../hooks/useModal'
 import { useNavigate } from 'react-router-dom'
+import SuccessFailureMessageBox from '../../components/SuccessFailureMessageBox'
 
-function Settings({ habit, setHabit, user, archived,setArchived}) {
-    const [renaming, setRenaming] = useState(false) 
+function Settings({ habit, setHabit, user, archived, setArchived }) {
+    const [renaming, setRenaming] = useState(false)
     const [deleting, setDeleting] = useState(false)
     const [archiving, setArchiving] = useState(false)
     const [error, setError] = useState('')
@@ -69,7 +70,7 @@ function Settings({ habit, setHabit, user, archived,setArchived}) {
         try {
             const response = await fetch(`${process.env.REACT_APP_BASE_URL}/habit/archiveHabit`, {
                 method: 'PUT',
-                headers: { 
+                headers: {
                     "Content-Type": "application/json",
                     "Authorization": user.token
                 },
@@ -80,17 +81,22 @@ function Settings({ habit, setHabit, user, archived,setArchived}) {
                 setError(json.message)
             else {
                 dispatchModal({ type: 'CLOSE' })
-                setArchived((p)=>p*-1)
+                setArchived((p) => p * -1)
             }
         }
         catch (e) {
             setError(e.message)
         }
         setArchiving(false)
-    } 
+    }
     return (
         <Container>
-            <span style={{ color: 'red' }}>{error}</span>
+            {    
+                error &&
+                <SuccessFailureMessageBox error={true}>
+                    <span style={{ color: 'red' }}>{error}</span>
+                </SuccessFailureMessageBox>
+            }
             <h3>Rename habit</h3>
             <RenameHabit>
                 <Input value={tempHabit} onInput={(e) => setTempHabit(e.target.value)} /> <Button onClick={handleRename} disabled={renaming}>{renaming ? 'Renaming' : 'Rename'}</Button>
@@ -99,17 +105,17 @@ function Settings({ habit, setHabit, user, archived,setArchived}) {
                 <div>
                     <h3>Archive habit</h3>
                     <DeleteHabit>
-                        { 
-                                archived===-1?
+                        {
+                            archived === -1 ?
                                 <ArchiveButton disabled={archiving} onClick={handleArchive}>{archiving ? 'Archiving' : 'Archive'}</ArchiveButton>
                                 :
                                 <ArchiveButton disabled={archiving} onClick={handleArchive}>{archiving ? 'Restoring' : 'Restore'}</ArchiveButton>
-                            
+
                         }
 
                     </DeleteHabit>
                 </div>
-
+ 
                 <div>
                     <h3>Delete habit</h3>
                     <DeleteHabit>

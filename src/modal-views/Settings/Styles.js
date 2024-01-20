@@ -20,6 +20,7 @@ export const RenameHabit = styled.div`
         margin:0;
         margin-left:10px;
         width:100px;
+        border-radius: .25rem;
     }
     margin-bottom:15px;
 `

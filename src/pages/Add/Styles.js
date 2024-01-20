@@ -49,7 +49,8 @@ export const Right = styled.div`
     align-items:center;
     flex-direction:column;
     border-radius:15px;
-    background:#F3F4F6;
+    background:#f7f9fd;
+    /* border: 1px solid lightgray; */
     padding:20px;
     word-wrap:break-word;
     word-break:break-all;
@@ -121,7 +122,8 @@ export const Button = styled.button`
     border: 1px solid transparent;
     padding: 6px 12px;
     font-size: 1rem;
-    border-radius: .25rem;
+    /* border-radius: .25rem; */
+    border-radius: 1000px;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     color: #0d6efd;
     border-color: #0d6efd;

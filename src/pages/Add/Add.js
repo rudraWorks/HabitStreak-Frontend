@@ -11,6 +11,7 @@ import { EmojiContainer } from './Styles';
 import Emoji from '../../modal-views/Emoji/Emoji';
 import { useNavigate } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle'
+import SuccessFailureMessageBox from '../../components/SuccessFailureMessageBox'
 
 function Add() {
   useTitle('Create habit')
@@ -27,6 +28,7 @@ function Add() {
 
   const [submitting, setSubmitting] = useState(false)
 
+  const [error,setError] = useState('')
 
 
 
@@ -57,7 +59,8 @@ function Add() {
 
         const json = await response.json()
         if (!response.ok) {
-          dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: json.message, type: 'error' } })
+          // dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: json.message, type: 'error' } })
+          setError(json.message)
         }
         else {
           dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: json.message, type: 'success' } })
@@ -66,7 +69,8 @@ function Add() {
         }
       }
       catch (e) {
-        dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: e.message, type: 'error' } })
+        // dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: e.message, type: 'error' } })
+        setError(e.message)
       }
       setSubmitting(false)
     }
@@ -122,6 +126,12 @@ function Add() {
               <EmojiContainer>{emoji}</EmojiContainer>
               <ThemeButton onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Emoji setEmoji={setEmoji} /> })}>Change theme</ThemeButton>
             </div>
+            {   
+                error &&
+                <SuccessFailureMessageBox error={true}>
+                    <span style={{ color: 'red' }}>{error}</span>
+                </SuccessFailureMessageBox> 
+            }
             <Button disabled={submitting} onClick={handleSubmit}>{submitting ? "Submitting..." : "Submit"}</Button>
           </>
         ) : (

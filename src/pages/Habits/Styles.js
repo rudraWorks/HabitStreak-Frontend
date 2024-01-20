@@ -88,6 +88,9 @@ export const Img = styled.img`
 `
 export const HabitsContainerRowView = styled.div`
     /* background:red;     */
+    /* transform: translate(50%) rotate(90deg);
+    -webkit-transform-origin: left top  ;
+    transform-origin: left top ; */
     /* background-color: gray; */
     margin-top: 10px;
     /* width:95%; */
