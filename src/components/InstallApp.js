@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from '../pages/Add/Styles';
 
-const PwaDownloadButton = () => {
+const AddToHomeScreenButton = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const PwaDownloadButton = () => {
     };
   }, []);
 
-  const handleInstallClick = () => {
+  const handleAddToHomeScreen = () => {
     if (deferredPrompt) {
       // Trigger the installation prompt
       deferredPrompt.prompt();
@@ -40,9 +39,10 @@ const PwaDownloadButton = () => {
 
   return (
     <div>
-      <button onClick={handleInstallClick}>Download App</button>
+      <p>Click the button to add this website to your home screen:</p>
+      <button onClick={handleAddToHomeScreen}>Add to Home Screen</button>
     </div>
   );
 };
 
-export default PwaDownloadButton;
+export default AddToHomeScreenButton;

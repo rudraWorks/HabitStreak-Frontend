@@ -9,7 +9,7 @@ import useNotficationBar from '../../hooks/useNotificationBar'
 import AuthFailed from '../../components/AuthFailed'
 import Loading from '../../components/Loading'
 import useUser from '../../hooks/useUser'
-import { capitalize, denomiator, getCurrentStreak, getMaxStreak, todaysEpoch } from '../../utils/utils'
+import { capitalize, denomiator, getCurrentStreak, getMaxStreak, isDoneToday, todaysEpoch } from '../../utils/utils'
 import Notfound from '../../components/Notfound'
 import EmojiModal from '../../modal-views/Emoji/Emoji'
 import useModal from '../../hooks/useModal'
@@ -210,8 +210,8 @@ function Details() {
           } onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Settings setHabit={setHabit} habit={habit} user={user} archived={fetchedResponse.archived} setArchived={setArchived} archived={archived} /> })} src='/icons/settings.png'  />
         </HabitTitle>
         <Streak>
-          <Today>
-            <span>Today</span>
+          <Today> 
+            <span>{isDoneToday(calendar)?'✔️':'❌'} Today</span>
             <TodayCheckboxAndButtonContainer>
               {fetchedResponse?.type === 'Integer' ? <input value={progressValue} type='Number' onInput={(e) => setProgressValue(parseInt(e.target.value))} /> : <Checkbox progressValue={progressValue} setProgressValue={setProgressValue} />}
               <button disabled={submitting} onClick={handleSubmit}>{submitting ? "Submitting..." : "Submit"}</button>
@@ -232,7 +232,7 @@ function Details() {
 
         <StreakDetails>
           <CurrentStreakAndCircularProgressContainer>
-            <span>Current Streak</span>
+            <span>💥 Current Streak</span>
             <div>
               <CircularProgress x={getCurrentStreak(calendar)} y={denomiator(getCurrentStreak(calendar))}></CircularProgress>
             </div>
@@ -242,7 +242,7 @@ function Details() {
 
         <StreaklineContainer>
           <div>
-            <span>Streak progress</span>
+            <span>🚀 Streak progress</span>
             <BadgesButton onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Badges maxStreak={getMaxStreak(calendar)} /> })}>Badges</BadgesButton>
           </div>
           <StreakLine streak={getCurrentStreak(calendar)} />
