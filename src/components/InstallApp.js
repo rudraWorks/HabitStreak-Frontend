@@ -1,46 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
+import { Button } from '../pages/Add/Styles';
 
-const StyledButton = styled.button`
-  padding: 10px 15px;
-  font-size: 16px;
-  background-color: ${props => (props.disabled ? '#ccc' : '#4caf50')};
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
-  outline: none;
-
-  &:hover {
-    background-color: ${props => (props.disabled ? '#ccc' : '#45a049')};
-  }
-`;
-
-const InstallPWAButton = () => {
+const PwaDownloadButton = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (event) => {
-      // Prevent the default behavior to avoid showing the browser's install prompt
+      // Prevent the default behavior of the beforeinstallprompt event
       event.preventDefault();
-
-      // Store the event for later use
+      // Stash the event so it can be triggered later
       setDeferredPrompt(event);
     };
 
+    // Add event listener for beforeinstallprompt
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
 
-    // Clean up event listener on unmount
     return () => {
+      // Remove event listener when the component unmounts
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     };
   }, []);
 
   const handleInstallClick = () => {
-    // If the deferredPrompt is available, prompt the user to install
     if (deferredPrompt) {
+      // Trigger the installation prompt
       deferredPrompt.prompt();
-
       // Wait for the user to respond to the prompt
       deferredPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === 'accepted') {
@@ -48,18 +32,17 @@ const InstallPWAButton = () => {
         } else {
           console.log('User dismissed the install prompt');
         }
-
-        // Reset the deferredPrompt state
+        // Clear the deferredPrompt variable
         setDeferredPrompt(null);
       });
     }
   };
 
   return (
-    <StyledButton onClick={handleInstallClick} disabled={!deferredPrompt}>
-      Install App
-    </StyledButton>
+    <div>
+      <button onClick={handleInstallClick}>Download App</button>
+    </div>
   );
 };
 
-export default InstallPWAButton;
+export default PwaDownloadButton;

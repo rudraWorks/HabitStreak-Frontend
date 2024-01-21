@@ -3,6 +3,7 @@ import { ButtonContainer, Container, Section, SectionInner,VideoContainer } from
 import { Button } from '../Add/Styles';
 import { useNavigate } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle'
+import InstallApp from '../../components/InstallApp'
 
 function About() {
   useTitle('About')
@@ -165,6 +166,7 @@ function About() {
           {/* <li>twitter: <a href='https://twitter.com/merudra754' target='_blank'>merudra754</a></li> */}
         </ul>
       </Section>
+      <InstallApp/>
 
       <br />
       <br />
