@@ -14,12 +14,16 @@ const MessageContainer = styled.div`
 
 const CloseButton = styled.button`
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  font-weight: bolder;
+  color:gray;
+  border: none;
   cursor: pointer; 
 `;
 
- const Message = ({ children, success, error, onClose }) => {
+ const Message = ({ children, success, error, onClose, showCloseButton }) => {
   const [closed, setClosed] = useState(false);
 
   const handleClose = () => {
@@ -29,7 +33,7 @@ const CloseButton = styled.button`
 
   return !closed ? (
     <MessageContainer success={success} error={error}>
-      {/* <CloseButton onClick={handleClose}>&times;</CloseButton> */}
+      {showCloseButton && <CloseButton onClick={handleClose}>X</CloseButton>}
       {children}
     </MessageContainer>
   ) : null;

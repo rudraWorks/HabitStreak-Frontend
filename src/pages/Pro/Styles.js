@@ -84,7 +84,7 @@ export const BuyNow = styled.button`
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 1005px;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
@@ -92,7 +92,7 @@ export const BuyNow = styled.button`
     &:hover {
         background-color: #0056b3;
     }
-    margin-top:30px;
+    margin-top:10px;
     width:200px;
     @media only screen and (max-width: 600px) {
         font-size:1rem;
