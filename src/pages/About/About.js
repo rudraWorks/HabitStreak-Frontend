@@ -166,7 +166,7 @@ function About() {
           {/* <li>twitter: <a href='https://twitter.com/merudra754' target='_blank'>merudra754</a></li> */}
         </ul>
       </Section>
-      <InstallApp/>
+      {/* <InstallApp/> */}
 
       <br />
       <br />
