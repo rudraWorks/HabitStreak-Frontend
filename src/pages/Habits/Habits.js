@@ -131,8 +131,8 @@ function Habits() {
             {
               showArr.map((habit, index) => {
                 return (
-                  <Row key={index} >
-                    <HabitNameInRow onClick={() => showHabitDetails(capitalize(habit.name))}>
+                  <Row key={index} > 
+                    <HabitNameInRow title={habit.name} onClick={() => showHabitDetails(capitalize(habit.name))}>
                       {habit.emoji}&nbsp;
                       <span style={{ background: 'redl' }}>{habit.name.length > 15 ? capitalize(habit.name.slice(0, 15)) + '..' : capitalize(habit.name)}</span>
                     </HabitNameInRow>
