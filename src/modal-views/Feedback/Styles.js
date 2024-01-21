@@ -17,7 +17,7 @@ export const SuggestionInput = styled.textarea`
 `
 export const Container = styled.div`
     &>h2{
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         text-align: center;
         margin-bottom: 20px;
     }

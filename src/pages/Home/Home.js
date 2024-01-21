@@ -22,7 +22,7 @@ import { VideoContainer } from '../About/Styles';
 import ProductHuntBadge from './ProductHuntBadge';
 
 const LandingPage = () => {
-  useTitle('Home')
+  useTitle('Home - HabitStreak')
   const navigate = useNavigate()
   const {user} = useUser()
 
