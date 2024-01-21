@@ -132,6 +132,8 @@ export const Today = styled.div`
         height:28px;
         align-self:center;
         padding:5px 10px;
+        display: flex;
+        align-items: center;
 
         cursor:pointer;
         border:1px solid gray;
