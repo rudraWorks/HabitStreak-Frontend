@@ -23,39 +23,36 @@ const Box = styled.div`
 
 const WeekComponent = ({ weekInfo }) => {
 
+    let ans = []
     let weekStartEpoch = new Date(getMondayDate()).getTime()
-    
-    const weekInfoTemp = []
-    while(weekInfo.length && weekInfo[0].epoch>weekStartEpoch){
-        weekInfoTemp.push({color:'#fff',value:'0'})
-        weekStartEpoch+=24*60*60*1000
-    }
-    weekStartEpoch = new Date(getMondayDate()).getTime()
-
-    if(weekInfo.length===0){
-        const todaysEpoch = getTodaysEpoch()
-        while(weekStartEpoch<todaysEpoch){
-            weekInfoTemp.push({color:'#fff',value:'0'})
-            weekStartEpoch+=24*60*60*1000
+    for (let i = 0; i < 7; ++i) {
+        const p = weekInfo.filter((day) => day.epoch === weekStartEpoch)
+        if (p.length) {
+            ans.push({
+                value: p[0].value,
+                epoch: weekStartEpoch
+            })
         }
+        else{
+            ans.push({
+                value:'0',
+                epoch:weekStartEpoch
+            })
+        }
+        weekStartEpoch += 24 * 60 * 60 * 1000
     }
 
-    for(let i=0;i<weekInfo.length;++i){
-        weekInfoTemp.push(weekInfo[i])
-    } 
-    // console.log(weekInfo)
-    weekInfo = weekInfoTemp
-    // console.log(weekInfoTemp)
+    weekInfo = ans 
 
-    const dayValues = weekInfo.map((day)=>{
+    const dayValues = weekInfo.map((day) => {
         return {
-            color: getBackgroundColor(day.value,weekInfo),
+            color: getBackgroundColor(day.value, weekInfo),
             value: day.value
         }
     })
 
-    while(dayValues.length<7){
-        dayValues.push({color:'#fff',value:'?'})
+    while (dayValues.length < 7) {
+        dayValues.push({ color: '#fff', value: '?' })
     }
 
     const minValue = Math.min(...dayValues);
@@ -65,20 +62,20 @@ const WeekComponent = ({ weekInfo }) => {
     return (
         <div style={{ display: 'flex', background: 'redl', flexWrap: 'wrap', justifyContent: 'center' }}>
             {dayValues.map((item, index) => (
-                <div key={index} style={{background:'grayl'}}>
+                <div key={index} style={{ background: 'grayl' }}>
 
                     <Box style={{ backgroundColor: item.color }}>
                     </Box>
-                    <span style={{marginTop:'3px',fontSize:'.8rem',display:'flex',justifyContent:'center',flexDirection:'column'}}>
+                    <span style={{ marginTop: '3px', fontSize: '.8rem', display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
                         {item.value}
                     </span>
-                    { 
-                    (index   === (getTodaysEpoch()-new Date(getMondayDate()).getTime())/(24*60*60*1000)) &&  <span style={{color:'red'}}>&#9650;</span>
-                    } 
-                </div> 
+                    {
+                        (index === (getTodaysEpoch() - new Date(getMondayDate()).getTime()) / (24 * 60 * 60 * 1000)) && <span style={{ color: 'red' }}>&#9650;</span>
+                    }
+                </div>
             ))}
-        </div> 
-    ); 
+        </div>
+    );
 };
 
 export default WeekComponent;
