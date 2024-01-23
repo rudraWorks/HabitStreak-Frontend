@@ -65,6 +65,7 @@ function Pro() {
           <span style={{ marginTop: '10px' }}> <b>No</b> monthly charges, <b>one</b> time payment only!</span>
           <span style={{ marginTop: '10px' }}>$1 only! (₹ 85)</span>
           <br/>
+          {/*  
           <div>
             <p>Use code <strong>{discountCode}</strong> and get 24% off!</p>
             <button style={{padding:'5px 10px',cursor:'pointer',marginTop:'5px'}} onClick={handleCopyCode}>Copy Code</button>
@@ -74,7 +75,7 @@ function Pro() {
                 Code copied to clipboard
               </Message>
             }
-          </div>
+          </div> */}
           
 
           <BuyNow onClick={checkout}>$1 pay now</BuyNow>
