@@ -263,3 +263,48 @@ export const getGridTheme = () => {
 export const setGridTheme = (value) => {
     localStorage.setItem('theme',value)
 }
+
+
+
+export function getCurrentWeekInfo() {
+    const today = new Date();
+    const currentDayOfWeek = today.getDay(); 
+    const daysToAdd = currentDayOfWeek === 1 ? 0 : 1 - currentDayOfWeek; 
+    const startOfWeek = new Date(today);
+    startOfWeek.setDate(today.getDate() + daysToAdd);
+    startOfWeek.setHours(0, 0, 0, 0); 
+  
+    const endOfWeek = new Date(today);
+    endOfWeek.setDate(today.getDate() + (7 - currentDayOfWeek)); // Move to the last day (Sunday) of the current week
+    endOfWeek.setHours(23, 59, 59, 999); // Set hours, minutes, seconds, and milliseconds to the end of the day
+  
+    const currentWeekNumber = getWeekNumber()
+   
+    const dateOptions = { month: 'short', day: 'numeric' };
+  
+    return {
+      weekNumber: currentWeekNumber,
+      startOfWeek: startOfWeek.toLocaleDateString(undefined, dateOptions), // Remove the year part
+      endOfWeek: endOfWeek.toLocaleDateString(undefined, dateOptions), // Remove the year part
+    };
+  }
+  
+  function getWeekNumber(date) {
+    const today = date ? new Date(date): new Date();
+    const startOfYear = new Date(today.getFullYear(), 0, 1);
+    const daysSinceStart = Math.floor((today - startOfYear) / (24 * 60 * 60 * 1000));
+    const currentWeekNumber = Math.ceil((daysSinceStart + 1) / 7);
+  
+    return currentWeekNumber;
+  }
+
+  export const getWeekValueAndColor = (calendar) => {
+    const currentWeekNumber = getWeekNumber()
+    const currentYear = new Date().getFullYear()
+    const weekDays = calendar.filter((day)=>{
+        const d = new Date(day.epoch).getFullYear()
+        return d===currentYear && currentWeekNumber===getWeekNumber(day.epoch)
+    })
+
+    return weekDays.sort((a, b) => a - b)
+  } 

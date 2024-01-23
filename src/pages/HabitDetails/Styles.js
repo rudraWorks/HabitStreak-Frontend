@@ -241,7 +241,7 @@ export const StreaklineContainer = styled.div`
     background:#d9ffec;
     width:100%;
     padding:10px;
-    height:105px;
+    min-height:105px;
     display:flex;
     flex-direction:column;
     border-radius:10px;

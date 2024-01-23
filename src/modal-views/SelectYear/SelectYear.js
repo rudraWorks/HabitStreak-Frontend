@@ -12,8 +12,8 @@ function SelectYear({yearsArr,setCurrentYear}) {
     <Container>
         <h2>Select Year</h2>
         {
-            yearsArr.map((year)=>{ 
-                return <List onClick={()=>handleYear(year)}>{year}</List>
+            yearsArr.map((year,index)=>{ 
+                return <List key={index} onClick={()=>handleYear(year)}>{year}</List>
             })
         }
     </Container>

@@ -9,7 +9,7 @@ import useNotficationBar from '../../hooks/useNotificationBar'
 import AuthFailed from '../../components/AuthFailed'
 import Loading from '../../components/Loading'
 import useUser from '../../hooks/useUser'
-import { capitalize, denomiator, getCurrentStreak, getMaxStreak, isDoneToday, todaysEpoch } from '../../utils/utils'
+import { capitalize, denomiator, getCurrentStreak, getCurrentWeekInfo, getMaxStreak, getWeekValueAndColor, isDoneToday, todaysEpoch } from '../../utils/utils'
 import Notfound from '../../components/Notfound'
 import EmojiModal from '../../modal-views/Emoji/Emoji'
 import useModal from '../../hooks/useModal'
@@ -18,6 +18,8 @@ import SelectYearModal from '../../modal-views/SelectYear/SelectYear'
 import Badges from '../../modal-views/Badges/Badges'
 import ConfettiExplosion from 'react-confetti-explosion';
 import useTitle from '../../hooks/useTitle'
+import WeekComponent from './Components'
+import BetaTestingFlag from '../../components/BetaTestingFlag'
 
 
 function Details() {
@@ -187,7 +189,7 @@ function Details() {
     }
   }
 
-
+  
   if (!user)
     return <AuthFailed />
 
@@ -195,7 +197,7 @@ function Details() {
     return <Loading />
 
   if (notfound)
-    return <Notfound />
+    return <Notfound /> 
 
   return (
     <center>
@@ -249,15 +251,29 @@ function Details() {
           <StreakLine streak={getCurrentStreak(calendar)} />
         </StreaklineContainer>
 
+        <StreaklineContainer style={{ background: '#eaf6e4' }}>
+          <div style={{display:'flex',background:'redl',alignItems:'center',marginBottom:'5px'}}>
+            <span>
+            📅 # Week {(getCurrentWeekInfo()).weekNumber} / 52  <BetaTestingFlag/>
+            </span>
+            <span style={{fontSize:'1rem',marginLeft:'auto'}}>
+                {(getCurrentWeekInfo()).startOfWeek}
+                &nbsp;-&nbsp;
+                {(getCurrentWeekInfo()).endOfWeek}
+              </span>    
+          </div>
+          <WeekComponent weekInfo = {getWeekValueAndColor(calendar)}  />
+        </StreaklineContainer>
+
         <CalendarContainer>
           <Calendar>
             <div style={{ display: 'flex' }}>
               <span style={{ marginRight: 'auto', marginLeft: '10px' }} ref={hoverRef}></span>
 
               <SelectYear onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <SelectYearModal yearsArr={yearsArr} setCurrentYear={setCurrentYear} /> })}>
-                  {currentYear} ⬇️
-              </SelectYear>
-              
+                {currentYear} ⬇️
+              </SelectYear> 
+
             </div>
             <CalendarComponent year={currentYear} hoverRef={hoverRef} calendar={calendar} />
           </Calendar>
