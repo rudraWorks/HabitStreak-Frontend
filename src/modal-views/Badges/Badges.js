@@ -6,7 +6,7 @@ function Badges({maxStreak}) {
   // alert(maxStreak)
   return ( 
     <div> 
-    <h3 style={{textAlign:'center',marginBottom:'10px',fontWeight:'200'}}>Maximum streak is {maxStreak} days</h3> 
+    <h3 style={{textAlign:'center',marginBottom:'10px',fontWeight:'200'}}>Your maximum streak is {maxStreak} days</h3> 
     <Container>
         <Badge name={"Genesis"} maxStreak={maxStreak} days={10}/>
         <Badge name={"Explorer"} maxStreak={maxStreak} days={30}/>

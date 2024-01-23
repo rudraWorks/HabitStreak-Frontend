@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { getBackgroundColor, getMondayDate, getTodaysEpoch } from '../../utils/utils';
 
 const Box = styled.div`
-    width: 35px;
-  max-width: 35px;
-  height: 35px;
+    width: 24px;
+  max-width: 24px;
+  height: 24px;
   border: 1px solid #ccc;
   border-radius: 50%;
   margin-left: 25px;
