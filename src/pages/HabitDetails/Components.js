@@ -14,9 +14,9 @@ const Box = styled.div`
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 7px;
-    width: 30px;
-    max-width: 30px;
-    height: 30px;
+    width: 24px;
+    max-width: 24px;
+    height: 24px;
   }
 `;
 
