@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { getBackgroundColor } from '../../utils/utils';
+import { getBackgroundColor, getMondayDate, getTodaysEpoch } from '../../utils/utils';
 
 const Box = styled.div`
     width: 35px;
@@ -20,23 +20,26 @@ const Box = styled.div`
   }
 `;
 
-function getMondayDate() {
-    const now = new Date();
-    const currentDay = now.getDay();
-    const daysUntilMonday = currentDay === 0 ? 6 : currentDay - 1;
-    const monday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - daysUntilMonday);
-    return monday;
-}
 
 const WeekComponent = ({ weekInfo }) => {
 
-    let today = new Date(getMondayDate()).getTime()
-
+    let weekStartEpoch = new Date(getMondayDate()).getTime()
+    
     const weekInfoTemp = []
-    while(weekInfo.length && weekInfo[0].epoch>today){
+    while(weekInfo.length && weekInfo[0].epoch>weekStartEpoch){
         weekInfoTemp.push({color:'#fff',value:'0'})
-        today+=24*60*60*1000
+        weekStartEpoch+=24*60*60*1000
     }
+    weekStartEpoch = new Date(getMondayDate()).getTime()
+
+    if(weekInfo.length===0){
+        const todaysEpoch = getTodaysEpoch()
+        while(weekStartEpoch<todaysEpoch){
+            weekInfoTemp.push({color:'#fff',value:'0'})
+            weekStartEpoch+=24*60*60*1000
+        }
+    }
+
     for(let i=0;i<weekInfo.length;++i){
         weekInfoTemp.push(weekInfo[i])
     } 
@@ -63,11 +66,15 @@ const WeekComponent = ({ weekInfo }) => {
         <div style={{ display: 'flex', background: 'redl', flexWrap: 'wrap', justifyContent: 'center' }}>
             {dayValues.map((item, index) => (
                 <div key={index} style={{background:'grayl'}}>
+
                     <Box style={{ backgroundColor: item.color }}>
                     </Box>
                     <span style={{marginTop:'3px',fontSize:'.8rem',display:'flex',justifyContent:'center',flexDirection:'column'}}>
                         {item.value}
                     </span>
+                    { 
+                    (index   === (getTodaysEpoch()-new Date(getMondayDate()).getTime())/(24*60*60*1000)) &&  <span style={{color:'red'}}>&#9650;</span>
+                    } 
                 </div> 
             ))}
         </div> 

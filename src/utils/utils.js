@@ -127,7 +127,7 @@ export const getBackgroundColor = (val,calendar) => {
     let l1 = mx*.25
     let l2 = mx*.5
     let l3 = mx*.75
-
+    val = parseInt(val)
     if(!val)
         return '#fff'
 
@@ -308,3 +308,17 @@ export function getCurrentWeekInfo() {
 
     return weekDays.sort((a, b) => a - b)
   } 
+
+export function getMondayDate() {
+    const now = new Date();
+    const currentDay = now.getDay();
+    const daysUntilMonday = currentDay === 0 ? 6 : currentDay - 1;
+    const monday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - daysUntilMonday);
+    return monday;
+}
+
+
+  export const getTodaysEpoch = () => {
+    const t = new Date()
+    return new Date(`${t.getMonth()+1}/${t.getDate()}/${t.getFullYear()}`).getTime()
+  }
