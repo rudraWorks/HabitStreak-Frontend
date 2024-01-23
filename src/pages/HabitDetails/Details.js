@@ -23,7 +23,7 @@ import useTitle from '../../hooks/useTitle'
 function Details() {
   const { habitName } = useParams()
   useTitle(habitName)
-  
+
   const [habit, setHabit] = useState(habitName)
   const { dispatchNotificationBar } = useNotficationBar()
   const [submitting, setSubmitting] = useState(false)
@@ -38,7 +38,7 @@ function Details() {
 
   const [fetching, setFetching] = useState(false)
   const { user } = useUser()
-  const { modal,dispatchModal } = useModal()
+  const { modal, dispatchModal } = useModal()
 
   const [fetchedResponse, setFetchedResponse] = useState(null)
   const [explodeConfetti, setExplodeConfetti] = useState(false)
@@ -138,17 +138,17 @@ function Details() {
       setEmoji(fetchedResponse.emoji)
       // setCalendar(fetchedResponse.calendar.filter((item) => item.value !== 0))
 
-      let tempCalendar = fetchedResponse.calendar.filter((item) => item.value !== 0) 
+      let tempCalendar = fetchedResponse.calendar.filter((item) => item.value !== 0)
       let newCalendar = []
-      for(let i=0;i<tempCalendar.length;++i){
-        let flag=false 
-        for(let j=i+1;j<tempCalendar.length;++j){
-          if(tempCalendar[j].epoch===tempCalendar[i].epoch){
-            flag=true 
-            break  
-          } 
+      for (let i = 0; i < tempCalendar.length; ++i) {
+        let flag = false
+        for (let j = i + 1; j < tempCalendar.length; ++j) {
+          if (tempCalendar[j].epoch === tempCalendar[i].epoch) {
+            flag = true
+            break
+          }
         }
-        if(!flag)
+        if (!flag)
           newCalendar.push(tempCalendar[i])
       }
       setCalendar(newCalendar)
@@ -203,15 +203,16 @@ function Details() {
         <HabitTitle>
           {capitalize(habit)}
           <img style={
-            { cursor: 'pointer', 
+            {
+              cursor: 'pointer',
               // transform: modal ? 'rotate(25deg)' : 'rotate(0deg)',
               // transition: 'transform .15s ease-in-out'
             }
-          } onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Settings setHabit={setHabit} habit={habit} user={user} archived={fetchedResponse.archived} setArchived={setArchived} archived={archived} /> })} src='/icons/settings.png'  />
+          } onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Settings setHabit={setHabit} habit={habit} user={user} archived={fetchedResponse.archived} setArchived={setArchived} archived={archived} /> })} src='/icons/settings.png' />
         </HabitTitle>
         <Streak>
-          <Today> 
-            <span>{isDoneToday(calendar)?'✔️':'❌'} Today</span>
+          <Today>
+            <span>{isDoneToday(calendar) ? '✔️' : '❌'} Today</span>
             <TodayCheckboxAndButtonContainer>
               {fetchedResponse?.type === 'Integer' ? <input value={progressValue} type='Number' onInput={(e) => setProgressValue(parseInt(e.target.value))} /> : <Checkbox progressValue={progressValue} setProgressValue={setProgressValue} />}
               <button disabled={submitting} onClick={handleSubmit}>{submitting ? "Submitting..." : "Submit"}</button>
@@ -252,9 +253,11 @@ function Details() {
           <Calendar>
             <div style={{ display: 'flex' }}>
               <span style={{ marginRight: 'auto', marginLeft: '10px' }} ref={hoverRef}></span>
-              {
-                yearsArr.length > 1 ? <SelectYear onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <SelectYearModal yearsArr={yearsArr} setCurrentYear={setCurrentYear} /> })}>{currentYear} ⬇️</SelectYear> : <span>{currentYear}</span>
-              }
+
+              <SelectYear onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <SelectYearModal yearsArr={yearsArr} setCurrentYear={setCurrentYear} /> })}>
+                  {currentYear} ⬇️
+              </SelectYear>
+              
             </div>
             <CalendarComponent year={currentYear} hoverRef={hoverRef} calendar={calendar} />
           </Calendar>
