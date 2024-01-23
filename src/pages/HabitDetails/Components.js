@@ -20,8 +20,29 @@ const Box = styled.div`
   }
 `;
 
+function getMondayDate() {
+    const now = new Date();
+    const currentDay = now.getDay();
+    const daysUntilMonday = currentDay === 0 ? 6 : currentDay - 1;
+    const monday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - daysUntilMonday);
+    return monday;
+}
+
 const WeekComponent = ({ weekInfo }) => {
-     
+
+    let today = new Date(getMondayDate()).getTime()
+
+    const weekInfoTemp = []
+    while(weekInfo.length && weekInfo[0].epoch>today){
+        weekInfoTemp.push({color:'#fff',value:'0'})
+        today+=24*60*60*1000
+    }
+    for(let i=0;i<weekInfo.length;++i){
+        weekInfoTemp.push(weekInfo[i])
+    } 
+    // console.log(weekInfo)
+    weekInfo = weekInfoTemp
+    // console.log(weekInfoTemp)
 
     const dayValues = weekInfo.map((day)=>{
         return {
@@ -29,6 +50,7 @@ const WeekComponent = ({ weekInfo }) => {
             value: day.value
         }
     })
+
     while(dayValues.length<7){
         dayValues.push({color:'#fff',value:'?'})
     }

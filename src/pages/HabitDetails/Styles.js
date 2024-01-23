@@ -140,7 +140,7 @@ export const Today = styled.div`
         background-color: transparent;
         border: 1px solid transparent;
         font-size: 1rem;
-        border-radius: 1000px;
+        border-radius: .25rem;
         transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
         color: #0d6efd;
         border-color: #0d6efd;
@@ -269,6 +269,7 @@ export const BadgesButton = styled.div`
     cursor:pointer;
     display:flex;
     align-items: center;
+    font-size: .9rem;
     &:hover{
         background:#34D399;
     }

@@ -256,7 +256,7 @@ function Details() {
             <span>
             📅 # Week {(getCurrentWeekInfo()).weekNumber} / 52  <BetaTestingFlag/>
             </span>
-            <span style={{fontSize:'1rem',marginLeft:'auto'}}>
+            <span style={{fontSize:'.9rem',marginLeft:'auto'}}>
                 {(getCurrentWeekInfo()).startOfWeek}
                 &nbsp;-&nbsp;
                 {(getCurrentWeekInfo()).endOfWeek}
