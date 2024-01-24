@@ -9,7 +9,7 @@ function Modal() {
 
     return ReactDom.createPortal(
         <>
-                <div style={BACKGROUND_STYLES}></div>
+                <div onClick={() => dispatchModal({ type: 'CLOSE' })}  style={BACKGROUND_STYLES}></div> 
                 <ModalContainer>
                     {modal}
                     <Button onClick={() => dispatchModal({ type: 'CLOSE' })}>x</Button>

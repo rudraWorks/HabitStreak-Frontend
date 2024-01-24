@@ -1,48 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 
-const AddToHomeScreenButton = () => {
-  const [deferredPrompt, setDeferredPrompt] = useState(null);
+
+const InstallPWA = () => {
+  const [supportsPWA, setSupportsPWA] = useState(false);
+  const [promptInstall, setPromptInstall] = useState(null);
 
   useEffect(() => {
-    const handleBeforeInstallPrompt = (event) => {
-      // Prevent the default behavior of the beforeinstallprompt event
-      event.preventDefault();
-      // Stash the event so it can be triggered later
-      setDeferredPrompt(event);
+    const handler = e => {
+      e.preventDefault();
+      console.log("we are being triggered :D");
+      setSupportsPWA(true);
+      setPromptInstall(e);
     };
+    window.addEventListener("beforeinstallprompt", handler);
 
-    // Add event listener for beforeinstallprompt
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-
-    return () => {
-      // Remove event listener when the component unmounts
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    };
+    return () => window.removeEventListener("transitionend", handler);
   }, []);
 
-  const handleAddToHomeScreen = () => {
-    if (deferredPrompt) {
-      // Trigger the installation prompt
-      deferredPrompt.prompt();
-      // Wait for the user to respond to the prompt
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the install prompt');
-        } else {
-          console.log('User dismissed the install prompt');
-        }
-        // Clear the deferredPrompt variable
-        setDeferredPrompt(null);
-      });
+  const onClick = evt => {
+    evt.preventDefault();
+    if (!promptInstall) {
+      return;
     }
+    promptInstall.prompt();
   };
-
+  if (!supportsPWA) {
+    return null;
+  }
   return (
-    <div>
-      <p>Click the button to add this website to your home screen:</p>
-      <button onClick={handleAddToHomeScreen}>Add to Home Screen</button>
-    </div>
+    <button
+      className="link-button"
+      id="setup_button"
+      aria-label="Install app"
+      title="Install app"
+      onClick={onClick}
+    >
+      Install
+    </button>
   );
 };
 
-export default AddToHomeScreenButton;
+export default InstallPWA; 
