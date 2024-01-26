@@ -68,7 +68,7 @@ export const Title = styled.div`
             margin-bottom: 10px;
         }
         text-align: left;
-        background:lightgray;
+        /* background:lightgray; */
         width: 95%;
     }
     &>div>span{
