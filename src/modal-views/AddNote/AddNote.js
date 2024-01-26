@@ -90,7 +90,7 @@ function AddNote({edit, details, setDetails , setTitleArr, titleArr}) {
                 if(titleArr?.length)
                     setTitleArr((p)=>[{title:title,_id:json.addedNoteId},...p])
                 else 
-                    setTitleArr([{title:title,_id:json.addedNoteId}])
+                    setTitleArr([{title:title,epoch,_id:json.addedNoteId}])
             }
             else { 
                 setError(json.message)
