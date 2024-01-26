@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components';
 
-const rotateAnimation = keyframes`
+export const rotateAnimation = keyframes`
   100% {
     background-position: -100% 0;
   }

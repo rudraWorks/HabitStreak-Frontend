@@ -74,16 +74,23 @@ function About() {
               4️⃣ Upcoming features
             </a>
           </li>
+
+          <li>
+            <a href="#important-section" onClick={() => scrollToSection('important-section')} style={{ textDecoration: 'none' }}> 7️⃣ IMPORTANT</a>
+          </li>
+ 
           <li>
             <a href="#pricing-section" onClick={() => scrollToSection('pricing-section')} style={{ textDecoration: 'none' }}>
               5️⃣ Pricing
             </a>
           </li>
+
           <li>
             <a href="#contact-section" onClick={() => scrollToSection('contact-section')} style={{ textDecoration: 'none' }}>
               6️⃣ Contact
             </a>
           </li>
+          
         </ul> 
       </div>
 
@@ -147,6 +154,15 @@ function About() {
           <li>Dark mode</li>
           <li>Collaborate habits</li>
           <li>Reminders</li>
+        </ul>
+      </Section>
+
+      <Section id="important-section">
+        <h3><img src='/icons/important.png' /> IMPORTANT</h3>
+        <ul>
+          <li>
+            Avoid attempting to update your progress by altering your timezone or manipulating your device's time settings to go back in time, as it may result in inconsistencies in your progress data.
+          </li>
         </ul>
       </Section>
 

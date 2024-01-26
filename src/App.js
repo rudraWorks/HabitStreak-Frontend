@@ -14,6 +14,8 @@ import Pro from './pages/Pro/Pro'
 import ModalState from './contexts/Modal/State'
 import UserState from './contexts/User/State'
 import NotificationBarState from './contexts/NotificationBar/State'
+import Notes from './pages/Notes/Notes'
+import NoteDetails from './pages/NoteDetails/NoteDetails'
 
 
 
@@ -36,6 +38,20 @@ const router = createBrowserRouter([
       {
         path: 'habits/:habitName',
         element: <Details />
+      },
+      {
+        path: 'pages',
+        element:<Notes/>,
+        // children:[
+        //   {
+        //     path:':noteId',
+        //     element:<NoteDetails/>
+        //   }
+        // ]
+      }, 
+      {
+        path: 'pages/:noteId',
+        element: <NoteDetails/>
       },
       {
         path: 'add',

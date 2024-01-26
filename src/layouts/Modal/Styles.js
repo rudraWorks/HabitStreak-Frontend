@@ -23,6 +23,8 @@ export const ModalContainer = styled.div`
   }
   & img{
     max-width:97%;
+    /* max-width: 2000px; */
+    /* max-height: 500px; */
   }
   overflow: auto;
 `
