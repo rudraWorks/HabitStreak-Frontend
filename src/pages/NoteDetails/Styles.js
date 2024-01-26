@@ -3,7 +3,7 @@ import {Container as C} from '../Notes/Styles'
 // import { Container as C } from "../Habits/Styles";
 
 export const Container = styled(C)`
-    background:#FEF7E3;
+    background:#F9FAFB;
     /* width: 100%; */ 
     /* text-align: left; */
     padding:15px 25px; 
@@ -20,8 +20,6 @@ export const ImageWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-self: center;
-
-
 
     &>img{
         max-width: 100%;
@@ -54,7 +52,7 @@ export const Title = styled.div`
     position: sticky; 
     /* font-weight: bolder; */
     top:69px;
-    background-color:#FEF7E3 ;
+    background-color:#F9FAFB ;
     /* background-image: url('/images/paper.avif'); */
 
     /* background:red; */
@@ -92,6 +90,8 @@ export const Title = styled.div`
         margin-left: auto;
         display: flex;
         align-items: center;
+        /* flex-direction: column; */
+        /* justify-content: center; */
         @media only screen and (max-width: 600px) {
             margin-right:auto ;
             width: 100%;
