@@ -135,14 +135,16 @@ function Notes() {
                             return ( 
                                 <Note key={index} onClick={()=>navigate(item._id)}>
                                     <Text>
-                                        {item.title}
+                                        {
+                                        (item?.title?.length>50)?(item.title.slice(0,50)+"..."):item.title
+                                        }
                                     </Text>
 
                                     <Controls>
-                                        <Date>📅 24 Jan</Date>
-                                        <Delete 
+                                        {/* <Date>📅 {item.epoch}</Date>   */}
+                                        <Delete   
                                         onClick={(e)=>{
-                                            e.stopPropagation();
+                                            e.stopPropagation(); 
                                             dispatchModal({
                                                 type:'SET_CONTENT',
                                                 content:<Confirm onConfirm={()=>deleteHandler(item._id)} />
