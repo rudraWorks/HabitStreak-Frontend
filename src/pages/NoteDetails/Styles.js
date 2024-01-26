@@ -67,9 +67,9 @@ export const Title = styled.div`
         @media only screen and (max-width: 600px) {
             margin-bottom: 10px;
         }
-        /* text-align: left; */
+        text-align: left;
         /* background:red; */
-        /* width: 100%; */
+        width: 95%;
     }
     &>div>span{
         font-size:1rem;
@@ -105,6 +105,7 @@ export const Title = styled.div`
 export const ImageContainer = styled.div`
     display:flex;
     flex-wrap: wrap;
+    /* justify-content: center; */
 `
 export const Edit = styled.div`
     cursor: pointer;
