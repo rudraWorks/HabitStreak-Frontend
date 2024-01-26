@@ -101,6 +101,13 @@ function Notes() {
         }
     }
 
+    const getDateFromEpoch =(epoch) => {
+        if (!epoch) {
+            return 'Invalid Date';
+        }
+        return new Date(epoch).toLocaleString()
+    }
+
     if (!user)
         return <AuthFailed /> 
 
@@ -141,7 +148,7 @@ function Notes() {
                                     </Text>
 
                                     <Controls>
-                                        {/* <Date>📅 {item.epoch}</Date>   */}
+                                        {/* <Date>📅 26 Jan</Date>   */}
                                         <Delete   
                                         onClick={(e)=>{
                                             e.stopPropagation(); 
@@ -167,3 +174,5 @@ function Notes() {
 }
 
 export default Notes
+
+
