@@ -11,6 +11,7 @@ import {  useNavigate } from 'react-router-dom'
 import useNotificationBar from '../../hooks/useNotificationBar'
 import Confirm from '../../modal-views/Confirm/Confirm'
 import BetaTestingBadge from '../../components/BetaTestingFlag'
+import { getDateFromEpoch } from '../../utils/utils'
 
 
 function Notes() {
@@ -101,12 +102,7 @@ function Notes() {
         }
     }
 
-    const getDateFromEpoch =(epoch) => {
-        if (!epoch) {
-            return 'Invalid Date';
-        }
-        return new Date(epoch).toLocaleString()
-    }
+
 
     if (!user)
         return <AuthFailed /> 
@@ -124,7 +120,7 @@ function Notes() {
                     onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <AddNote titleArr={titleArr} 
                     setTitleArr={setTitleArr} /> })}
                     >
-                        &#128933;
+                        +
                     </button>
                 </Heading>
 
@@ -148,7 +144,7 @@ function Notes() {
                                     </Text>
 
                                     <Controls>
-                                        {/* <Date>📅 26 Jan</Date>   */}
+                                        <Date>📅  {getDateFromEpoch(item.epoch)}</Date>  
                                         <Delete   
                                         onClick={(e)=>{
                                             e.stopPropagation(); 

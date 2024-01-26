@@ -21,6 +21,8 @@ export const ImageWrapper = styled.div`
     justify-content: center;
     align-self: center;
 
+
+
     &>img{
         max-width: 100%;
         max-height: 200px;
@@ -50,7 +52,7 @@ export const Title = styled.div`
     padding:5px;
     text-align: left;
     position: sticky; 
-    font-weight: bolder;
+    /* font-weight: bolder; */
     top:69px;
     background-color:#FEF7E3 ;
     /* background-image: url('/images/paper.avif'); */
@@ -62,8 +64,11 @@ export const Title = styled.div`
     /* flex-direction: column; */
     /* width:100%; */
     &>h3{
-        font-weight: bolder;
+        font-weight: normal;
         font-size: 1.5rem;
+        @media only screen and (max-width: 600px) {
+            margin-bottom: 10px;
+        }
         /* text-align: left; */
         /* background:red; */
         /* width: 100%; */

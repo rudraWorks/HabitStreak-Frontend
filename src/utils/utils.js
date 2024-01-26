@@ -322,3 +322,7 @@ export function getMondayDate() {
     const t = new Date()
     return new Date(`${t.getMonth()+1}/${t.getDate()}/${t.getFullYear()}`).getTime()
   }
+  export const getDateFromEpoch =(epoch) => {
+
+    return new Date(epoch).toLocaleDateString('en-GB')
+}
