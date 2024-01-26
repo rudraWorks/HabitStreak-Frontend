@@ -7,7 +7,7 @@ import useUser from '../../hooks/useUser';
 let navLinksData = [
     { to: '', icon: 'home.png' },
     { to: '/habits', icon: 'habits.png' },
-    // { to: '/pages', icon: 'notes.png'},
+    { to: '/pages', icon: 'notes.png'},
     { to: '/add', icon: 'add.png' },
     { to: '/about', icon: 'about.png' },
     { to: '/profile', icon: 'login.png' },
