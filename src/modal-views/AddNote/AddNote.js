@@ -88,7 +88,7 @@ function AddNote({edit, details, setDetails , setTitleArr, titleArr}) {
                 dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: json.message, type: 'success' } })
 
                 if(titleArr?.length)
-                    setTitleArr((p)=>[{title:title,_id:json.addedNoteId},...p])
+                    setTitleArr((p)=>[{epoch,title,_id:json.addedNoteId},...p])
                 else 
                     setTitleArr([{title:title,epoch,_id:json.addedNoteId}])
             }
