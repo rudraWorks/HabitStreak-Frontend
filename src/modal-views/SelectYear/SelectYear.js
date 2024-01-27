@@ -16,6 +16,9 @@ function SelectYear({yearsArr,setCurrentYear}) {
                 return <List key={index} onClick={()=>handleYear(year)}>{year}</List>
             })
         }
+        {
+            (yearsArr?.length===0) && <List onClick={()=>handleYear(new Date().getFullYear())}>{new Date().getFullYear()}</List>
+        }
     </Container>
   )
 }
