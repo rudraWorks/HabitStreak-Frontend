@@ -144,7 +144,7 @@ function Notes() {
                                     </Text>
 
                                     <Controls>
-                                        <Date>📅  {getDateFromEpoch(item.epoch)}</Date>  
+                                        <Date>📅 {getDateFromEpoch(item.epoch)}</Date>  
                                         <Delete   
                                         onClick={(e)=>{
                                             e.stopPropagation(); 

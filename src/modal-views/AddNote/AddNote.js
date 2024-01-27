@@ -116,7 +116,7 @@ function AddNote({edit, details, setDetails , setTitleArr, titleArr}) {
             // console.log(json);
             if (response.ok) {
                 dispatchModal({ type: 'CLOSE' })
-                dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: 'Note edited successfully', type: 'success' } })
+                dispatchNotificationBar({ type: 'SET_CONTENT', content: { message: 'Page edited successfully', type: 'success' } })
                  
                 setDetails((p)=>{
                     return {...p,text,title,images:imagesArr}
