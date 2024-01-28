@@ -90,7 +90,13 @@ function About() {
               6️⃣ Contact
             </a>
           </li>
-          
+       
+          <li>
+            <a href="#privacy-section" onClick={() => scrollToSection('privacy-section')} style={{ textDecoration: 'none' }}>
+            7️⃣ Privacy policy
+            </a>
+          </li>
+
         </ul> 
       </div>
 
@@ -182,6 +188,18 @@ function About() {
           {/* <li>twitter: <a href='https://twitter.com/merudra754' target='_blank'>merudra754</a></li> */}
         </ul>
       </Section>
+
+      {/* <Section id="privacy-section">
+        <h3><img src='/icons/privacy.png' /> Privacy policy</h3>
+        <ul>
+          <li>
+            <ul>
+              Information collected
+              <li>Email</li>
+            </ul>
+          </li>
+        </ul>
+      </Section> */}
 
       {/* <InstallApp/> */}
  

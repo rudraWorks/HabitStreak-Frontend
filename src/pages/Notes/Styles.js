@@ -65,7 +65,7 @@ export const Note = styled.div`
     align-items: center;
     transition: all .3s;
     /* padding:3px 5px; */
-    background: linear-gradient(120deg, #D1FAE5 30%, #F9FAFB 38%, #F9FAFB 40%, #D1FAE5 48%);
+    background: linear-gradient(120deg, aliceblue 30%, #F9FAFB 38%, #F9FAFB 40%, aliceblue 48%);
     background-size: 200% 100%;
     background-position: 100% 0;
     animation: ${rotateAnimation} 2s infinite;
@@ -87,6 +87,7 @@ export const Delete = styled.div`
         /* border: none; */
         /* background-color: #F8BDCF; */
         border: 1px solid #F8BDCF;
+        background:aliceblue;
         &:hover{
             background-color: #F17FA2;
             color: white;
