@@ -54,7 +54,7 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
       let epoch = new Date(`01/01/${year}`).getTime();
 
       for (let i = 0; i < totalDays; ++i) {
-        let title = new Date(epoch).toLocaleDateString('en-gb');
+        let title = epoch//.toLocaleDateString('en-gb');
         let backgroundColor = 'white';
         let value = 0;
 
@@ -114,11 +114,11 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
               key={index}
               style={{ ...itemStyle, backgroundColor: item.backgroundColor }}
               onMouseEnter={() => {
-                hoverRef.current.innerHTML = `<span style="font-size:14px;color:navy;"><b>${item.value}</b> on ${item.title}</span>`;
+                hoverRef.current.innerHTML = `<span style="font-size:14px;color:navy;"><b>${item.value}</b> on ${new Date(item.title).toLocaleDateString('en-US',{ day: 'numeric', month: 'short' })}</span>`;
               }}
               onMouseLeave={() => {
                 hoverRef.current.innerHTML = '';
-              }}
+              }} 
             />
           ))}
         </div>
