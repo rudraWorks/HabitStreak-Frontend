@@ -63,7 +63,7 @@ function Pro() {
           <h3>Pro Plan </h3>
           <span> You can create <b>unlimited</b> habits</span>
           <span style={{ marginTop: '10px' }}> <b>No</b> monthly charges, <b>one</b> time payment only!</span>
-          <span style={{ marginTop: '10px' }}>$1 only! (₹ 85)</span>
+          <span style={{ marginTop: '10px' }}>USD $1  (INR ₹ 85)</span>
           <br/>
           {/*  
           <div>
@@ -78,7 +78,7 @@ function Pro() {
           </div> */}
           
 
-          <BuyNow onClick={checkout}>$1 pay now</BuyNow>
+          <BuyNow onClick={checkout}>GET PRO</BuyNow>
 
           {user?.pro && <img src='/icons/paid.png' alt="Paid Icon" />}
         </Paid>
@@ -87,13 +87,13 @@ function Pro() {
 
       <h2>FAQs</h2>
       <br />
-      <FAQ question="If I'm not happy with the service, can I get a refund?" answer="Yes, drop an email at merudra.official@gmail.com" />
+      <FAQ question="If I'm not happy with the service, can I get a refund?" answer="Yes, drop an email at merudra.official@gmail." />
 
       <FAQ question="I don't have cards, how can I proceed?" answer="Send your payment proof and email at merudra.official@gmail.com, I will try to activate your account as quickly as possible. My PayPal: merudra.official@gmail.com, UPI: srudra754@oksbi" />
 
       <FAQ question="Will I incur monthly charges?" answer="No, you will be charged only once." />
 
-      <FAQ question="Why charging so low, means $1 only!" answer="I planned to keep it free, but I have to pay those server bills." />
+      <FAQ question="Why charging so low, means $1 only!" answer="I planned to keep it free, but I have to pay those server bills. Also, it will motivate me to keep working on this project and come up with new valuable features :)" />
 
 
     </Container>

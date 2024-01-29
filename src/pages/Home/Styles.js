@@ -132,6 +132,8 @@ export const Logo = () => {
         <Title>
             <span style={{ color: '#1A567E' }}>Habit</span>
             <span style={{ color: '#FBBF24' }}>Streak</span>
+            {/* <span style={{ color: 'red' }}>.</span>
+            <span style={{ color: 'gray' }}>xyz</span> */}
             <span>&nbsp;<img src='/icons/growth.png'></img></span>
         </Title>
     )
