@@ -5,21 +5,23 @@ import { OutletContainer, Img } from './Styles'
 import useModal from '../../hooks/useModal'
 import Modal from '../../layouts/Modal/Modal'
 import TimeLeft from '../../modal-views/Time-left/TimeLeft'
-// import Footer from '../../components/Footer'
+import Footer from '../../components/Footer'
 import NotificationBar from '../../layouts/NotificationBar/NotficationBar'
 import useNotificationBar from '../../hooks/useNotificationBar'
 import Feedback from '../../modal-views/Feedback/Feedback'
+import Support from '../../modal-views/Support/Support'
+import useUser from '../../hooks/useUser'
 
 function Root() {
   const { modal, dispatchModal } = useModal()
   const { notificationBar } = useNotificationBar()
-
+  const { user } = useUser()
 
   if (modal) {
-      document.getElementsByTagName('body')[0].style.overflow="hidden"
+    document.getElementsByTagName('body')[0].style.overflow = "hidden"
   }
   else {
-    document.getElementsByTagName('body')[0].style.overflow="auto"
+    document.getElementsByTagName('body')[0].style.overflow = "auto"
   }
 
 
@@ -30,15 +32,23 @@ function Root() {
       <Navbar />
       <OutletContainer>
         {<Outlet />}
-      </OutletContainer> 
+      </OutletContainer>
       {/* <Footer/> */}
-      <Img 
-        style={{bottom:'70px'}} 
-        onClick={()=>dispatchModal({type:'SET_CONTENT',content:<Feedback/>})} 
-        src='/icons/feedback.png' 
+      {
+        (user && user!=='LOADING') &&
+        <Img
+          style={{ bottom: '125px' }}
+          onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Support /> })}
+          src='/icons/help.png'
+        />
+      }
+      <Img
+        style={{ bottom: '70px' }}
+        onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Feedback /> })}
+        src='/icons/feedback.png'
       />
-      <Img 
-        onClick={()=>dispatchModal({ type: 'SET_CONTENT', content: <TimeLeft /> })} src='/icons/sand.png'
+      <Img
+        onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <TimeLeft /> })} src='/icons/sand.png'
       />
     </div>
   )
