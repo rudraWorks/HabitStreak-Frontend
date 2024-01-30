@@ -354,3 +354,20 @@ export const getDateFromEpoch = (epoch) => {
 
     return new Date(epoch).toLocaleDateString('en-GB')
 }
+
+export const sortByIntensityOfExecution = (calendar) => {
+    // console.log(habit);
+    let count = 0 
+    for(let i=0;i<calendar.length;++i){
+        const d = new Date(calendar[i].epoch)
+        const v = calendar[i].value
+        const m = d.getMonth()
+        const y = d.getFullYear()
+        const currMonth = new Date().getMonth()
+        const currYear = new Date().getFullYear()
+        if(m===currMonth && y===currYear && v)
+            ++count
+    }
+    // console.log(count);
+    return count 
+}

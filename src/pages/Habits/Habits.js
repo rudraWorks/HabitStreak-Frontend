@@ -6,7 +6,7 @@ import AuthFailed from '../../components/AuthFailed'
 import Loading from '../../components/Loading'
 import useUser from '../../hooks/useUser'
 import useNotificationBar from '../../hooks/useNotificationBar'
-import { capitalize, getCurrentStreak, denomiator, isDoneToday, getCurrentMonthAndYear, getAvailableMonthsAndYears, enableRowModeInLocalStorage, isRowModeEnabledInLocalStorage } from '../../utils/utils'
+import { capitalize, getCurrentStreak, denomiator, isDoneToday, getCurrentMonthAndYear, getAvailableMonthsAndYears, enableRowModeInLocalStorage, isRowModeEnabledInLocalStorage, sortByIntensityOfExecution } from '../../utils/utils'
 import useTitle from '../../hooks/useTitle'
 import { DayBoxesContainer, MonthDatesRow } from './Components'
 import useModal from '../../hooks/useModal'
@@ -70,10 +70,16 @@ function Habits() {
 
   useEffect(() => {
     if (toggleArchived) {
-      setShowArr(habitsArr.filter((habit) => habit.archived === 1).sort((a, b) => (isDoneToday(a.calendar) && !isDoneToday(b.calendar)) ? -1 : (!isDoneToday(a.calendar) && isDoneToday(b.calendar)) ? 1 : 0))
+      setShowArr(habitsArr.filter((habit) => habit.archived === 1).sort((a,b)=>{
+        return sortByIntensityOfExecution(a.calendar)>sortByIntensityOfExecution(b.calendar)
+      }).sort((a, b) => (isDoneToday(a.calendar) && !isDoneToday(b.calendar)) ? -1 : (!isDoneToday(a.calendar) && isDoneToday(b.calendar)) ? 1 : 0))
     }
     else {
-      setShowArr(habitsArr.filter((habit) => habit.archived === -1).sort((a, b) => (isDoneToday(a.calendar) && !isDoneToday(b.calendar)) ? -1 : (!isDoneToday(a.calendar) && isDoneToday(b.calendar)) ? 1 : 0))
+      setShowArr(habitsArr.filter((habit) => habit.archived === -1).sort((a,b)=>{
+        if (sortByIntensityOfExecution(a.calendar)>sortByIntensityOfExecution(b.calendar))
+          return -1;
+        return 1;
+      }).sort((a, b) => (isDoneToday(a.calendar) && !isDoneToday(b.calendar)) ? -1 : (!isDoneToday(a.calendar) && isDoneToday(b.calendar)) ? 1 : 0))
     }
 
     // console.log(getAvailableMonthsAndYears(habitsArr))
