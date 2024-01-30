@@ -42,7 +42,7 @@ export const Heading = styled(H)`
 
 export const Note = styled.div`
     /* width: 100%; */
-    /* font-weight: bolder; */
+    /* font-weight: 900; */
     display: inline;
     width:200px;
     max-width: 100%;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { getBackgroundColor, leapYear } from '../utils/utils';
+import { getBackgroundColor, leapYear, todaysEpoch } from '../utils/utils';
 
 const containerStyle = {
   width: 'fit-content',
@@ -112,9 +112,9 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
           {items.map((item, index) => (
             <div
               key={index}
-              style={{ ...itemStyle, backgroundColor: item.backgroundColor }}
+              style={{ ...itemStyle, backgroundColor: item.backgroundColor,border:item.title===todaysEpoch()?'2px solid red':'1px solid #CECECE' }}
               onMouseEnter={() => {
-                hoverRef.current.innerHTML = `<span style="font-size:14px;color:navy;"><b>${item.value}</b> on ${new Date(item.title).toLocaleDateString('en-US',{ day: 'numeric', month: 'short' })}</span>`;
+                hoverRef.current.innerHTML = `<span style="font-size:14px;color:navy;"> ${new Date(item.title).toLocaleDateString('en-US',{ day: 'numeric', month: 'short' })}&#8594;  <b>${item.value}</b> </span>`;
               }}
               onMouseLeave={() => {
                 hoverRef.current.innerHTML = '';
