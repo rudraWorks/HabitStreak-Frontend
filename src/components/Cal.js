@@ -114,7 +114,7 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
               key={index}
               style={{ ...itemStyle, backgroundColor: item.backgroundColor,border:item.title===todaysEpoch()?'2px solid red':'1px solid #CECECE' }}
               onMouseEnter={() => {
-                hoverRef.current.innerHTML = `<span style="font-size:14px;color:navy;display:flex;align-items:center;"> ${new Date(item.title).toLocaleDateString('en-US',{ day: 'numeric', month: 'short' })}&#8594;<b>${item.value}</b> </span>`;
+                hoverRef.current.innerHTML = `<span style="font-size:14px;color:navy;display:flex;align-items:center;"> ${new Date(item.title).toLocaleDateString('en-US',{ day: 'numeric', month: 'short' })},<b>&nbsp;&nbsp;${item.value}</b> </span>`;
               }}
               onMouseLeave={() => {
                 hoverRef.current.innerHTML = '';
