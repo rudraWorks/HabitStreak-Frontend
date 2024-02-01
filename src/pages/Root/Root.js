@@ -34,14 +34,14 @@ function Root() {
         {<Outlet />}
       </OutletContainer>
       {/* <Footer/> */}
-      {
+      {/* {
         (user && user!=='LOADING') &&
         <Img
           style={{ bottom: '125px' }}
           onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Support /> })}
           src='/icons/help.png'
         />
-      }
+      } */}
       <Img
         style={{ bottom: '70px' }}
         onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Feedback /> })}

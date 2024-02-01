@@ -22,7 +22,7 @@ const RadioLabel = styled.label`
   margin-right: 16px; /* Adjust the margin as needed */
 `;
 
-const RadioButtons = ({setProgressValue,progressValue}) => {
+export const RadioButtons = ({setProgressValue,progressValue}) => {
   return (
     <RadioContainer>
       <RadioInput

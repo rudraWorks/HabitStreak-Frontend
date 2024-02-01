@@ -127,9 +127,10 @@ export const Today = styled.div`
         font-size:1.5rem;
         width:100%;
     }
+`
 
-    &>div>button{
-        height:28px;
+export const TodaySubmitButton = styled.button`
+ height:28px;
         align-self:center;
         padding:5px 10px;
         display: flex;
@@ -150,7 +151,6 @@ export const Today = styled.div`
             background-color: #0d6efd;
             border-color: #0d6efd;
         }
-    }
 `
 export const StreakDetails = styled.div`
     background:#FEF3C7;
@@ -286,4 +286,29 @@ export const CurrentStreakAndCircularProgressContainer = styled.div`
             margin-left:20px;
         }
     }
+`
+
+export const TimeTravel = styled.button`
+        height:28px;
+        align-self:center;
+        padding:5px 10px;
+        display: flex;
+        align-items: center;
+        margin-left: 5px;
+        cursor:pointer; 
+        border:1px solid gray;
+        background-color: transparent;
+        border: 1px solid transparent;
+        font-size: 1rem;
+        border-radius: .25rem;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        color: #0d6efd;
+        border-color: #0d6efd;
+        font-weight: bolder;
+        line-height: 1px;
+        &:hover {
+            color: #fff;
+            background-color: #11b08f;
+            border-color: #11b08f;
+        }
 `

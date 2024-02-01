@@ -107,9 +107,9 @@ function Feedback() {
             {successMessage && (
                 <SuccessMessage>
                     Thanks for your feedback
-                </SuccessMessage>
+                </SuccessMessage> 
             )} 
-            {errorMessage && <SuccessFailureMessageBox error={true}>{errorMessage}</SuccessFailureMessageBox>}
+            {errorMessage && <SuccessFailureMessageBox showCloseButton onClose={setErrorMessage} error={true}>{errorMessage}</SuccessFailureMessageBox>}
             {!successMessage &&
                 <button onClick={handleSubmit} disabled={submitting}>
                     {submitting?'Submitting...':'Submit'}

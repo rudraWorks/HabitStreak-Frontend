@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import CalendarComponent from '../../components/Cal'
-import { Container, CalendarContainer, Calendar, HabitTitle, Streak, Today, StreakDetails, Emoji, SelectYear, StreaklineContainer, BadgesButton, TodayCheckboxAndButtonContainer, CurrentStreakAndCircularProgressContainer } from './Styles'
+import { Container, CalendarContainer, Calendar, HabitTitle, Streak, Today, StreakDetails, Emoji, SelectYear, StreaklineContainer, BadgesButton, TodayCheckboxAndButtonContainer, CurrentStreakAndCircularProgressContainer, TimeTravel, TodaySubmitButton } from './Styles'
 import Checkbox from '../../components/Checkbox'
 import CircularProgress from '../../components/CircularProgress'
 import StreakLine from '../../components/StreakLine'
@@ -19,8 +19,7 @@ import Badges from '../../modal-views/Badges/Badges'
 import ConfettiExplosion from 'react-confetti-explosion';
 import useTitle from '../../hooks/useTitle'
 import WeekComponent from './Components'
-import BetaTestingFlag from '../../components/BetaTestingFlag'
-
+import Retrospect from '../../modal-views/Retrospect/Retrospect'
 
 function Details() {
   const { habitName } = useParams()
@@ -189,7 +188,6 @@ function Details() {
     }
   }
 
-  
   if (!user)
     return <AuthFailed />
 
@@ -217,11 +215,14 @@ function Details() {
             <span>{isDoneToday(calendar) ? '✔️' : '❌'} Today</span>
             <TodayCheckboxAndButtonContainer>
               {fetchedResponse?.type === 'Integer' ? <input value={progressValue} type='Number' onInput={(e) => setProgressValue(parseInt(e.target.value))} /> : <Checkbox progressValue={progressValue} setProgressValue={setProgressValue} />}
-              <button disabled={submitting} onClick={handleSubmit}>{submitting ? "Submitting..." : "Submit"}</button>
+              <TodaySubmitButton disabled={submitting} onClick={handleSubmit}>{submitting ? "Submitting..." : "Submit"}</TodaySubmitButton>
+
+              <TimeTravel onClick={()=>dispatchModal({type:'SET_CONTENT',content:<Retrospect habit={habit} type={fetchedResponse?.type} setCalendar={setCalendar} calendar={calendar}/>})}> &#11119;</TimeTravel> 
+
             </TodayCheckboxAndButtonContainer>
             {explodeConfetti && <ConfettiExplosion force={0.8} particleCount={100} duration={3000} />}
-          </Today>
-          {/* <img src='/icons/fire2.png' /> */}
+          </Today> 
+
           <Emoji >
             <div style={{ cursor: 'pointer' }} onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <EmojiModal updateEmoji={updateEmoji} setEmoji={setEmoji} /> })}>
               {emoji}
@@ -230,6 +231,7 @@ function Details() {
             <span>{getCurrentStreak(calendar)}</span>
             <span>days streak!</span>
           </Emoji>
+          
 
         </Streak>
 
@@ -254,7 +256,7 @@ function Details() {
         <StreaklineContainer style={{ background: '#eaf6e4' }}>
           <div style={{display:'flex',background:'redl',alignItems:'center',marginBottom:'5px'}}>
             <span>
-            📅 # Week {(getCurrentWeekInfo()).weekNumber} / 52  <BetaTestingFlag/>
+            📅 # Week {(getCurrentWeekInfo()).weekNumber} / 52  
             </span>
             <span style={{fontSize:'.9rem',marginLeft:'auto'}}>
                 {(getCurrentWeekInfo()).startOfWeek}

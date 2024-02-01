@@ -90,10 +90,10 @@ function Settings({ habit, setHabit, user, archived, setArchived }) {
         setArchiving(false)
     }
     return (
-        <Container>
+        <Container> 
             {    
                 error &&
-                <SuccessFailureMessageBox error={true}>
+                <SuccessFailureMessageBox showCloseButton onClose={setError} error={true}>
                     <span style={{ color: 'red' }}>{error}</span>
                 </SuccessFailureMessageBox>
             }

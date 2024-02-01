@@ -27,10 +27,10 @@ const CloseButton = styled.button`
   const [closed, setClosed] = useState(false);
 
   const handleClose = () => {
-    setClosed(true); 
-    onClose && onClose();
-  };
-
+    setClosed(true);    
+    onClose && onClose('');
+  }; 
+ 
   return !closed ? (
     <MessageContainer success={success} error={error}>
       {showCloseButton && <CloseButton onClick={handleClose}>X</CloseButton>}
@@ -39,4 +39,4 @@ const CloseButton = styled.button`
   ) : null;
 };
 
-export default Message
+export default Message 

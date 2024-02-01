@@ -202,9 +202,9 @@ function AddNote({edit, details, setDetails , setTitleArr, titleArr}) {
                             })
                         }
                     </ImagesContainer>
-                </UploadImages>
+                </UploadImages> 
             }
-            {error?.length !== 0 && <Message error>{error}</Message>}
+            {error?.length !== 0 && <Message showCloseButton onClose={setError} error>{error}</Message>}
             <Submit disabled={submitting} onClick={submitHandler}>{submitting?'Submitting...':'Submit'}</Submit>
         </Container> 
     ) 

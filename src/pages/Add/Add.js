@@ -127,8 +127,8 @@ function Add() {
               <ThemeButton onClick={() => dispatchModal({ type: 'SET_CONTENT', content: <Emoji setEmoji={setEmoji} /> })}>Change theme</ThemeButton>
             </div>
             {   
-                error &&
-                <SuccessFailureMessageBox error={true}>
+                error &&  
+                <SuccessFailureMessageBox error={true} showCloseButton onClose={setError}>
                     <span style={{ color: 'red' }}>{error}</span>
                 </SuccessFailureMessageBox> 
             }

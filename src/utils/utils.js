@@ -371,3 +371,10 @@ export const sortByIntensityOfExecution = (calendar) => {
     // console.log(count);
     return count 
 }
+
+export const getValueFromEpoch = (calendar,epoch) => {
+    for(let i=0;i<calendar.length;++i)
+        if(calendar[i].epoch===epoch)
+            return calendar[i].value 
+    return 0
+}
