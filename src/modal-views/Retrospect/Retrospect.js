@@ -69,7 +69,7 @@ function Retrospect({habit, type, calendar, setCalendar }) {
     return (
         <Container>
             <h2>#floodFillGreen</h2>
-            <h3>Edit your progress by navigating back in time, in case you missed recording any day. DON'T CHEAT 😒</h3>
+            <h3>Edit your progress by navigating back in time (2 weeks), in case you missed recording any day. DON'T CHEAT</h3>
             <Edit setEpoch={setEpoch} calendar={calendar} />
             <Controls>
                 {

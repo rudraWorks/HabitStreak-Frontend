@@ -217,7 +217,7 @@ function Details() {
               {fetchedResponse?.type === 'Integer' ? <input value={progressValue} type='Number' onInput={(e) => setProgressValue(parseInt(e.target.value))} /> : <Checkbox progressValue={progressValue} setProgressValue={setProgressValue} />}
               <TodaySubmitButton disabled={submitting} onClick={handleSubmit}>{submitting ? "Submitting..." : "Submit"}</TodaySubmitButton>
 
-              <TimeTravel onClick={()=>dispatchModal({type:'SET_CONTENT',content:<Retrospect habit={habit} type={fetchedResponse?.type} setCalendar={setCalendar} calendar={calendar}/>})}> &#11119;</TimeTravel> 
+              <TimeTravel onClick={()=>dispatchModal({type:'SET_CONTENT',content:<Retrospect habit={habit} type={fetchedResponse?.type} setCalendar={setCalendar} calendar={calendar}/>})}> &#8630;</TimeTravel> 
 
             </TodayCheckboxAndButtonContainer>
             {explodeConfetti && <ConfettiExplosion force={0.8} particleCount={100} duration={3000} />}
