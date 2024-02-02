@@ -3,7 +3,7 @@ import { Input as Inpt } from "../../pages/Add/Styles";
 import { TimeTravel } from "../../pages/HabitDetails/Styles";
 
 export const Day = styled.span`
-    background: ${props => props.isEmpty ? (props.isSelected?'#eb6126':'#ff9466') : (props.isSelected?'#3ec786':'#7ce3b3')};
+    background: ${props => props.isEmpty ? (props.isSelected?'#ff9466':'#ffc1a7') : (props.isSelected?'#7ce3b3':'#b6f2d6')};
     /* border: ${props=>props.isSelected?'1px solid black':'none'}; */
     margin: 5px;
     /* font-weight: ${props=>props.isSelected?'bolder':'normal'}; */
