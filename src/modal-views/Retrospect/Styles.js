@@ -3,9 +3,11 @@ import { Input as Inpt } from "../../pages/Add/Styles";
 import { TimeTravel } from "../../pages/HabitDetails/Styles";
 
 export const Day = styled.span`
-    background: ${props => props.isSelected ? '#D1D5DB' : '#F3F4F6'};
-    border: ${props=>props.isEmpty?'3px dotted red':'1px solid #D1D5DB'};
+    background: ${props => props.isEmpty ? (props.isSelected?'#eb6126':'#ff9466') : (props.isSelected?'#3ec786':'#7ce3b3')};
+    /* border: ${props=>props.isSelected?'1px solid black':'none'}; */
     margin: 5px;
+    /* font-weight: ${props=>props.isSelected?'bolder':'normal'}; */
+    /* color: ${props=>props.isEmpty?'white':'black'}; */
     width:80px; 
     padding: 3px 4px;
     display:flex;
@@ -17,9 +19,10 @@ export const Day = styled.span`
 ` 
 
 export const Container = styled.div`
-    background: grayl;
+    /* background: #F0B323; */
     text-align: center;
     user-select: none;
+    width: 99%;
     /* display:flex;
     flex-direction: column;
     align-items: center;
@@ -40,7 +43,7 @@ export const DaysContainer = styled.div`
 `
 
 export const Input = styled(Inpt)`
-    width:200px;
+    width:150px;
     margin:0;
     align-self: center;
 `
