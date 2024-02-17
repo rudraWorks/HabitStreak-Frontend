@@ -378,3 +378,14 @@ export const getValueFromEpoch = (calendar,epoch) => {
             return calendar[i].value 
     return 0
 }
+
+export const getHabitViewLocalStorage = () => {
+    const t = localStorage.getItem('habitView')
+    if(!t)
+        return 'monthly'
+    return t
+}
+
+export const setHabitViewLocalStorage = (v) => {
+    localStorage.setItem('habitView',v)
+}

@@ -37,17 +37,18 @@ const ThemeRadioInput = styled.input`
 
 const ThemeImage = styled.img`
   height: 30px;
-`;
+`; 
 
-function GridTheme() {
+function GridTheme({setGridThemeFlag}) {
   const [theme, setTheme] = useState(getGridTheme());
 
   const handleThemeChange = (newTheme) => {
-    setTheme(newTheme);
-  };
+    setTheme(newTheme); 
+  }; 
 
-  useEffect(()=>{
+  useEffect(()=>{ 
     setGridTheme(theme)
+    setGridThemeFlag((p)=>p+1)
   },[theme])
 
   return (

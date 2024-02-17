@@ -12,8 +12,9 @@ export const Container = styled.div`
 
 export const Heading = styled.div`
     position:sticky;
-    width:800px;
-    top:69px;
+    /* width:800px; */
+    width:${(props) => (props.habitView==='heatmap' ? '990px' : props.habitView==='monthly'?'900px':'800px')};
+    top:69px;  
     background:white;
     padding:5px;
     font-size:1.8rem;
@@ -201,6 +202,7 @@ export const ControlButton = styled(ArchivedButton)`
     justify-content: center;
     /* font-weight: bolder; */
     /* padding: 5px; */
+    background:${(props) => (props.on ? '#BFDBFE' : '#fff')};
     &>span{
         /* margin-left: auto; */
         margin-left:5px;

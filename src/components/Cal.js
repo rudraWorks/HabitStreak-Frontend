@@ -43,7 +43,7 @@ const itemStyle = {
   borderRadius: '0px',
 };
 
-const CalendarComponent = ({ calendar, hoverRef, year }) => {
+const CalendarComponent = ({ gridThemeFlag,calendar, hoverRef, year }) => {
   const [items, setItems] = useState([]);
   // console.log(isLeapYear)
   const totalDays = leapYear(year)?366:365
@@ -88,7 +88,7 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
     };
 
     generateCalendarItems();
-  }, [calendar,year]);
+  }, [calendar,year,gridThemeFlag]);
 
  
   return (
@@ -114,11 +114,15 @@ const CalendarComponent = ({ calendar, hoverRef, year }) => {
               key={index}
               style={{ ...itemStyle, backgroundColor: item.backgroundColor,border:item.title===todaysEpoch()?'2px solid red':'1px solid #CECECE' }}
               onMouseEnter={() => {
+                if(!hoverRef)
+                  return
                 hoverRef.current.innerHTML = `<span style="font-size:14px;color:navy;display:flex;align-items:center;"> ${new Date(item.title).toLocaleDateString('en-US',{ day: 'numeric', month: 'short' })},<b>&nbsp;&nbsp;${item.value}</b> </span>`;
               }}
-              onMouseLeave={() => {
+              onMouseLeave={() => { 
+                if(!hoverRef) 
+                  return
                 hoverRef.current.innerHTML = '';
-              }} 
+              }}  
             />
           ))}
         </div>
