@@ -5,11 +5,12 @@ export const MonthDatesRow = ({month,year}) => {
     const temp = [] 
     for(let i=1;i<=getDaysInMonth(month,year);++i)
         temp.push(i)
+    const todaysDate = new Date().getDate()
     return (
         <DayBoxContainer>  
             { 
                 temp.map((i,index) => {
-                    return <DayBox key={index} style={{border:'0px solid #79c0ff',display:'flex',justifyContent:'center',alignItems:'center',background:'transparent',borderRadius:'50%',fontSize:'.95rem',color:'black',':hover':{fontWeight:'100'}}}>{i}</DayBox>
+                    return <DayBox key={index} style={{border:i===todaysDate?'1px solid #79c0ff':'none',display:'flex',justifyContent:'center',alignItems:'center',background:i===todaysDate?'yellow':'transparent',borderRadius:'50%',fontSize:i===todaysDate?'.7rem':'.95rem',color:'black'}}>{i}</DayBox>
                 })
             }
         </DayBoxContainer>
