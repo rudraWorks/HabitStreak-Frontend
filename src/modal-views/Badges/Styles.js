@@ -6,4 +6,5 @@ export const Container = styled.div`
     align-items:center;
     flex-wrap:wrap;
     justify-content:center;
+    max-width: 90%;
 `

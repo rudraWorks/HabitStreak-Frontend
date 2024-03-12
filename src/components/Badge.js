@@ -2,9 +2,9 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const rotateAnimation = keyframes`
-  100% {
+  /* 100% {
     background-position: -100% 0;
-  }
+  } */
 `;
 
 
@@ -15,6 +15,8 @@ const LoadBadge = styled.div`
   position: relative;
   float: left;
   background: linear-gradient(120deg, #FFDD49 30%, #f0f0f0 38%, #f0f0f0 40%, #FFDD49 48%);
+  
+
   border-radius: 50%;
   background-size: 200% 100%;
   background-position: 100% 0;
@@ -25,17 +27,17 @@ const LoadBadge = styled.div`
   align-items: center;
   flex-direction: column;
   font-family:Montserrat,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"!important;
-  font-size:1.2rem;
+  font-size:1rem;
   margin:10px;
   &>div:nth-child(1){
     font-weight:500;
-    font-size:1rem;
+    font-size:.8rem;
   }
   &>div:nth-child(2){
-    font-size:.8rem;
+    font-size:.7rem;
   } 
   &>div:nth-child(3){ 
-    font-size:.8rem;
+    font-size:.7rem;
   } 
   &>div:nth-child(4){
     background:redl;
@@ -52,6 +54,8 @@ const LoadBadge = styled.div`
     font-weight:100;
     &>img{
       height:100px;
+      border-radius: 50%;
+      width: 100px; 
       // display:none;
     }
   }
@@ -61,26 +65,53 @@ const Genesis = styled(LoadBadge)`
   background: linear-gradient(120deg, #89E5FF 30%, #f0f0f0 38%, #f0f0f0 40%, #89E5FF 48%);
   background-size: 200% 100%;
   background-position: 100% 0;
+
+  background-image: url('/icons/streak1.svg');
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-size: 90px; /* Scale the image to cover the entire background */
+  background-position: center; /* Center the background image */
+    
 `
 const Explorer = styled(LoadBadge)`
   background: linear-gradient(120deg, #88F0B3 30%, #f0f0f0 38%, #f0f0f0 40%, #88F0B3 48%);
   background-size: 200% 100%;
   background-position: 100% 0;
+
+  background-image: url('/icons/streak2.svg');
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-size: 90px; /* Scale the image to cover the entire background */
+  background-position: center; /* Center the background image */
+    
 `
 const Achiever = styled(LoadBadge)`
   background: linear-gradient(120deg, #FED59A 30%, #f0f0f0 38%, #f0f0f0 40%, #FED59A 48%);
   background-size: 200% 100%;
   background-position: 100% 0;
+
+  background-image: url('/icons/streak3.svg');
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-size: 90px; /* Scale the image to cover the entire background */
+  background-position: center; /* Center the background image */
 `
 const Centurion = styled(LoadBadge)`
   background: linear-gradient(120deg, #FC95A1 30%, #f0f0f0 38%, #f0f0f0 40%, #FC95A1 48%);
   background-size: 200% 100%;
   background-position: 100% 0;
+
+  background-image: url('/icons/streak4.svg');
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-size: 90px; /* Scale the image to cover the entire background */
+  background-position: center; /* Center the background image */
 `
 const Zenith = styled(LoadBadge)`
   background: linear-gradient(120deg, #FB5ABC 30%, #f0f0f0 38%, #f0f0f0 40%, #FB5ABC 48%);
   background-size: 200% 100%;
   background-position: 100% 0;
+
+  background-image: url('/icons/streak5.svg');
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-size: 90px; /* Scale the image to cover the entire background */
+  background-position: center; /* Center the background image */
 `
 const Badge = ({ name, days, maxStreak }) => {
 
@@ -95,55 +126,67 @@ const Badge = ({ name, days, maxStreak }) => {
   switch (name) {
     case 'Genesis': return (
       <Genesis>
-        <div>{name}</div>
+        {/* <div>{name}</div>
         <div>{days} days</div>
-        <div>streak</div>
+        <div>streak</div> */}
+        <div>{}</div>
+        <div>{}</div>
+        <div></div>
         <div>
-          {maxStreak<10 && <img src='/icons/cross.png'/>}
+          {maxStreak < 10 && <img src='/icons/cross.png' />}
         </div>
       </Genesis>
     )
 
     case 'Explorer': return (
       <Explorer>
-        <div>{name}</div>
-        <div>{days} days</div>
-        <div>streak</div>
+        {/* <div>{name}</div>
+        <div>{days} days</div> 
+        <div>streak</div> */}
+        <div>{}</div>
+        <div>{}</div>
+        <div></div>
         <div>
-          {maxStreak<30 && <img src='/icons/cross.png'/>}
+          {maxStreak < 30 && <img src='/icons/cross.png' />}
         </div>
       </Explorer>
     )
 
     case 'Achiever': return (
       <Achiever>
-        <div>{name}</div>
-        <div>{days} days</div>
-        <div>streak</div>
+        <div>{ }</div>
+        <div>{ }</div>
+        <div> </div>
         <div>
-          {maxStreak<50 && <img src='/icons/cross.png'/>}
+          {maxStreak < 50 && <img  src='/icons/cross.png' />}
         </div>
       </Achiever>
     )
 
     case 'Centurion': return (
       <Centurion>
-        <div>{name}</div>
+        {/* <div>{name}</div>
         <div>{days} days</div>
-        <div>streak</div>
+        <div>streak</div> */}
+        <div>{}</div>
+        <div>{}</div>
+        <div></div>
         <div>
-          {maxStreak<100 && <img src='/icons/cross.png'/>}
+          {maxStreak < 100 && <img src='/icons/cross.png' />}
         </div>
       </Centurion>
     )
 
     case 'Zenith': return (
       <Zenith>
-        <div>{name}</div>
+        {/* <div>{name}</div>
         <div>{days} days</div>
-        <div>streak</div>
+        <div>streak</div> */}
+        <div>{}</div>
+        <div>{}</div>
+        <div></div>
         <div>
-          {maxStreak<180 && <img src='/icons/cross.png'/>}
+          {maxStreak < 180 && <img src='/icons/cross.png' />}
         </div>
       </Zenith>
     )
