@@ -5,7 +5,7 @@ import React from 'react'
 function Badges({ maxStreak }) {
   // alert(maxStreak)
   return (
-    <div style={{maxWidth:'100%',textAlign:'center',background:'redl',display:'flex',alignItems:'center',flexDirection:'column',justifyContent:'center'}}>
+    <div style={{width:'690px',textAlign:'center',background:'redl',display:'flex',alignItems:'center',flexDirection:'column',justifyContent:'center'}}>
       <h2 style={{  marginBottom: '10px' }}>Your maximum streak is {maxStreak} days</h2>
       <h4 style={{ textAlign: 'center',display:'flex',flexWrap:'wrap',justifyContent:'center' }}>
       <span style={{ color: maxStreak >= 10 ? 'orange' : 'black' }}>
