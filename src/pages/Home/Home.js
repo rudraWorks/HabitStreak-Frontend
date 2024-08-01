@@ -50,8 +50,6 @@ const LandingPage = () => {
 
       <br />
 
-      {/* <img src='/images/untangle.jpg' /> */}
-      {/* <Seek style={{maxWidth:'95%'}} src='/images/seek.avif' /> */}
       <TopRowImagesContainer>
         <img src='/icons/reading.png' />
         <img src='/icons/exercise.png' />
