@@ -44,14 +44,16 @@ function AddNote({edit, details, setDetails , setTitleArr, titleArr}) {
                 }
             })
             const json = await response.json()
+            // console.log(json.url)
             if (response.ok) {
                 const p = await axios.put(json.url, file, {
                     headers: {
-                        'Content-Type': 'image/png'
+                        'Content-Type': 'image/png',
+                        "Access-Control-Allow-Origin": "*"
                     }
                 })
                 const url = json.url.split('?')[0]
-
+                console.log(url)
                 setImagesArr((p)=>[url,...p])
             }
             else{
