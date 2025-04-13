@@ -46,18 +46,18 @@ function AddNote({edit, details, setDetails , setTitleArr, titleArr}) {
             const json = await response.json()
             // console.log(json.url)
             if (response.ok) {
-                // const p = await axios.put(json.url, file, {
-                //     headers: {
-                //         'Content-Type': 'image/png',
-                //     }
-                // })
-                const p = await fetch(json.url, {
-                    method: 'PUT',
+                const p = await axios.put(json.url, file, {
                     headers: {
-                      'Content-Type': 'image/png'
-                    },
-                    body: file
-                  });
+                        'Content-Type': 'image/png',
+                    }
+                })
+                // const p = await fetch(json.url, {
+                //     method: 'PUT',
+                //     headers: {
+                //       'Content-Type': 'image/png'
+                //     },
+                //     body: file
+                //   });
                   
                 const url = json.url.split('?')[0]
                 console.log(url)
